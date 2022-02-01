@@ -35,7 +35,10 @@
                     <td>{{ $companytype->name }}</td>
                     <td>{{ $companytype->desc }}</td>
                     <td>{{ $companytype->status }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{{ url('/admin/company_types/'.$companytype->id) }}" class="btn btn-secondary">View</a>
+                        <a href="{{ url('/admin/company_types/'.$companytype->id.'/edit') }}" class="btn btn-primary">Edit</a>
+                    </td>
                   </tr>
                 @endforeach
                  
