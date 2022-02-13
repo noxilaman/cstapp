@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 class CompanyTypeSeeder extends Seeder
 {
@@ -14,6 +16,8 @@ class CompanyTypeSeeder extends Seeder
      */
     public function run()
     {
+
+        
         DB::table('company_types')->insert([
             'name' => 'โรงแรม',
             'name_en' => 'Hotel',

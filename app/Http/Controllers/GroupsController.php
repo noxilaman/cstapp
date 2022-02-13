@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Group;
 
 class GroupsController extends Controller
 {
@@ -13,7 +14,10 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        //
+        $perPage = 10;
+        $groups = Group::paginate($perPage);
+     
+        return view('admin.groups.index',compact('groups'));
     }
 
     /**

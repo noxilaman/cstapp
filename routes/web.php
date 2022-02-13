@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyTypesController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\CompaniesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/sky', function () {
+    return view('layouts.admin2');
+});
+
 Route::prefix('admin')->group(function () {
     Route::resource('company_types',CompanyTypesController::class);
+    Route::resource('projects',ProjectsController::class);
+    Route::resource('companies',CompaniesController::class);
 });
 
 Auth::routes();

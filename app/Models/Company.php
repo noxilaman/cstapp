@@ -9,7 +9,8 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company_type_id','name','name_en','desc','addr','province','country','tel','email','contact_name','image','logo','status'];
+    protected $fillable = ['company_type_id','name','name_en','desc','addr'
+    ,'province','country','tel','email','contact_name','image','logo','status'];
 
     public function companytype(){
         return $this->belongsTo(CompanyType::class);
