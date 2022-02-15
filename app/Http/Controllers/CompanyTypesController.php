@@ -39,6 +39,17 @@ class CompanyTypesController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();
+
+        if ($request->hasFile('image_file')) {
+            $image = $request->file('image_file');
+            $name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/company_type/');
+            $image->move($destinationPath, $name);
+
+          //  $loadm->image = $name;
+            $requestData['image'] = 'images/company_type/' . $name;
+        }
+
         CompanyType::create($requestData);
 
         return redirect('/admin/company_types');
@@ -79,6 +90,17 @@ class CompanyTypesController extends Controller
     {
         $requestData = $request->all();
         $companytype = CompanyType::findOrFail($id);
+
+        if ($request->hasFile('image_file')) {
+            $image = $request->file('image_file');
+            $name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/company_type/');
+            $image->move($destinationPath, $name);
+
+          //  $loadm->image = $name;
+            $requestData['image'] = 'images/company_type/' . $name;
+        }
+
         $companytype->update($requestData);
 
         return redirect('/admin/company_types');

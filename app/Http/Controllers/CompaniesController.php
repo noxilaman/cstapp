@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
+use App\Models\CompanyType;
 
 class CompaniesController extends Controller
 {
@@ -13,7 +15,10 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //
+        $perPage = 10;
+        $companies = Company::paginate($perPage);
+     
+        return view('admin.companies.index',compact('companies'));
     }
 
     /**
@@ -23,7 +28,8 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        //
+        $companytypelist = CompanyType::pluck('name','id');
+        return view('admin.companies.create',compact('companytypelist'));
     }
 
     /**
@@ -34,7 +40,10 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+        Company::create($requestData);
+
+        return redirect('/admin/companies');
     }
 
     /**
@@ -45,7 +54,8 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = Company::findOrFail($id);
+        return view('admin.companies.show',compact('company'));
     }
 
     /**
@@ -56,7 +66,9 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $companytypelist = CompanyType::pluck('name','id');
+        $company = Company::findOrFail($id);
+        return view('admin.companies.edit',compact('company','companytypelist'));
     }
 
     /**
@@ -68,7 +80,11 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestData = $request->all();
+        $company = Company::findOrFail($id);
+        $company->update($requestData);
+
+        return redirect('/admin/companies');
     }
 
     /**
@@ -79,6 +95,16 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::destroy($id);
+        return redirect('/admin/companies');
+    }
+
+    public function changestatus($id,$status){
+        $company = Company::findOrFail($id);
+        
+        $company->status = $status;
+        $company->update();
+
+        return redirect('/admin/companies');
     }
 }

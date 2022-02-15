@@ -28,6 +28,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('company_types',CompanyTypesController::class);
     Route::resource('projects',ProjectsController::class);
     Route::resource('companies',CompaniesController::class);
+    Route::get('companies/changestatus/{id}/{status}',[CompaniesController::class,'changestatus']);
+
 });
 
 Auth::routes();
