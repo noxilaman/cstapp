@@ -12,12 +12,14 @@ class Company extends Model
     protected $fillable = ['company_type_id','name','name_en','desc','addr'
     ,'province','country','tel','email','contact_name','image','logo','status'];
 
-    public function companytype(){
-        return $this->belongsTo(CompanyType::class);
+    public function companytype()
+    {
+        return $this->hasOne('App\Models\CompanyType', 'id',  'company_type_id');
     }
 
     public function projectcompanies()
     {
-        return $this->hasMany(ProjectCompany::class,'company_id');
+        return $this->hasMany('App\Models\ProjectCompany', 'company_id');
     }
+
 }

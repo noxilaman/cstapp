@@ -16,6 +16,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
+                <th scope="col">Project</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
@@ -26,6 +27,12 @@
                     <th scope="row">{{ $company->id }}</th>
                     <td>{{ $company->name }}</td>
                     <td>{{ $company->companytype->name }}</td>
+                    <td>@foreach($company->projectcompanies()->get() as $projectcompany)
+                      {{ $projectcompany->project->name }} 
+                      <a href="{{ url('students/register/'.$projectcompany->id) }}" target="_blank">Link</a>
+                      <a href="{{ url('students/qrcode/'.$projectcompany->id) }}" target="_blank">QRCODE</a>
+                      @endforeach
+                    </td>
                     <td>{{ $company->status }}</td>
                     <td>
                         <a href="{{ url('/admin/companies/'.$company->id) }}" class="btn btn-secondary">View</a>

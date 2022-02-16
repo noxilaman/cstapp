@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CompanyTypesController;
 use App\Http\Controllers\ProjectsController;
-use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\StudentsController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +26,19 @@ Route::get('/sky', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::resource('company_types',CompanyTypesController::class);
-    Route::resource('projects',ProjectsController::class);
-    Route::resource('companies',CompaniesController::class);
-    Route::get('companies/changestatus/{id}/{status}',[CompaniesController::class,'changestatus']);
-
+    Route::resource('company_types', CompanyTypesController::class);
+    Route::resource('projects', ProjectsController::class);
+    Route::resource('companies', CompaniesController::class);
+    Route::resource('students', StudentsController::class);
+    Route::get('companies/changestatus/{id}/{status}', [CompaniesController::class, 'changestatus']);
 });
+
+Route::get('companies/register/{project_id}', [CompaniesController::class, 'register']);
+
+    Route::get('students/register/{project_company_id}', [StudentsController::class, 'register']);
+
+    Route::get('students/qrcode/{project_company_id}', [StudentsController::class, 'qrcode']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
