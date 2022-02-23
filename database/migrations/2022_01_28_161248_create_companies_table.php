@@ -27,7 +27,9 @@ class CreateCompaniesTable extends Migration
             $table->string('contact_name')->nullable();
             $table->string('image')->nullable();
             $table->string('logo')->nullable();
-            $table->string('status',50)->default('Active');
+            $table->string('uname', 50)->nullable();
+            $table->string('upass', 50)->nullable();
+            $table->string('status', 50)->default('Active');
             $table->timestamps();
         });
     }

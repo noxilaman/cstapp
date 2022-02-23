@@ -9,15 +9,30 @@ class JoinCourse extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['proj_comp_student_id','course_id','join_date','end_date','progress','status'];
+    protected $fillable = ['proj_comp_student_id', 'project_id', 'company_id', 'student_id', 'course_id', 'join_date', 'end_date', 'progress', 'status'];
 
     public function projcompstudent()
     {
-        return $this->belongsTo(ProjCompStudent::class,'proj_comp_student_id');
+        return $this->hasOne('App\Models\ProjCompStudent', 'id', 'proj_comp_student_id');
     }
 
-     public function course()
+    public function course()
     {
-        return $this->belongsTo(Course::class,'course_id');
+        return $this->hasOne('App\Models\Course', 'id', 'course_id');
+    }
+
+    public function project()
+    {
+        return $this->hasOne('App\Models\Project', 'id', 'project_id');
+    }
+
+    public function company()
+    {
+        return $this->hasOne('App\Models\Company', 'id', 'company_id');
+    }
+
+    public function student()
+    {
+        return $this->hasOne('App\Models\Student', 'id', 'student_id');
     }
 }

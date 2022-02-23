@@ -9,10 +9,10 @@ class Chioce extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['quiz_id','name','desc','result','status'];
+    protected $fillable = ['quiz_id', 'name', 'desc', 'result', 'image', 'status'];
 
     public function quiz()
     {
-        return $this->belongsTo(Quiz::class);
+        return $this->hasOne('App\Models\Quiz', 'id', 'quiz_id');
     }
 }

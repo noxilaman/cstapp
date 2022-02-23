@@ -95,14 +95,30 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Admin</span>
+              <span class="menu-title">Base Data</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/company_types') }}">Company Types</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/projects') }}">Projects</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">Companies</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">Students</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-course" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Course Data</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-course">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/courses') }}">Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/lessons') }}">Lessons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/sections') }}">Sections</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/quizs') }}">Quizs</a></li>
               </ul>
             </div>
           </li>
@@ -219,6 +235,8 @@
   <script src="{{ asset('template2/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
+  
+  <script src="{{ asset('template2/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('template2/vendors/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('template2/vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('template2/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>

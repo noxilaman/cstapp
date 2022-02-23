@@ -6,7 +6,9 @@ use App\Models\Company;
 use App\Models\CompanyType;
 use App\Models\Project;
 use App\Models\ProjectCompany;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CompaniesController extends Controller
 {
@@ -75,7 +77,25 @@ class CompaniesController extends Controller
         $tmp['end_date'] = $project->end_date;
         $tmp['status'] = 'Active';
 
-        ProjectCompany::create($tmp);
+        $pc = ProjectCompany::create($tmp);
+
+        $username = 'C'.str_pad($pc->id, 3, '0', STR_PAD_LEFT).str_pad($company->id, 3, '0', STR_PAD_LEFT);
+        $password = $this->_randomPassword(8);
+
+        $tmpUser = [];
+        $tmpUser['username'] = $username;
+        $tmpUser['name'] = $requestData['name'];
+        $tmpUser['email'] = $requestData['email'];
+        $tmpUser['password'] = Hash::make($password);
+        $tmpUser['group_id'] = 2;
+        $tmpUser['company_id'] = $company->company_id;
+        $tmpUser['email_verified_at'] = date('Y-m-d H:i:s');
+
+        $studentdata = User::create($tmpUser);
+
+        $company->uname = $username;
+        $company->upass = $password;
+        $company->update();
 
         return redirect('/admin/companies');
     }
@@ -176,5 +196,77 @@ class CompaniesController extends Controller
         $companytypelist = CompanyType::pluck('name', 'id');
 
         return view('companies.register', compact('companytypelist', 'project'));
+    }
+
+    public function registerAction(Request $request, $project_id)
+    {
+        $requestData = $request->all();
+
+        if ($request->hasFile('image_file')) {
+            $image = $request->file('image_file');
+            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/companies/');
+            $image->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['image'] = 'images/companies/'.$name;
+        }
+
+        if ($request->hasFile('logo_file')) {
+            $logo = $request->file('logo_file');
+            $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
+            $destinationPath = public_path('images/logo/');
+            $logo->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['logo'] = 'images/logo/'.$name;
+        }
+        $requestData['status'] = 'Inactive';
+
+        $company = Company::create($requestData);
+
+        $project = Project::findOrFail($project_id);
+
+        $tmp = [];
+        $tmp['project_id'] = $project->id;
+        $tmp['company_id'] = $company->id;
+        $tmp['join_date'] = $project->start_date;
+        $tmp['end_date'] = $project->end_date;
+        $tmp['status'] = 'Active';
+
+        $pc = ProjectCompany::create($tmp);
+
+        $username = 'C'.str_pad($pc->id, 3, '0', STR_PAD_LEFT).str_pad($company->id, 3, '0', STR_PAD_LEFT);
+        $password = $this->_randomPassword(8);
+
+        $tmpUser = [];
+        $tmpUser['username'] = $username;
+        $tmpUser['name'] = $requestData['name'];
+        $tmpUser['email'] = $requestData['email'];
+        $tmpUser['password'] = Hash::make($password);
+        $tmpUser['group_id'] = 2;
+        $tmpUser['company_id'] = $company->id;
+        $tmpUser['email_verified_at'] = date('Y-m-d H:i:s');
+
+        $studentdata = User::create($tmpUser);
+
+        $company->uname = $username;
+        $company->upass = $password;
+        $company->update();
+
+        return view('companies.thankyou');
+    }
+
+    private function _randomPassword($num)
+    {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = []; //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < $num; ++$i) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+
+        return implode($pass); //turn the array into a string
     }
 }

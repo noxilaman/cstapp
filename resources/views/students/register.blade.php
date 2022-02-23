@@ -3,8 +3,10 @@
 @section('content')
 <h1>ลงทะเบียนเข้าร่วม<br/>{{ $projectcompany->project->name }} ของบริษัท {{ $projectcompany->company->name }} </h1>
                     <p>We will be here soon. Please Stay in Touch</p>
-                    <form id="contact-form">
-                <div class="col-md-6 col-sm-12">
+   
+                        <form action="{{ url('students/registerAction/'.$projectcompany->id) }}"  method="POST"  enctype="multipart/form-data">
+                 @csrf
+                        <div class="col-md-6 col-sm-12">
                     <div class="block">
                         <div class="form-group">
                             <input name="fname" type="text" class="form-control" placeholder="ชื่อ">

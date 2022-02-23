@@ -17,6 +17,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
                 <th scope="col">Project</th>
+                <th scope="col">user/pass</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
@@ -33,6 +34,7 @@
                       <a href="{{ url('students/qrcode/'.$projectcompany->id) }}" target="_blank">QRCODE</a>
                       @endforeach
                     </td>
+                    <td>{{ $company->uname }} / {{ $company->upass }}</td>
                     <td>{{ $company->status }}</td>
                     <td>
                         <a href="{{ url('/admin/companies/'.$company->id) }}" class="btn btn-secondary">View</a>

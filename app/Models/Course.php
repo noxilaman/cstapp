@@ -9,12 +9,15 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['project_id','seq','name','desc','status'];
+    protected $fillable = ['project_id', 'seq', 'name', 'desc', 'status'];
 
     public function project()
     {
-        return $this->belongsTo(project::class);
+        return $this->hasOne('App\Models\Project', 'id', 'project_id');
     }
 
-
+    public function lessons()
+    {
+        return $this->hasMany('App\Models\Lesson', 'course_id');
+    }
 }

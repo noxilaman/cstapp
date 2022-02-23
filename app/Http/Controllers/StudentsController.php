@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjCompStudent;
 use App\Models\ProjectCompany;
+use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StudentsController extends Controller
 {
@@ -14,6 +18,10 @@ class StudentsController extends Controller
      */
     public function index()
     {
+        $perPage = 10;
+        $students = Student::paginate($perPage);
+
+        return view('admin.students.index', compact('students'));
     }
 
     /**
@@ -85,10 +93,75 @@ class StudentsController extends Controller
         return view('students.register', compact('projectcompany'));
     }
 
+    public function registerAction(Request $request, $project_company_id)
+    {
+        $requestData = $request->all();
+        $projectcompany = ProjectCompany::findOrFail($project_company_id);
+
+        $tmpStudent = [];
+        $tmpStudent['idcard'] = $requestData['idcard'];
+        $tmpStudent['mobile'] = $requestData['mobile'];
+        $tmpStudent['fname'] = $requestData['fname'];
+        $tmpStudent['lname'] = $requestData['lname'];
+        $tmpStudent['fname_en'] = $requestData['fname_en'];
+        $tmpStudent['lname_en'] = $requestData['lname_en'];
+        $tmpStudent['uname'] = 'base';
+        $tmpStudent['upass'] = 'base';
+        $tmpStudent['password'] = 'base'; //,'uname','upass','status'
+        $studentdata = Student::create($tmpStudent);
+
+        $username = 'U'.str_pad($project_company_id, 3, '0', STR_PAD_LEFT).str_pad($studentdata->id, 3, '0', STR_PAD_LEFT);
+        $password = $this->_randomPassword(8);
+
+        $studentdata->uname = $username;
+        $studentdata->upass = $password;
+        $studentdata->status = 'Active';
+        $studentdata->update();
+
+        $tmpUser = [];
+        $tmpUser['username'] = $username;
+        $tmpUser['name'] = $requestData['fname'].' '.$requestData['lname'];
+        $tmpUser['email'] = $requestData['mobile'].'@mobile.me';
+        $tmpUser['password'] = Hash::make($password);
+        $tmpUser['group_id'] = 3;
+        $tmpUser['company_id'] = $projectcompany->company_id;
+        $tmpUser['student_id'] = $studentdata->id;
+        $tmpUser['email_verified_at'] = date('Y-m-d H:i:s');
+
+        $userdata = User::create($tmpUser);
+
+        $tmpprojcompstudent = [];
+        $tmpprojcompstudent['project_company_id'] = $projectcompany->id;
+        $tmpprojcompstudent['project_id'] = $projectcompany->project_id;
+        $tmpprojcompstudent['company_id'] = $projectcompany->company_id;
+        $tmpprojcompstudent['student_id'] = $studentdata->id;
+        $tmpprojcompstudent['join_date'] = date('Y-m-d');
+        $tmpprojcompstudent['end_date'] = date('Y-m-d', strtotime('+1 year'));
+        $tmpprojcompstudent['progress'] = 'Join';
+        $tmpprojcompstudent['status'] = 'Active';
+
+        ProjCompStudent::create($tmpprojcompstudent);
+
+        return view('students.thankyou');
+    }
+
     public function qrcode($project_company_id)
     {
         $projectcompany = ProjectCompany::findOrFail($project_company_id);
 
         return view('students.qrcode', compact('projectcompany'));
+    }
+
+    private function _randomPassword($num)
+    {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = []; //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < $num; ++$i) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+
+        return implode($pass); //turn the array into a string
     }
 }

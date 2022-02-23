@@ -19,10 +19,10 @@ class CreateQuizzesTable extends Migration
             $table->integer('seq');
             $table->string('name');
             $table->text('desc')->nullable();
-            $table->string('link_clip');
+            $table->string('link_clip')->nullable();
             $table->string('image')->nullable();
             $table->text('ans_desc')->nullable();
-            $table->string('status',50)->default('Active');
+            $table->string('status', 50)->default('Active');
             $table->timestamps();
         });
     }

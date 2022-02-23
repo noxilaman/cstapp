@@ -9,7 +9,12 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['idcard','mobile','fname','lname',
-    'fname_en','lname_en','uname','upass','status'
+    protected $fillable = ['idcard', 'mobile', 'fname', 'lname',
+    'fname_en', 'lname_en', 'uname', 'upass', 'status',
     ];
+
+    public function projcompstudents()
+    {
+        return $this->hasMany('App\Models\ProjCompStudent', 'student_id');
+    }
 }

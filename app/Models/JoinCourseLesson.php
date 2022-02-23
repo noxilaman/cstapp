@@ -9,15 +9,15 @@ class JoinCourseLesson extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['join_course_id','lesson_id','join_date','end_date','progress','status'];
+    protected $fillable = ['join_course_id', 'lesson_id', 'join_date', 'end_date', 'progress', 'status'];
 
     public function joincourse()
     {
-        return $this->belongsTo(JoinCourseLesson::class,'join_course_id');
+        return $this->hasOne('App\Models\JoinCourse', 'id', 'join_course_id');
     }
 
-     public function lesson()
+    public function lesson()
     {
-        return $this->belongsTo(Lesson::class,'lesson_id');
+        return $this->hasOne('App\Models\Lesson', 'id', 'lesson_id');
     }
 }

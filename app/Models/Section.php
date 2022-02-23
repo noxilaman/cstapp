@@ -9,10 +9,10 @@ class Section extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lesson_id','seq','name','desc','link_clip','image','status'];
+    protected $fillable = ['lesson_id', 'seq', 'name', 'desc', 'link_clip', 'image', 'status'];
 
     public function lesson()
     {
-        return $this->belongsTo(Lesson::class,'lesson_id');
+        return $this->hasOne('App\Models\Lesson', 'id', 'lesson_id');
     }
 }
