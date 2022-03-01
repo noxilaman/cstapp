@@ -9,11 +9,11 @@ class JclQuiz extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['join_course_lesson_id', 'quiz_id', 'join_date', 'end_date', 'time_no', 'progress', 'status'];
+    protected $fillable = ['jcl_section_id', 'quiz_id', 'join_date', 'end_date', 'time_no', 'progress', 'status'];
 
-    public function jcl()
+    public function jclsection()
     {
-        return $this->hasOne('App\Models\JoinCourseLesson', 'id', 'join_course_lesson_id');
+        return $this->hasOne('App\Models\JclSection', 'id', 'jcl_section_id');
     }
 
     public function quiz()

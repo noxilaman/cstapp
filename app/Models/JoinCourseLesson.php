@@ -20,4 +20,28 @@ class JoinCourseLesson extends Model
     {
         return $this->hasOne('App\Models\Lesson', 'id', 'lesson_id');
     }
+
+    public function jclsections()
+    {
+        return $this->hasMany(JclSection::class, 'join_course_lesson_id');
+    }
+
+    public function updateprogress($id)
+    {
+        $jcl = self::findOrFail($id);
+        $currentprogress = 'Pass';
+        foreach ($jcl->jclsections()->get() as $jclsection) {
+            if ($jclsection->progress != 'Pass') {
+                $currentprogress = 'Inprogress';
+            }
+            foreach ($jclsection->jclquizs()->get() as $jclquiz) {
+                if ($jclquiz->progress != 'Pass') {
+                    $currentprogress = 'Inprogress';
+                }
+            }
+        }
+        $jcl->progress = $currentprogress;
+
+        $jcl->update();
+    }
 }

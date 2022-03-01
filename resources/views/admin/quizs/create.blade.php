@@ -13,8 +13,8 @@
             
              <div class='row'>
                     <div class="form-group col-6">
-                      <label for="lesson_id">Lesson</label>
-                      {!! Form::select('lesson_id',$lessonlist,null,['class' => 'form-control','id'=>'lesson_id','placeholder'=>'====Select====']) !!}
+                      <label for="section_id">Section</label>
+                      {!! Form::select('section_id',$lessonlist,null,['class' => 'form-control','id'=>'section_id','placeholder'=>'====Select====']) !!}
                     </div>
                     <div class="form-group col-6">
                       <label for="seq">Seq</label>

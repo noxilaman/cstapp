@@ -4,8 +4,8 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
-              <div class="row">
-                <h3>Student Page</h3>
+              <div class="row mb-4">
+                <h3>รายการบทเรียนของ {{ $jclObj->lesson->name }}</h3>
               </div>
          
               <div class='row'>
@@ -22,9 +22,18 @@
                       <p class="fs-30 mb-2">{{  $item->name }}</p>
                       <p>
                           @if ($jclSectionFlags[$item->id])
-                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-primary'>เข้าเรียน</a>
+                            
                             @if ($jclSections[$item->id]->progress == 'Pass')
-                                <a href="#" class='btn btn-success'>ผ่าน</a>
+                                <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-success'>ทบทวน</a>
+
+                                @if ($jclQuizFlags[$item->id])
+                                    <a href="{{ url('exams/review/'.$jclSections[$item->id]->id) }}" class='btn btn-success'>รีวิวคำตอบ</a>
+                                @else
+                                    <a href="{{ url('exams/play/'.$jclSections[$item->id]->id) }}" class='btn btn-primary'>ทดสอบ</a>
+                                @endif
+                                
+                            @else 
+                                <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-primary'>เข้าเรียน</a>
                             @endif
                             
                             

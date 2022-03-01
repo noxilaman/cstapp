@@ -16,7 +16,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Seq</th>
                 <th scope="col">Name</th>
-                <th scope="col">course</th>
+                <th scope="col">Section</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
@@ -27,7 +27,7 @@
                     <th scope="row">{{ $quiz->id }}</th>
                     <td>{{ $quiz->seq }}</td>
                     <td>{{ $quiz->name }}</td>
-                    <td>{{ $quiz->lesson->name }}</td>
+                    <td>{{ $quiz->section->name ?? ''}}</td>
                     <td>{{ $quiz->status }}</td>
                     <td>
                         <a href="{{ url('/admin/quizs/'.$quiz->id) }}" class="btn btn-secondary">View</a>

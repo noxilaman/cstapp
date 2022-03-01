@@ -29,7 +29,7 @@
                     <td>{{ $student->fname }} {{ $student->lname }}</td>
                     <td>{{ $student->mobile }}</td>
                     <td>@foreach($student->projcompstudents()->get() as $projcompstudent)
-                      {{ $projcompstudent->projectcompany->company->name }} 
+                      {{ $projcompstudent->projectcompany->company->name ?? '-'}} 
                       @endforeach
                     </td>
                     <td>{{ $student->uname }} / {{ $student->upass }}</td>

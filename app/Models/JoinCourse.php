@@ -35,4 +35,22 @@ class JoinCourse extends Model
     {
         return $this->hasOne('App\Models\Student', 'id', 'student_id');
     }
+
+    public function jcls()
+    {
+        return $this->hasMany(JoinCourseLesson::class, 'join_course_id');
+    }
+
+    public function updateprogress($id)
+    {
+        $jc = self::findOrFail($id);
+        $currentprogress = 'Pass';
+        foreach ($jc->jcls()->get() as $jcl) {
+            if ($jcl->progress != 'Pass') {
+                $currentprogress = 'Inprogress';
+            }
+        }
+        $jc->progress = $currentprogress;
+        $jc->update();
+    }
 }

@@ -22,7 +22,7 @@
 
                      {{ $jclSection->section->desc }}<br/>
                  
-                 <iframe width="720" height="405" id="player" src="https://www.youtube.com/embed/{{$jclSection->section->link_clip}}?enablejsapi=1"></iframe>
+                 <iframe width="720" height="405" id="player" src="https://www.youtube.com/embed/{{$jclSection->section->link_clip}}?enablejsapi=1&controls=0" allowfullscreen></iframe>
     
 
                 </div>

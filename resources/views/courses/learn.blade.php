@@ -4,8 +4,8 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
-              <div class="row">
-                <h3>Student Page</h3>
+              <div class="row mb-4">
+                <h3>รายการบทเรียน</h3>
               </div>
               <div class='row'>
                     @foreach ($joincourseObj->course->lessons()->get() as $item)

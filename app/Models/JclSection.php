@@ -20,4 +20,9 @@ class JclSection extends Model
     {
         return $this->hasOne('App\Models\Section', 'id', 'section_id');
     }
+
+    public function jclquizs()
+    {
+        return $this->hasMany(JclQuiz::class, 'jcl_section_id');
+    }
 }

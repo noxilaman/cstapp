@@ -20,9 +20,4 @@ class Lesson extends Model
     {
         return $this->hasMany('App\Models\Section', 'lesson_id');
     }
-
-    public function quizs()
-    {
-        return $this->hasMany('App\Models\Quiz', 'lesson_id');
-    }
 }

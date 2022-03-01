@@ -3,6 +3,8 @@
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CompanyTypesController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\DashComsController;
+use App\Http\Controllers\ExamsController;
 use App\Http\Controllers\JoinsController;
 use App\Http\Controllers\LearnsController;
 use App\Http\Controllers\LessonsController;
@@ -23,9 +25,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/sky', function () {
     return view('layouts.admin2');
@@ -60,6 +60,14 @@ Route::get('join/lesson/{join_course_id}/{lesson_id}', [JoinsController::class, 
 Route::get('learns/lesson/{joincourselesson_id}', [LearnsController::class, 'learnLesson']);
 Route::get('learns/section/{joincourselesson_id}/{jclsection_id}', [LearnsController::class, 'learnSection']);
 Route::get('learns/sectionchangestatus/{jclsection_id}/{status}', [LearnsController::class, 'sectionChangeStatus']);
+//Exams
+Route::get('exams/play/{joincourselesson_id}', [ExamsController::class, 'play']);
+Route::post('exams/playAction/{joincourselesson_id}', [ExamsController::class, 'playAction']);
+Route::get('exams/review/{joincourselesson_id}', [ExamsController::class, 'review']);
+
+//Company Page
+Route::get('company/home', [DashComsController::class, 'home']);
+Route::get('company/liststd', [DashComsController::class, 'liststd']);
 
 Auth::routes();
 

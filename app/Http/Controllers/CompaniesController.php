@@ -19,6 +19,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
+        $this->middleware('isAdmin');
         $perPage = 10;
         $companies = Company::paginate($perPage);
 
@@ -32,6 +33,8 @@ class CompaniesController extends Controller
      */
     public function create()
     {
+        $this->middleware('isAdmin');
+
         $companytypelist = CompanyType::pluck('name', 'id');
 
         return view('admin.companies.create', compact('companytypelist'));
@@ -44,6 +47,8 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->middleware('isAdmin');
+
         $requestData = $request->all();
 
         if ($request->hasFile('image_file')) {
@@ -109,6 +114,7 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
+        $this->middleware('isAdmin');
         $company = Company::findOrFail($id);
 
         return view('admin.companies.show', compact('company'));
@@ -123,6 +129,7 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
+        $this->middleware('isAdmin');
         $companytypelist = CompanyType::pluck('name', 'id');
         $company = Company::findOrFail($id);
 
@@ -138,6 +145,7 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->middleware('isAdmin');
         $requestData = $request->all();
         $company = Company::findOrFail($id);
 
@@ -175,6 +183,8 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
+        $this->middleware('isAdmin');
+        ProjectCompany::where('company_id', $id)->delete();
         Company::destroy($id);
 
         return redirect('/admin/companies');
@@ -182,10 +192,17 @@ class CompaniesController extends Controller
 
     public function changestatus($id, $status)
     {
+        $this->middleware('isAdmin');
         $company = Company::findOrFail($id);
 
         $company->status = $status;
         $company->update();
+
+        $users = User::where('company_id', $id)->get();
+        foreach ($users as $userObj) {
+            $userObj->status = $status;
+            $userObj->update();
+        }
 
         return redirect('/admin/companies');
     }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chioce;
-use App\Models\Lesson;
 use App\Models\Quiz;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
 class QuizsController extends Controller
@@ -29,7 +29,7 @@ class QuizsController extends Controller
      */
     public function create()
     {
-        $lessonlist = Lesson::pluck('name', 'id');
+        $lessonlist = Section::pluck('name', 'id');
 
         return view('admin.quizs.create', compact('lessonlist'));
     }
@@ -97,7 +97,7 @@ class QuizsController extends Controller
      */
     public function edit($id)
     {
-        $lessonlist = Lesson::pluck('name', 'id');
+        $lessonlist = Section::pluck('name', 'id');
         $quiz = Quiz::findOrFail($id);
 
         return view('admin.quizs.edit', compact('quiz', 'lessonlist'));
@@ -176,6 +176,7 @@ class QuizsController extends Controller
      */
     public function destroy($id)
     {
+        Chioce::where('quiz_id', $id)->delete();
         Quiz::destroy($id);
 
         return redirect('/admin/quizs');

@@ -51,7 +51,7 @@ class JoinsController extends Controller
 
             $this->joinAllSections($joincourselesson);
 
-            $this->randomQuiz($joincourselesson);
+            //$this->randomQuiz($joincourselesson);
         }
 
         return redirect('/learns/lesson/'.$joincourselesson->id);
@@ -68,7 +68,25 @@ class JoinsController extends Controller
             $tmpJCLSection['progress'] = 'Join';
             $tmpJCLSection['status'] = 'Active';
 
-            JclSection::create($tmpJCLSection);
+            $limitquiz = 3;
+            if (isset($section->limit_quiz)) {
+                $limitquiz = $section->limit_quiz;
+            }
+
+            $jclSection = JclSection::create($tmpJCLSection);
+
+            foreach ($section->quizs()->inRandomOrder()->limit($limitquiz)->get() as $quiz) {
+                $tmpJCLQuiz = [];
+                $tmpJCLQuiz['jcl_section_id'] = $jclSection->id;
+                $tmpJCLQuiz['quiz_id'] = $quiz->id;
+                $tmpJCLQuiz['join_date'] = date('Y-m-d');
+                $tmpJCLQuiz['end_date'] = date('Y-m-d', strtotime('+1 year'));
+                $tmpJCLQuiz['time_no'] = 0;
+                $tmpJCLQuiz['progress'] = 'Join';
+                $tmpJCLQuiz['status'] = 'Active';
+
+                JclQuiz::create($tmpJCLQuiz);
+            }
         }
     }
 

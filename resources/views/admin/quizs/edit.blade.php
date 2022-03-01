@@ -13,8 +13,8 @@
             @method('PUT')
             <div class='row'>
                     <div class="form-group col-6">
-                      <label for="course_id">Lesson</label>
-                      {!! Form::select('lesson_id',$lessonlist,$quiz->lesson_id,['class' => 'form-control','id'=>'lesson_id','placeholder'=>'====Select====']) !!}
+                      <label for="course_id">Section</label>
+                      {!! Form::select('section_id',$lessonlist,$quiz->section_id,['class' => 'form-control','id'=>'section_id','placeholder'=>'====Select====']) !!}
                     </div>
                     <div class="form-group col-6">
                       <label for="seq">Seq</label>

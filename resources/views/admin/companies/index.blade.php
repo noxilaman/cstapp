@@ -35,7 +35,14 @@
                       @endforeach
                     </td>
                     <td>{{ $company->uname }} / {{ $company->upass }}</td>
-                    <td>{{ $company->status }}</td>
+                    <td>
+                      @if ($company->status == 'Active')
+                          <a href="{{url('/admin/companies/changestatus/'.$company->id.'/Inactive')}}" >
+                      @else
+                          <a href="{{url('/admin/companies/changestatus/'.$company->id.'/Active')}}" >
+                      @endif
+                    {{ $company->status }}</a>
+                    </td>
                     <td>
                         <a href="{{ url('/admin/companies/'.$company->id) }}" class="btn btn-secondary">View</a>
                         <a href="{{ url('/admin/companies/'.$company->id.'/edit') }}" class="btn btn-primary">Edit</a>

@@ -30,4 +30,22 @@ class ProjCompStudent extends Model
     {
         return $this->hasOne('App\Models\Company', 'id', 'company_id');
     }
+
+    public function joincourses()
+    {
+        return $this->hasMany(JoinCourse::class, 'proj_comp_student_id');
+    }
+
+    public function updateprogress($id)
+    {
+        $projcompstudent = self::findOrFail($id);
+        $currentprogress = 'Pass';
+        foreach ($projcompstudent->joincourses()->get() as $joincourse) {
+            if ($joincourse->progress != 'Pass') {
+                $currentprogress = 'Inprogress';
+            }
+        }
+        $projcompstudent->progress = $currentprogress;
+        $projcompstudent->update();
+    }
 }

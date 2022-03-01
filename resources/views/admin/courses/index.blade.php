@@ -4,9 +4,9 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Course </h4>
+        <h4 class="card-title">กลุ่มชุดการเรียน</h4>
         <p class="card-description">
-          Course
+          กลุ่มชุดการเรียน
         </p>
         <a href="{{url('admin/courses/create')}}" class="btn btn-primary">Add</a>
         <div class="table-responsive">

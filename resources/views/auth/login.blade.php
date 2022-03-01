@@ -26,10 +26,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                      <button class="btn btn-primary w-100" type="submit">เข้าสู่ระบบ</button>
                     </div>
                   </form>
 

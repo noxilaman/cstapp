@@ -16,9 +16,13 @@
                       <label for="lesson_id">Lesson</label>
                       {!! Form::select('lesson_id',$lessonlist,null,['class' => 'form-control','id'=>'lesson_id','placeholder'=>'====Select====']) !!}
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-3">
                       <label for="seq">Seq</label>
                       <input type="number" class="form-control" id="seq" placeholder="seq" name='seq' value='1'>
+                    </div>
+                    <div class="form-group col-3">
+                      <label for="limit_quiz">จำนวนคำถาม</label>
+                      <input type="number" class="form-control" id="limit_quiz" placeholder="limit_quiz" name='limit_quiz' value='3'>
                     </div>
             </div>
             <div class='row'>

@@ -6,6 +6,7 @@ use App\Models\ProjCompStudent;
 use App\Models\ProjectCompany;
 use App\Models\Student;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -140,9 +141,11 @@ class StudentsController extends Controller
         $tmpprojcompstudent['progress'] = 'Join';
         $tmpprojcompstudent['status'] = 'Active';
 
-        ProjCompStudent::create($tmpprojcompstudent);
+        $pjcomstd = ProjCompStudent::create($tmpprojcompstudent);
 
-        return view('students.thankyou');
+        Auth::login($userdata);
+
+        return view('students.thankyou', compact('studentdata', 'pjcomstd'));
     }
 
     public function qrcode($project_company_id)

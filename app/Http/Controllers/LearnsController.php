@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JclQuiz;
 use App\Models\JclSection;
 use App\Models\JoinCourse;
 use App\Models\JoinCourseLesson;
@@ -26,8 +27,11 @@ class LearnsController extends Controller
         $jclObj = JoinCourseLesson::findOrFail($joincourselesson_id);
 
         $jclSectionRw = JclSection::where('join_course_lesson_id', $joincourselesson_id)->get();
+        //$jclQuizRw = JclQuiz::where('join_course_lesson_id', $joincourselesson_id)->get();
         $jclSections = [];
+        $jclQuizs = [];
         $jclSectionFlags = [];
+        $jclQuizFlags = [];
         $nextSeq = 0;
         foreach ($jclSectionRw as $jclSectionObj) {
             $jclSections[$jclSectionObj->section_id] = $jclSectionObj;
@@ -41,13 +45,21 @@ class LearnsController extends Controller
             }
             if ($jclSectionObj->progress == 'Pass') {
                 $nextSeq = $jclSectionObj->section->seq + 1;
+            } else {
+                $canQuiz = false;
             }
             if ($jclSectionObj->section->seq == $nextSeq) {
                 $jclSectionFlags[$jclSectionObj->section_id] = true;
             }
+            $jclQuizFlags[$jclSectionObj->section_id] = true;
+            foreach ($jclSectionObj->jclquizs()->get() as $jclQuizObj) {
+                if ($jclQuizObj->progress != 'Pass') {
+                    $jclQuizFlags[$jclSectionObj->section_id] = false;
+                }
+            }
         }
 
-        return view('lessons.learn', compact('jclObj', 'jclSections', 'jclSectionFlags'));
+        return view('lessons.learn', compact('jclObj', 'jclSections', 'jclSectionFlags', 'jclQuizFlags'));
     }
 
     public function learnSection($joincourselesson_id, $jclsection_id)
@@ -58,6 +70,10 @@ class LearnsController extends Controller
             $jclSection->progress = 'Inprogress';
             $jclSection->update();
         }
+
+        $jclObj->updateprogress($joincourselesson_id);
+        $jclObj->joincourse->updateprogress($jclObj->join_course_id);
+        $jclObj->joincourse->projcompstudent->updateprogress($jclObj->joincourse->proj_comp_student_id);
 
         return view('lessons.learnsection', compact('jclObj', 'jclSection'));
     }
