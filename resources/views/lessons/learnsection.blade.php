@@ -5,26 +5,25 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
-                <h3>Student Page</h3>
+                <h3>การเรียนรู้</h3>
               </div>
               <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{ $jclObj->lesson->name }}</h5>
-              <h4>{{ $jclSection->section->name }} 
-                <button id="passblock" 
-                @if ($jclSection->progress != 'Pass')
-                style="display:none"     
-                @endif 
-                class='bth btn-success' >ผ่าน</button>
-              </h4>
+              <h4>{{ $jclSection->section->name }}</h4>
               <div class='row'>
                 <div class='col-md-12'>
 
-                     {{ $jclSection->section->desc }}<br/>
-                 
+                     {!! $jclSection->section->desc !!}<br/>
+                 <div class="youtube-video-container">
                  <iframe width="720" height="405" id="player" src="https://www.youtube.com/embed/{{$jclSection->section->link_clip}}?enablejsapi=1&controls=0" allowfullscreen></iframe>
-    
-
+                 </div>
+                 <br/>
+                  <a id="passblock" href="{{ url('exams/play/'.$jclSection->id)  }}"
+                @if ($jclSection->progress != 'Pass')
+                style="display:none"     
+                @endif 
+                class="bth btn-success btn-lg">ผ่าน และ ทำแบบทดสอบ</a>
                 </div>
               </div>
 

@@ -27,17 +27,26 @@
                       @foreach ($course->lessons()->get() as $item)
                           <p class="mb-1">
                             @if (isset($jcls[$item->id]))
-                            <a href="{{ url('/join/lesson/'.$jcls[$item->id]->join_course_id.'/'.$item->id) }}">
-                            Lesson: {{ $item->name }} / Status: 
+                            <a class="
+                            @if($jcls[$item->id]->progress == 'Pass')
+                            btn-success 
+                            @else
+                            btn-secondary
+                            @endif
+                            
+                            btn  btn-block" href="{{ url('/join/lesson/'.$jcls[$item->id]->join_course_id.'/'.$item->id) }}">
+                            Lesson: {{ $item->name }}<br/>Status: 
                               {{ $jcls[$item->id]->progress }}
                             </a>
                           @else
                             @if (!empty($joincourse))
-                            <a href="{{ url('/join/lesson/'.$joincourse->id.'/'.$item->id) }}">
-                            Lesson: {{ $item->name }} / Status: -
+                            <a  class="btn-warning btn  btn-block"  href="{{ url('/join/lesson/'.$joincourse->id.'/'.$item->id) }}">
+                            Lesson: {{ $item->name }}<br/>Status: -
                             </a>
                             @else
-                            Lesson: {{ $item->name }} / Status:   
+                            <a  class="btn-warning btn  btn-block"  href="#" >
+                            Lesson: {{ $item->name }}<br/>Status:   
+                             </a>
                             @endif
                           @endif
                           </p>

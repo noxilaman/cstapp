@@ -34,6 +34,7 @@
                 @endforeach 
               </tbody>
             </table>
+            <?php echo $pjcomstds->links(); ?>
               </div>
             </div>
           </div>

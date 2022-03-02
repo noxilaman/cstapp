@@ -43,6 +43,8 @@
                 @endforeach 
               </tbody>
             </table>
+
+            <?php echo $sections->links(); ?>
           </div>
         </div>
     

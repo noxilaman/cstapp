@@ -43,6 +43,7 @@
                 @endforeach 
               </tbody>
             </table>
+            <?php echo $quizs->links(); ?>
           </div>
         </div>
     

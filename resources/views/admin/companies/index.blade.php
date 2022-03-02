@@ -57,6 +57,8 @@
                 @endforeach 
               </tbody>
             </table>
+
+            <?php echo $companies->links(); ?>
           </div>
         </div>
     

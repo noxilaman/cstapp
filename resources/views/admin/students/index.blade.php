@@ -48,6 +48,7 @@
                 @endforeach 
               </tbody>
             </table>
+            <?php echo $students->links(); ?>
           </div>
         </div>
     
