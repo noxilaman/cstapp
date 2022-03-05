@@ -63,7 +63,7 @@ class SectionsController extends Controller
     {
         $section = Section::findOrFail($id);
 
-        return view('admin.sections.show', compact('lesson'));
+        return view('admin.sections.show', compact('section'));
     }
 
     /**

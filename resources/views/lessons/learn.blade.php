@@ -5,21 +5,21 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row mb-4">
-                <h3>รายการบทเรียนของ {{ $jclObj->lesson->name }}</h3>
+                <div class="col-md-12"><a href="{{ url('/home') }}" class='btn btn-success' >ย้อนกลับ</a>
+                <h3>รายการบทเรียนของ {{ $jclObj->lesson->name }}</h3>  
+                </div>
+                
               </div>
          
+              
               <div class='row'>
                 
                     @foreach ($jclObj->lesson->sections()->get() as $item)
-
-                    
-
-
                     <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
                     <div class="card-body">
-                      <p class="mb-4">{{  $item->lesson->name }}</p>
-                      <p class="fs-30 mb-2">{{  $item->name }}</p>
+                      <h3  class="mb-4">{{  $item->lesson->name }}</h3>
+                      <h4 class="mb-2">{{  $item->name }}</h4>  
                       <p>
                           @if ($jclSectionFlags[$item->id])
                             

@@ -42,17 +42,23 @@ class HomeController extends Controller
             //  dd($project);
             $course = $project->courses()->first();
             $jcls = [];
+            $progress = [];
+            $progress['count'] = $course->lessons->count();
+            $progress['pass'] = 0;
+
             $joincourse = JoinCourse::where('proj_comp_student_id', $projectcompstudent->id)->where('course_id', $course->id)->first();
             if (!empty($joincourse)) {
                 $jclrw = JoinCourseLesson::where('join_course_id', $joincourse->id)->get();
                 foreach ($jclrw as $jclObj) {
                     $jcls[$jclObj->lesson_id] = $jclObj;
+
+                    if ($jclObj->progress == 'Pass') {
+                        ++$progress['pass'];
+                    }
                 }
             }
 
-            //dd($course);
-
-            return view('dashboards.student', compact('dataStudent', 'projectcompstudent', 'project', 'course', 'joincourse', 'jcls'));
+            return view('dashboards.student', compact('dataStudent', 'projectcompstudent', 'project', 'course', 'joincourse', 'jcls', 'progress'));
         }
     }
 }

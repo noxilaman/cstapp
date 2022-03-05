@@ -10,19 +10,22 @@
               <div class='row'>
                 <div class='col-md-12  card card-tale'>
                   <div class='row'>
-                    <div class="col-md-6 ">
+                    <div class="col-md-12 ">
                     <div class="card-body">
-                      <p class="mb-4">Project: {{ $project->name }}</p>
-                      <p class="fs-30 mb-2">Course: {{ $course->name }}</p>
+                      <p class="mb-4 fs-30">โครงการ: {{ $project->name }}</p>
+                      <p class="fs-30 mb-2">หลักสูตร: {{ $course->name }}</p>
                       <p>@if (empty($joincourse))
-                          <a href="{{ url('join/course/'.$projectcompstudent->id.'/'.$course->id) }}">Join </a>
+                          <a href="{{ url('join/course/'.$projectcompstudent->id.'/'.$course->id) }}">สมัคร</a>
                       @else
-                          <a href="{{ url('learns/course/'.$joincourse->id) }}">Joined on  {{ $joincourse->join_date }}</a>
+                          <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-warning'>สมัครเข้าเรียนเมื่อ  {{ $joincourse->join_date }}</a>
+                          <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-warning'>ความสำเร็จ  {{ number_format($progress['pass']*100/$progress['count'],2,'.',',') }} %</a>
+                          
                       @endif</p>
                     </div>
                   </div>
-
-                    <div class="col-md-6">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
                     <div class="card-body">
                       @foreach ($course->lessons()->get() as $item)
                           <p class="mb-1">
@@ -52,8 +55,10 @@
                           </p>
                       @endforeach
                     </div>
-                  </div>
-                  </div>
+                  </div></div>
+
+                    
+                  
                   
                 </div>
                 

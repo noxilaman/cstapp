@@ -7,16 +7,18 @@
               <div class="row mb-3">
                 <h3>ทบทวน แบบทดสอบ {{ $jclsection->jcl->lesson->name }}</h3>
               </div>
+              <a href="{{ url('/learns/lesson/'.$jclsection->jcl->lesson_id) }}" class='btn btn-success' >ย้อนกลับ</a>
+              
               @foreach ($jclquizs as $jclquiz)
               <div class="card mb-3">
                 <div class="card-body">
                   <h5 class="card-title">{{ $jclquiz->quiz->name }}</h5>
-                  <p>{{ $jclquiz->quiz->desc }}</p>
+                  {!! $jclquiz->quiz->desc !!}
                 </div>
                 <div class="card-body">
                   
                   <h5 class="card-title">รายละเอียดคำตอบ</h5>
-                    <p>{{ $jclquiz->quiz->ans_desc }}</p>
+                    {!! $jclquiz->quiz->ans_desc !!}
                 </div>
               </div>   
               @endforeach

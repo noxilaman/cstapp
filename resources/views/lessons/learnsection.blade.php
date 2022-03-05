@@ -7,17 +7,18 @@
               <div class="row">
                 <h3>การเรียนรู้</h3>
               </div>
+              <a href="{{ url('/learns/lesson/'.$jclObj->lesson_id) }}" class='btn btn-success' >ย้อนกลับ</a>
               <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{ $jclObj->lesson->name }}</h5>
               <h4>{{ $jclSection->section->name }}</h4>
               <div class='row'>
                 <div class='col-md-12'>
-
-                     {!! $jclSection->section->desc !!}<br/>
-                 <div class="youtube-video-container">
+<div class="youtube-video-container">
                  <iframe width="720" height="405" id="player" src="https://www.youtube.com/embed/{{$jclSection->section->link_clip}}?enablejsapi=1&controls=0" allowfullscreen></iframe>
-                 </div>
+                 </div><br/>
+                     {!! $jclSection->section->desc !!}
+                 
                  <br/>
                   <a id="passblock" href="{{ url('exams/play/'.$jclSection->id)  }}"
                 @if ($jclSection->progress != 'Pass')
