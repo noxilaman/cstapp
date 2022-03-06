@@ -18,7 +18,7 @@
                           <a href="{{ url('join/course/'.$projectcompstudent->id.'/'.$course->id) }}">สมัคร</a>
                       @else
                           <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-warning'>สมัครเข้าเรียนเมื่อ  {{ $joincourse->join_date }}</a>
-                          <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-warning'>ความสำเร็จ  {{ number_format($progress['pass']*100/$progress['count'],2,'.',',') }} %</a>
+                          <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-info'>ความสำเร็จ  {{ number_format($progress['pass']*100/$progress['count'],2,'.',',') }} %</a>
                           
                       @endif</p>
                     </div>
@@ -36,8 +36,10 @@
                             @else
                             btn-secondary
                             @endif
-                            
                             btn  btn-block" href="{{ url('/join/lesson/'.$jcls[$item->id]->join_course_id.'/'.$item->id) }}">
+                            @if($jcls[$item->id]->progress == 'Pass')
+                            <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                            @endif
                             Lesson: {{ $item->name }}<br/>Status: 
                               {{ $jcls[$item->id]->progress }}
                             </a>

@@ -7,9 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Skydash Admin</title>
   <!-- plugins:css -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('template2/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/css/vendor.bundle.base.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('template2/vendors/mdi/css/materialdesignicons.min.css') }}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('template2/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
@@ -17,7 +20,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('template2/js/select.dataTables.min.css') }}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="{{ asset('template2/css/vertical-layout-light/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('template2/stylefont2.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('template2/images/cst-mini.png') }}" />
 
