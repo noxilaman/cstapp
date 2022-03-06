@@ -30,8 +30,10 @@
                     <td>{{ $company->companytype->name }}</td>
                     <td>@foreach($company->projectcompanies()->get() as $projectcompany)
                       {{ $projectcompany->project->name }} 
+                      @if ($company->status == 'Active')
                       <a href="{{ url('students/register/'.$projectcompany->id) }}" target="_blank">Link</a>
                       <a href="{{ url('students/qrcode/'.$projectcompany->id) }}" target="_blank">QRCODE</a>
+                      @endif
                       @endforeach
                     </td>
                     <td>{{ $company->uname }} / {{ $company->upass }}</td>

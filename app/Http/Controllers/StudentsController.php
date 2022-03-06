@@ -91,7 +91,11 @@ class StudentsController extends Controller
     {
         $projectcompany = ProjectCompany::findOrFail($project_company_id);
 
-        return view('students.register', compact('projectcompany'));
+        if ($projectcompany->company->status == 'Active') {
+            return view('students.register', compact('projectcompany'));
+        } else {
+            return redirect('/');
+        }
     }
 
     public function registerAction(Request $request, $project_company_id)

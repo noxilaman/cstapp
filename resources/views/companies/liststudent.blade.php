@@ -28,7 +28,7 @@
                     <td>{{ $student->mobile }}</td>
                     <td>{{ $student->uname }} / {{ $student->upass }}</td>
                     <td>{{ $student->status }}</td>
-                    <td>
+                    <td>{{ $pjcomstd->progress }}
                       </td>
                   </tr>
                 @endforeach 
