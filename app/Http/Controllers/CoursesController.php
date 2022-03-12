@@ -41,6 +41,27 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();
+
+        if ($request->hasFile('cert_th_file')) {
+            $image = $request->file('cert_th_file');
+            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/certs/');
+            $image->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['cert_img_th'] = 'images/certs/'.$name;
+        }
+
+        if ($request->hasFile('cert_en_file')) {
+            $image = $request->file('cert_en_file');
+            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/certs/');
+            $image->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['cert_img_en'] = 'images/certs/'.$name;
+        }
+
         $course = Course::create($requestData);
 
         return redirect('/admin/courses');
@@ -87,6 +108,26 @@ class CoursesController extends Controller
         $requestData = $request->all();
         $course = Course::findOrFail($id);
 
+        if ($request->hasFile('cert_th_file')) {
+            $image = $request->file('cert_th_file');
+            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/certs/');
+            $image->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['cert_img_th'] = 'images/certs/'.$name;
+        }
+
+        if ($request->hasFile('cert_en_file')) {
+            $image = $request->file('cert_en_file');
+            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/certs/');
+            $image->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['cert_img_en'] = 'images/certs/'.$name;
+        }
+
         $course->update($requestData);
 
         return redirect('/admin/courses');
@@ -101,8 +142,15 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        Course::destroy($id);
+        //Course::destroy($id);
 
         return redirect('/admin/courses');
+    }
+
+    public function demo_cert($id, $lang)
+    {
+        $course = Course::findOrFail($id);
+
+        return view('admin.courses.cert_demo', compact('course', 'lang'));
     }
 }

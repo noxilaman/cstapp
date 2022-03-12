@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Skydash Admin</title>
   <!-- plugins:css -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('template2/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/ti-icons/css/themify-icons.css') }}">
@@ -22,11 +22,6 @@
   <link rel="stylesheet" href="{{ asset('template2/stylefont2.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('template2/images/cst-mini.png') }}" />
-
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container-scroller">
@@ -51,7 +46,7 @@
               <img src="{{ asset('template2/images/faces/facedf.png') }}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a href="{{ route('company.setting') }}" class="dropdown-item">
+              <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
@@ -100,15 +95,35 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('home') }}">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-              </a>
-            </li>
-          <li class="nav-item"> <a class="nav-link" href="{{ url('/company/liststd') }}">
-            <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">List Students</span>
-            </a></li>
+              <span class="menu-title">Base Data</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/company_types') }}">Company Types</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/projects') }}">Projects</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">Companies</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">Students</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-course" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Course Data</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-course">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/courses') }}">กลุ่มชุดการเรียน</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/lessons') }}">Lessons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/sections') }}">Sections</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/quizs') }}">Quizs</a></li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
       <!-- partial -->
@@ -142,8 +157,8 @@
   <script src="{{ asset('template2/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-    <script src="{{ asset('template2/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+  
+  <script src="{{ asset('template2/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('template2/vendors/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('template2/vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('template2/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
@@ -160,8 +175,9 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('template2/js/dashboard.js') }}"></script>
   <script src="{{ asset('template2/js/Chart.roundedBarCharts.js') }}"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
   <!-- End custom js for this page-->
+
+ <script src="{{ asset('js/certdemo.js') }}"></script>
 </body>
 
 </html>

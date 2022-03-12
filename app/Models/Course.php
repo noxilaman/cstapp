@@ -9,7 +9,10 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['project_id', 'seq', 'name', 'desc', 'status'];
+    protected $fillable = ['project_id', 'seq', 'name', 'desc', 'status',
+'cert_img_th', 'cert_img_en',
+'name_th_x', 'name_th_y', 'name_en_x', 'name_en_y',
+'logo_th_x', 'logo_th_y', 'logo_en_x', 'logo_en_y', ];
 
     public function project()
     {

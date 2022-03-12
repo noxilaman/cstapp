@@ -38,6 +38,23 @@
                       <textarea class="form-control" id="desc" rows="4" name='desc'>{{$course->desc}}</textarea>
                     </div>
             </div>
+
+            <div class='row'>
+                    <div class="form-group col-6">
+                      <label for="cert_en_file">Certificate template English</label>
+                      <input type="file" class="form-control" id="cert_en_file" placeholder="Name" name='cert_en_file'>
+                      @if(!empty($course->cert_img_en))
+                      <img  src="{{ url($course->cert_img_en) }}" width="100px" />
+                      @endif
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="cert_th_file">Certificate template Thai</label>
+                      <input type="file" class="form-control" id="cert_th_file" placeholder="Name" name='cert_th_file'>
+                      @if(!empty($course->cert_img_th))
+                      <img  src="{{ url($course->cert_img_th) }}" width="100px" />
+                      @endif
+                    </div>
+             </div>
             <div class='row'>
                     
                     <div class="form-group col-12">

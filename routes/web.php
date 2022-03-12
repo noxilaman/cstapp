@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('projects', ProjectsController::class);
     Route::resource('companies', CompaniesController::class);
     Route::resource('students', StudentsController::class);
+    Route::get('courses/certdemo/{id}/{lang}', [CoursesController::class, 'demo_cert']);
     Route::resource('courses', CoursesController::class);
     Route::resource('lessons', LessonsController::class);
     Route::get('lessons/list/{course_id}', [LessonsController::class, 'list']);
@@ -68,6 +69,8 @@ Route::get('exams/review/{joincourselesson_id}', [ExamsController::class, 'revie
 //Company Page
 Route::get('company/home', [DashComsController::class, 'home']);
 Route::get('company/liststd', [DashComsController::class, 'liststd']);
+Route::get('company/setting', [DashComsController::class, 'setting'])->name('company.setting');
+Route::post('company/settingAction/{id}', [DashComsController::class, 'settingAction']);
 
 Route::group(['middleware' => ['auth']], function () {
     /*

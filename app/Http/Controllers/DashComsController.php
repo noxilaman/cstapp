@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\CompanyType;
 use Auth;
+use Illuminate\Http\Request;
 
 class DashComsController extends Controller
 {
@@ -61,5 +63,52 @@ class DashComsController extends Controller
         }
 
         return view('dashboards.company', compact('projectcompany', 'company', 'stat'));
+    }
+
+    public function setting()
+    {
+        $user = Auth::user();
+        $company = Company::findOrFail($user->company_id);
+        if ($company->status != 'Active') {
+            return redirect('/logout');
+        }
+
+        $companytypelist = CompanyType::pluck('name', 'id');
+
+        return view('companies.setting', compact('company', 'companytypelist'));
+    }
+
+    public function settingAction(Request $request, $id)
+    {
+        $user = Auth::user();
+        $company = Company::findOrFail($user->company_id);
+        if ($company->status != 'Active' || $company->id != $id) {
+            return redirect('/logout');
+        }
+
+        $requestData = $request->all();
+        if ($request->hasFile('image_file')) {
+            $image = $request->file('image_file');
+            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/companies/');
+            $image->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['image'] = 'images/companies/'.$name;
+        }
+
+        if ($request->hasFile('logo_file')) {
+            $logo = $request->file('logo_file');
+            $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
+            $destinationPath = public_path('images/logo/');
+            $logo->move($destinationPath, $name);
+
+            //  $loadm->image = $name;
+            $requestData['logo'] = 'images/logo/'.$name;
+        }
+
+        $company->update($requestData);
+
+        return redirect('company/setting');
     }
 }

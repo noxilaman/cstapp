@@ -32,6 +32,10 @@
                     <td>
                         <a href="{{ url('/admin/courses/'.$course->id) }}" class="btn btn-secondary">View</a>
                         <a href="{{ url('/admin/courses/'.$course->id.'/edit') }}" class="btn btn-primary">Edit</a>
+                        <br/>
+                        <a href="{{ url('/admin/courses/certdemo/'.$course->id.'/th') }}" class="btn btn-secondary">Cert TH</a>
+                        <a href="{{ url('/admin/courses/certdemo/'.$course->id.'/en') }}" class="btn btn-secondary">Cert EN</a>
+                        
                         <form action="{{ url('/admin/courses/'.$course->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

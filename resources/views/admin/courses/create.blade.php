@@ -39,6 +39,17 @@
                     </div>
             </div>
             <div class='row'>
+                    <div class="form-group col-6">
+                      <label for="cert_en_file">Certificate template English</label>
+                      <input type="file" class="form-control" id="cert_en_file" placeholder="Name" name='cert_en_file'>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="cert_th_file">Certificate template Thai</label>
+                      <input type="file" class="form-control" id="cert_th_file" placeholder="Name" name='cert_th_file'>
+                    </div>
+             </div>
+            
+            <div class='row'>
                     
                     <div class="form-group col-12">
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
