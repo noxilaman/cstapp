@@ -7,12 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Skydash Admin</title>
   <!-- plugins:css -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('template2/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/css/vendor.bundle.base.css') }}">
-
-  <link rel="stylesheet" href="{{ asset('template2/vendors/mdi/css/materialdesignicons.min.css') }}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('template2/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
@@ -23,28 +22,6 @@
   <link rel="stylesheet" href="{{ asset('template2/stylefont2.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('template2/images/cst-mini.png') }}" />
-
-  <style>
-    .youtube-video-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-.youtube-video-container::after {
-  display: block;
-  content: "";
-  padding-top: 56.25%;
-}
-
-.youtube-video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-  </style>
 
   <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -74,7 +51,7 @@
               <img src="{{ asset('template2/images/faces/facedf.png') }}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a  href="{{ route('student.setting') }}" class="dropdown-item">
+              <a href="{{ route('company.setting') }}" class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
@@ -122,10 +99,15 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item"> <a class="nav-link" href="{{ url('home') }}">
-            <i class="icon-layout menu-icon"></i>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('home') }}">
+              <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Dashboard</span>
-            
+              </a>
+            </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ url('/company/liststd') }}">
+            <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">List Students</span>
             </a></li>
         </ul>
       </nav>
@@ -160,8 +142,8 @@
   <script src="{{ asset('template2/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-    <script src="{{ asset('template2/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+  
+  <script src="{{ asset('template2/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('template2/vendors/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('template2/vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('template2/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
@@ -178,8 +160,9 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('template2/js/dashboard.js') }}"></script>
   <script src="{{ asset('template2/js/Chart.roundedBarCharts.js') }}"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
   <!-- End custom js for this page-->
+
+ <script src="{{ asset('js/certdemo.js?ver=1') }}"></script>
 </body>
 
 </html>

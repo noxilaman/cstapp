@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\CompanyType;
+use App\Models\Course;
+use App\Models\Student;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -110,5 +112,15 @@ class DashComsController extends Controller
         $company->update($requestData);
 
         return redirect('company/setting');
+    }
+
+    public function certstaff($student_id, $course_id, $lang)
+    {
+        $student = Student::findOrFail($student_id);
+        $course = Course::findOrFail($course_id);
+        $user = Auth::user();
+        $company = Company::findOrFail($user->company_id);
+
+        return view('companies.cert_demo', compact('course', 'lang', 'company', 'student'));
     }
 }

@@ -37,6 +37,8 @@
                     <td>
                         <a href="{{ url('/admin/students/'.$student->id) }}" class="btn btn-secondary">View</a>
                         <a href="{{ url('/admin/students/'.$student->id.'/edit') }}" class="btn btn-primary">Edit</a>
+                        <br/><a href="{{ url('/admin/students/certdemo/'.$student->id.'/th') }}" class="btn btn-secondary">Cert Th</a>
+                        <a href="{{ url('/admin/students/certdemo/'.$student->id.'/en') }}" class="btn btn-secondary">Cert En</a>
                         <form action="{{ url('/admin/students/'.$student->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

@@ -4,6 +4,7 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CompanyTypesController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\DashComsController;
+use App\Http\Controllers\DashStaffsController;
 use App\Http\Controllers\ExamsController;
 use App\Http\Controllers\JoinsController;
 use App\Http\Controllers\LearnsController;
@@ -34,7 +35,9 @@ Route::get('/sky', function () {
 Route::prefix('admin')->group(function () {
     Route::resource('company_types', CompanyTypesController::class);
     Route::resource('projects', ProjectsController::class);
+    Route::get('companies/certdemo/{id}/{course_id}/{lang}', [CompaniesController::class, 'demo_cert']);
     Route::resource('companies', CompaniesController::class);
+    Route::get('students/certdemo/{id}/{lang}', [StudentsController::class, 'demo_cert']);
     Route::resource('students', StudentsController::class);
     Route::get('courses/certdemo/{id}/{lang}', [CoursesController::class, 'demo_cert']);
     Route::resource('courses', CoursesController::class);
@@ -71,6 +74,11 @@ Route::get('company/home', [DashComsController::class, 'home']);
 Route::get('company/liststd', [DashComsController::class, 'liststd']);
 Route::get('company/setting', [DashComsController::class, 'setting'])->name('company.setting');
 Route::post('company/settingAction/{id}', [DashComsController::class, 'settingAction']);
+Route::get('company/certstaff/{student_id}/{course_id}/{lang}', [DashComsController::class, 'certstaff']);
+
+//Staff Page
+Route::get('student/setting', [DashStaffsController::class, 'staffsetting'])->name('student.setting');
+Route::post('student/settingAction/{id}', [DashStaffsController::class, 'staffsettingAction']);
 
 Route::group(['middleware' => ['auth']], function () {
     /*

@@ -177,7 +177,7 @@
   <script src="{{ asset('template2/js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
 
- <script src="{{ asset('js/certdemo.js') }}"></script>
+ <script src="{{ asset('js/certdemo.js?ver=1') }}"></script>
 </body>
 
 </html>

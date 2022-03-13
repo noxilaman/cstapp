@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\CompanyType;
+use App\Models\Course;
 use App\Models\Project;
 use App\Models\ProjectCompany;
 use App\Models\User;
@@ -22,8 +23,9 @@ class CompaniesController extends Controller
         $this->middleware('isAdmin');
         $perPage = 10;
         $companies = Company::paginate($perPage);
+        $course = Course::where('status', 'Active')->first();
 
-        return view('admin.companies.index', compact('companies'));
+        return view('admin.companies.index', compact('companies', 'course'));
     }
 
     /**
@@ -285,5 +287,13 @@ class CompaniesController extends Controller
     }
 
         return implode($pass); //turn the array into a string
+    }
+
+    public function demo_cert($id, $course_id, $lang)
+    {
+        $company = Company::findOrFail($id);
+        $course = Course::findOrFail($course_id);
+
+        return view('admin.courses.cert_demo', compact('course', 'lang', 'company'));
     }
 }

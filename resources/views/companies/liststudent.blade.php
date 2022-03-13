@@ -29,6 +29,12 @@
                     <td>{{ $student->uname }} / {{ $student->upass }}</td>
                     <td>{{ $student->status }}</td>
                     <td>{{ $pjcomstd->progress }}
+                      @if ($pjcomstd->progress == 'Pass')
+                        @foreach ($pjcomstd->joincourses as $joincourse)
+                            <a class='btn btn-primary' href="{{ url('company/certstaff/'.$joincourse->student_id.'/'.$joincourse->course_id.'/th') }}">Cert TH</a>
+                            <a class='btn btn-primary' href="{{ url('company/certstaff/'.$joincourse->student_id.'/'.$joincourse->course_id.'/en') }}">Cert EN</a>
+                        @endforeach
+                      @endif
                       </td>
                   </tr>
                 @endforeach 

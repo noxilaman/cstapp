@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JoinCourse;
 use App\Models\ProjCompStudent;
 use App\Models\ProjectCompany;
 use App\Models\Student;
@@ -170,5 +171,15 @@ class StudentsController extends Controller
     }
 
         return implode($pass); //turn the array into a string
+    }
+
+    public function demo_cert($id, $lang)
+    {
+        $student = Student::findOrFail($id);
+        $projcompstudent = $student->projcompstudents()->where('student_id', $id)->first();
+        $company = $projcompstudent->company;
+        $course = JoinCourse::where('proj_comp_student_id', $projcompstudent->id)->first()->course;
+
+        return view('admin.courses.cert_demo', compact('course', 'lang', 'company', 'student'));
     }
 }
