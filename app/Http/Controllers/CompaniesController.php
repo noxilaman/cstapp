@@ -56,21 +56,21 @@ class CompaniesController extends Controller
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/companies/');
+            $destinationPath = public_path('storage/images/companies/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['image'] = 'images/companies/'.$name;
+            $requestData['image'] = 'storage/images/companies/'.$name;
         }
 
         if ($request->hasFile('logo_file')) {
             $logo = $request->file('logo_file');
             $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
-            $destinationPath = public_path('images/logo/');
+            $destinationPath = public_path('storage/images/logo/');
             $logo->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['logo'] = 'images/logo/'.$name;
+            $requestData['logo'] = 'storage/images/logo/'.$name;
         }
 
         $company = Company::create($requestData);
@@ -154,21 +154,21 @@ class CompaniesController extends Controller
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/companies/');
+            $destinationPath = public_path('storage/images/companies/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['image'] = 'images/companies/'.$name;
+            $requestData['image'] = 'storage/images/companies/'.$name;
         }
 
         if ($request->hasFile('logo_file')) {
             $logo = $request->file('logo_file');
             $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
-            $destinationPath = public_path('images/logo/');
+            $destinationPath = public_path('storage/images/logo/');
             $logo->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['logo'] = 'images/logo/'.$name;
+            $requestData['logo'] = 'storage/images/logo/'.$name;
         }
 
         $company->update($requestData);
@@ -224,21 +224,21 @@ class CompaniesController extends Controller
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/companies/');
+            $destinationPath = public_path('storage/images/companies/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['image'] = 'images/companies/'.$name;
+            $requestData['image'] = 'storage/images/companies/'.$name;
         }
 
         if ($request->hasFile('logo_file')) {
             $logo = $request->file('logo_file');
             $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
-            $destinationPath = public_path('images/logo/');
+            $destinationPath = public_path('storage/images/logo/');
             $logo->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['logo'] = 'images/logo/'.$name;
+            $requestData['logo'] = 'storage/images/logo/'.$name;
         }
         $requestData['status'] = 'Inactive';
 

@@ -5,7 +5,14 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>{{ config('myconfig.web.title') }}</title>
+  <meta name="description" content="{{ config('myconfig.web.desc') }}" />
+  <meta name="keywords" content="{{ config('myconfig.web.title') }}" />
+  <meta name="description" content="{{ config('myconfig.web.desc') }}" />
+
+    <meta name="Copyright" content="{{ config('myconfig.web.copyrigth') }}" />
+    <meta name="Author" content="{{ config('myconfig.web.author') }}" />
+
   <!-- plugins:css -->
 
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
@@ -137,47 +144,13 @@
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-          </div>
-        </footer>
-        <!-- partial -->
+        @include('layouts.footer')
       </div>
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-
-  <!-- plugins:js -->
-  <script src="{{ asset('template2/vendors/js/vendor.bundle.base.js') }}"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  
-  <script src="{{ asset('template2/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('template2/vendors/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('template2/vendors/datatables.net/jquery.dataTables.js') }}"></script>
-  <script src="{{ asset('template2/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-  <script src="{{ asset('template2/js/dataTables.select.min.js') }}"></script>
-
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="{{ asset('template2/js/off-canvas.js') }}"></script>
-  <script src="{{ asset('template2/js/hoverable-collapse.js') }}"></script>
-  <script src="{{ asset('template2/js/template.js') }}"></script>
-  <script src="{{ asset('template2/js/settings.js') }}"></script>
-  <script src="{{ asset('template2/js/todolist.js') }}"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="{{ asset('template2/js/dashboard.js') }}"></script>
-  <script src="{{ asset('template2/js/Chart.roundedBarCharts.js') }}"></script>
-  <!-- End custom js for this page-->
-
- 
+  @include('layouts.footerjs')
 </body>
 
 </html>

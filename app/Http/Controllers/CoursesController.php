@@ -45,21 +45,21 @@ class CoursesController extends Controller
         if ($request->hasFile('cert_th_file')) {
             $image = $request->file('cert_th_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/certs/');
+            $destinationPath = public_path('storage/images/certs/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['cert_img_th'] = 'images/certs/'.$name;
+            $requestData['cert_img_th'] = 'storage/images/certs/'.$name;
         }
 
         if ($request->hasFile('cert_en_file')) {
             $image = $request->file('cert_en_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/certs/');
+            $destinationPath = public_path('storage/images/certs/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['cert_img_en'] = 'images/certs/'.$name;
+            $requestData['cert_img_en'] = 'storage/images/certs/'.$name;
         }
 
         $course = Course::create($requestData);
@@ -111,21 +111,21 @@ class CoursesController extends Controller
         if ($request->hasFile('cert_th_file')) {
             $image = $request->file('cert_th_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/certs/');
+            $destinationPath = public_path('storage/images/certs/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['cert_img_th'] = 'images/certs/'.$name;
+            $requestData['cert_img_th'] = 'storage/images/certs/'.$name;
         }
 
         if ($request->hasFile('cert_en_file')) {
             $image = $request->file('cert_en_file');
             $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('images/certs/');
+            $destinationPath = public_path('storage/images/certs/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['cert_img_en'] = 'images/certs/'.$name;
+            $requestData['cert_img_en'] = 'storage/images/certs/'.$name;
         }
 
         $course->update($requestData);
