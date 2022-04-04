@@ -219,6 +219,19 @@ class CompaniesController extends Controller
 
     public function registerAction(Request $request, $project_id)
     {
+        $request->validate([
+            'company_type_id' => 'required',
+            'contact_name' => 'required',
+            'name' => 'required',
+            'name_en' => 'required',
+            'desc' => 'required',
+            'addr' => 'required',
+            'province' => 'required',
+            'country' => 'required',
+            'tel' => 'required',
+            'email' => 'required'
+        ]);
+  
         $requestData = $request->all();
 
         if ($request->hasFile('image_file')) {

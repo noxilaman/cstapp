@@ -29,6 +29,7 @@
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ asset('air3/css/style.css') }}">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
 
 </head>
 
@@ -81,7 +82,11 @@
     <script src="{{ asset('air3/plugins/google-map/map.js') }}"></script>
 
     <script src="{{ asset('air3/js/script.js') }}"></script>
-
+    <script>
+   function onSubmit(token) {
+     document.getElementById("regiterstudentfrm").submit();
+   }
+ </script>
     </body>
 
     </html>

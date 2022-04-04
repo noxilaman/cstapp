@@ -101,7 +101,17 @@ class StudentsController extends Controller
 
     public function registerAction(Request $request, $project_company_id)
     {
+        $request->validate([
+            'idcard' => 'required|digits:13|unique:students',
+            'mobile' => 'required',
+            'fname' => 'required',
+            'lname' => 'required',
+            'fname_en' => 'required',
+            'lname_en' => 'required'
+        ]);
+   
         $requestData = $request->all();
+
         $projectcompany = ProjectCompany::findOrFail($project_company_id);
 
         $tmpStudent = [];
