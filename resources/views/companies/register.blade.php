@@ -1,7 +1,7 @@
 @extends('layouts.registerstudent')
 
 @section('content')
-<form action="{{ url('companies/registerAction/'.$project->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('companies/registerAction/'.$project->id) }}" id="regiterstudentfrm"  method="POST" enctype="multipart/form-data">
   @csrf
 
   <div class="row">
@@ -84,7 +84,10 @@
       {!! Form::file('logo_file',array('class' =>'form_control','id'=>'logo_file')) !!}
     </div>
     <div class="form-group col-md-12 text-center ">
-      <button type="submit" class="btn btn-primary mr-2">สมัคร</button>
+     <button class="g-recaptcha btn btn-primary mr-2" 
+        data-sitekey="6Ldbc0ofAAAAAJCSPnt-Yot57M_rQqpVHtKSjpBy" 
+        data-callback='onSubmit' 
+        data-action='submit' >สมัคร</button>
     </div>
   </div>
 </form>

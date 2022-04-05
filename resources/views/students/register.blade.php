@@ -50,11 +50,10 @@
          </div>
      </div>
      <div class="col-md-12">
-     <button class="g-recaptcha" 
-        data-sitekey="reCAPTCHA_site_key" 
+     <button class="g-recaptcha btn btn-default" 
+        data-sitekey="6Ldbc0ofAAAAAJCSPnt-Yot57M_rQqpVHtKSjpBy" 
         data-callback='onSubmit' 
-        data-action='submit'>Submit</button>
-         <button class="btn btn-default" type="submit">ลงทะเบียน/register</button>
+        data-action='submit' >ลงทะเบียน/register</button>
      </div>
  </form>
  @endsection

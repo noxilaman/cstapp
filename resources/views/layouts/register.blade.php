@@ -74,6 +74,12 @@
 
     <script src="{{ asset('air3/js/script.js') }}"></script>
 
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+   function onSubmit(token) {
+     document.getElementById("regiterstudentfrm").submit();
+   }
+ </script>
     </body>
 
     </html>
