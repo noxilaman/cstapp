@@ -232,4 +232,7 @@ return [
 
     ],
 
+    'recapkey' => env('RECAP_KEY', ''),
+    'webname' => env('WEB_NAME', ''),
+
 ];

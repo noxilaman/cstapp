@@ -51,7 +51,7 @@
      </div>
      <div class="col-md-12">
      <button class="g-recaptcha btn btn-default" 
-        data-sitekey="6Ldbc0ofAAAAAJCSPnt-Yot57M_rQqpVHtKSjpBy" 
+        data-sitekey="{{ config('app.recapkey', '') }}" 
         data-callback='onSubmit' 
         data-action='submit' >ลงทะเบียน/register</button>
      </div>

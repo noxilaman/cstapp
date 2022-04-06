@@ -85,7 +85,7 @@
     </div>
     <div class="form-group col-md-12 text-center ">
      <button class="g-recaptcha btn btn-primary mr-2" 
-        data-sitekey="6Ldbc0ofAAAAAJCSPnt-Yot57M_rQqpVHtKSjpBy" 
+        data-sitekey="{{ config('app.recapkey', '') }}" 
         data-callback='onSubmit' 
         data-action='submit' >สมัคร</button>
     </div>

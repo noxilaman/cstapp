@@ -56,6 +56,8 @@ Route::post('companies/registerAction/{project_id}', [CompaniesController::class
 
 Route::get('students/register/{project_company_id}', [StudentsController::class, 'register']);
 Route::post('students/registerAction/{project_company_id}', [StudentsController::class, 'registerAction']);
+Route::get('students/forgotpass', [StudentsController::class, 'forgotpass']);
+Route::post('students/forgotpassAction', [StudentsController::class, 'forgotpassAction']);
 Route::get('students/qrcode/{project_company_id}', [StudentsController::class, 'qrcode']);
 
 Route::get('join/course/{project_com_student_id}/{course_id}', [JoinsController::class, 'studentJoinCourse']);

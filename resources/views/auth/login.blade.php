@@ -19,7 +19,7 @@
                       Keep me signed in
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                  <a href="{{ url('/students/forgotpass') }}" class="auth-link text-black">เรีบกดูข้อมูลเข้าระบบของนักเรียน</a>
                 </div>
               </form>
                
