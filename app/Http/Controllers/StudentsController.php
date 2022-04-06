@@ -53,6 +53,8 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
+        $student = Student::findOrFail($id);
+        return view('admin.students.show',compact('student'));
     }
 
     /**
@@ -191,5 +193,28 @@ class StudentsController extends Controller
         $course = JoinCourse::where('proj_comp_student_id', $projcompstudent->id)->first()->course;
 
         return view('admin.courses.cert_demo', compact('course', 'lang', 'company', 'student'));
+    }
+
+    public function forgotpass(){
+        return view('students.forgotpass');
+    }
+
+    public function forgotpassAction(Request $request){
+        $request->validate([
+            'citizenid' => 'required',
+            'tel' => 'required'
+        ]);
+
+        $requestData = $request->all();
+
+        $student = Student::where('idcard',$requestData['citizenid'])->where('mobile',$requestData['tel'])->first();
+
+        if(!empty($student)){
+           // dd($student);
+            return view('students.forgotpassresult',compact(('student')));
+        }else{
+            $message = "ไม่พบข้อมูล";
+            return view('students.forgotpassresult',compact(('message')));
+        }
     }
 }
