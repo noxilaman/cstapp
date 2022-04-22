@@ -2,7 +2,7 @@
 
 @section('content')
         <div class="content-wrapper">
-            <h3>แก้ไขข้อมูลพนักงานสังกัด {{ $company->name }}</h3>
+            <h3>แก้ไขข้อมูลพนักงานโรงแรม {{ $company->name }}</h3>
           <div class="row">
               <form action="{{ url('student/settingAction/'.$student->id) }}"  class="forms-sample" method="POST"  enctype="multipart/form-data">
             @csrf
@@ -29,8 +29,8 @@
             </div>
             <div class='row'>
                     <div class="form-group col-6">
-                      <label for="idcard">เบอร์โทรศัพย์</label>
-                      <input name="idcard" type="text" class="form-control" placeholder="เบอร์โทรศัพย์" value="{{$student->idcard}}">
+                      <label for="idcard">เลขบัตรประชาชน</label>
+                      <input name="idcard" type="text" class="form-control" placeholder="เลขบัตรประชาชน" value="{{$student->idcard}}">
                     </div>
                     <div class="form-group col-6">
                       <label for="mobile">เบอร์โทรศัพย์</label>

@@ -16,10 +16,10 @@
                   <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox"  id='remember' name='remember' class="form-check-input">
-                      Keep me signed in
+                      จดจำ
                     </label>
                   </div>
-                  <a href="{{ url('/students/forgotpass') }}" class="auth-link text-black">เรีบกดูข้อมูลเข้าระบบของนักเรียน</a>
+                  <a href="{{ url('/students/forgotpass') }}" class="auth-link text-black">ตรวจสอบข้อมูล เข้าระบบของนักเรียน</a>
                 </div>
               </form>
                
