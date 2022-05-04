@@ -39,7 +39,7 @@ class HomeController extends Controller
             $projectcompstudent = $dataStudent->projcompstudents()->first();
             $project = $projectcompstudent->projectcompany->project;
 
-            //  dd($project);
+            dd($project);
             $course = $project->courses()->first();
             $jcls = [];
             $progress = [];

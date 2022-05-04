@@ -8,20 +8,20 @@
      <div class="col-md-6 col-sm-12">
          <div class="block">
              <div class="form-group">
-                 <input name="fname" type="text" class="form-control @error('fname') is-invalid @enderror" placeholder="ชื่อ" value="{{ old('fname') }}">
+                 <input name="fname" type="text" class="form-control @error('fname') is-invalid @enderror" placeholder="ชื่อภาษาไทย" value="{{ old('fname') }}">
                  @error('fname')
                  <div class="alert alert-danger">กรุณาใส่ชื่อภาษาไทย</div>
                  @enderror
              </div>
              <div class="form-group">
-                 <input name="lname" type="text" class="form-control @error('lname') is-invalid @enderror" placeholder="นามสกุล"  value="{{ old('lname') }}">
+                 <input name="lname" type="text" class="form-control @error('lname') is-invalid @enderror" placeholder="นามสกุลภาษาไทย"  value="{{ old('lname') }}">
                  @error('lname')
                  <div class="alert alert-danger">กรุณาใส่ขามสกุลภาษาไทย</div>
                  @enderror
              </div>
              <div class="form-group">
-                 <input name="idcard" type="text" class="form-control @error('idcard') is-invalid @enderror" placeholder="เลขบัตรประชาชน"  value="{{ old('idcard') }}">
-                 @error('idcard')
+                 <input name="birth" type="date" class="form-control @error('birth') is-invalid @enderror" placeholder="วันเกิด"  value="{{ old('birth') }}">
+                 @error('birth')
                  <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
              </div>
@@ -30,13 +30,13 @@
      <div class="col-md-6 col-sm-12">
          <div class="block">
              <div class="form-group">
-                 <input name="fname_en" type="text" class="form-control @error('fname_en') is-invalid @enderror" placeholder="First name"  value="{{ old('fname_en') }}">
+                 <input name="fname_en" type="text" class="form-control @error('fname_en') is-invalid @enderror" placeholder="ชื่อภาษาอังกฤษ"  value="{{ old('fname_en') }}">
                  @error('fname_en')
                  <div class="alert alert-danger">กรุณาใส่ชื่อภาษาอังกฤษ</div>
                  @enderror
              </div>
              <div class="form-group">
-                 <input name="lname_en" type="text" class="form-control @error('lname_en') is-invalid @enderror" placeholder="Last name"  value="{{ old('lname_en') }}">
+                 <input name="lname_en" type="text" class="form-control @error('lname_en') is-invalid @enderror" placeholder="นามสกุลภาษาอังกฤษ"  value="{{ old('lname_en') }}">
                  @error('lname_en')
                  <div class="alert alert-danger">กรุณาใส่นามสกุลภาษาอังกฤษ</div>
                  @enderror

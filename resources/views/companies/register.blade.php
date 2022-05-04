@@ -34,38 +34,52 @@
       @enderror
     </div>
     <div class="form-group col-md-6">
-      <label for="desc">รายละเอียด</label>
-      <textarea class="form-control" id="desc" rows="4" name='desc'>{{ old('desc') }}</textarea>
-      @error('desc')
-      <div class="alert alert-danger">กรุณาใส่รายละเอียด</div>
+      <label for="addr">เลขที่</label>
+      <input type="text" class="form-control" id="addr" placeholder="เลขที่" name='addr' value='{{ old('addr') }}'>
+      @error('addr')
+      <div class="alert alert-danger">กรุณาใส่เลขที่</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
-      <label for="addr">ที่อยู่</label>
-      <textarea class="form-control" id="addr" rows="4" name='addr'>{{ old('addr') }}</textarea>
-      @error('addr')
-      <div class="alert alert-danger">กรุณาใส่ที่อยู่</div>
+      <label for="addr2">หมู่ที่</label>
+      <input type="text" class="form-control" id="addr2" placeholder="หมู่ที่" name='addr2' value='{{ old('addr2') }}'>
+      @error('addr2')
+      <div class="alert alert-danger">กรุณาใส่หมู่ที่</div>
+      @enderror
+    </div>
+    <div class="form-group col-md-6">
+      <label for="tumbon">ตำบล</label>
+      <input type="text" class="form-control" id="tumbon" placeholder="ตำบล" name='tumbon' value='{{ old('tumbon') }}'>
+      @error('tumbon')
+      <div class="alert alert-danger">กรุณาใส่ตำบล</div>
+      @enderror
+    </div>
+    <div class="form-group col-md-6">
+      <label for="city">อำเภอ</label>
+      <input type="text" class="form-control" id="city" placeholder="อำเภอ" name='city' value='{{ old('city') }}'>
+      @error('city')
+      <div class="alert alert-danger">กรุณาใส่อำเภอ</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
       <label for="province">จังหวัด</label>
-      <input type="text" class="form-control" id="province" placeholder="province" name='province' value='{{ old('province') }}'>
+      <input type="text" class="form-control" id="province" placeholder="จังหวัด" name='province' value='{{ old('province') }}'>
       @error('province')
       <div class="alert alert-danger">กรุณาใส่จังหวัด</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
       <label for="country">ประเทศ</label>
-      <input type="text" class="form-control" id="country" placeholder="country" name='country' value='{{ old('country') }}'>
+      <input type="text" class="form-control" id="country" placeholder="ประเทศ" name='country' value='{{ old('country') }}'>
       @error('country')
       <div class="alert alert-danger">กรุณาใส่ประเทศ</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
-      <label for="tel">Tel</label>
-      <input type="text" class="form-control" id="tel" placeholder="tel" name='tel' value='{{ old('tel') }}'>
+      <label for="tel">เบอร์ติดต่อ</label>
+      <input type="text" class="form-control" id="tel" placeholder="เบอร์ติดต่อ" name='tel' value='{{ old('tel') }}'>
       @error('tel')
-      <div class="alert alert-danger">กรุณาใส่Tel</div>
+      <div class="alert alert-danger">กรุณาใส่เบอร์ติดต่อ</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
@@ -82,6 +96,21 @@
     <div class="form-group col-md-6">
       <label for="logo_file">Logo</label>
       {!! Form::file('logo_file',array('class' =>'form_control','id'=>'logo_file')) !!}
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="desc">รายละเอียดโรงแรม</label>
+      <textarea class="form-control" id="desc" rows="4" name='desc'>{{ old('desc') }}</textarea>
+      @error('desc')
+      <div class="alert alert-danger">กรุณาใส่รายละเอียดโรงแรม</div>
+      @enderror
+    </div>
+    <div class="form-group col-md-6">
+      <label for="additional">รายละเอียดเพิ่มเติม</label>
+      <textarea class="form-control" id="additional" rows="4" name='additional'>{{ old('additional') }}</textarea>
+      @error('additional')
+      <div class="alert alert-danger">กรุณาใส่รายละเอียดเพิ่มเติม</div>
+      @enderror
     </div>
     <div class="form-group col-md-12 text-center ">
      <button class="g-recaptcha btn btn-primary mr-2" 

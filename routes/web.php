@@ -76,9 +76,13 @@ Route::get('company/home', [DashComsController::class, 'home']);
 Route::get('company/liststd', [DashComsController::class, 'liststd']);
 Route::get('company/setting', [DashComsController::class, 'setting'])->name('company.setting');
 Route::post('company/settingAction/{id}', [DashComsController::class, 'settingAction']);
+Route::get('company/changepass', [DashComsController::class, 'changepass'])->name('company.changepass');
+Route::post('company/changepassAction/{id}', [DashComsController::class, 'changepassAction']);
 Route::get('company/certstaff/{student_id}/{course_id}/{lang}', [DashComsController::class, 'certstaff']);
 
 //Staff Page
+Route::get('student/changepass', [DashStaffsController::class, 'changepass'])->name('student.changepass');
+Route::post('student/changepassAction/{id}', [DashStaffsController::class, 'changepassAction']);
 Route::get('student/setting', [DashStaffsController::class, 'staffsetting'])->name('student.setting');
 Route::post('student/settingAction/{id}', [DashStaffsController::class, 'staffsettingAction']);
 

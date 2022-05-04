@@ -104,12 +104,13 @@ class StudentsController extends Controller
     public function registerAction(Request $request, $project_company_id)
     {
         $request->validate([
-            'idcard' => 'required|digits:13|unique:students',
+           // 'idcard' => 'required|digits:13|unique:students',
             'mobile' => 'required',
             'fname' => 'required',
             'lname' => 'required',
             'fname_en' => 'required',
-            'lname_en' => 'required'
+            'lname_en' => 'required',
+            'birth' => 'required'
         ]);
    
         $requestData = $request->all();

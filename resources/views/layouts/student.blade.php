@@ -74,9 +74,13 @@
               <img src="{{ asset('template2/images/faces/facedf.png') }}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a href="{{ route('student.changepass') }}" class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                เปลี่ยนรหัสผ่าน
+              </a>
               <a  href="{{ route('student.setting') }}" class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
-                Settings
+                ตั้งค่า
               </a>
               <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

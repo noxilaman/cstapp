@@ -9,8 +9,11 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company_type_id', 'name', 'name_en', 'desc', 'addr', 'province', 'country', 'tel', 'email', 'contact_name', 'image', 'logo', 'status',
-    'upass', 'uname', ];
+    protected $fillable = ['company_type_id', 'name', 'name_en', 'desc', 'addr', 'province', 
+    'country', 'tel', 'email', 'contact_name', 'image', 'logo', 'status',
+    'upass', 'uname', 
+    'addr2','tumbon','city'
+    ];
 
     public function companytype()
     {
