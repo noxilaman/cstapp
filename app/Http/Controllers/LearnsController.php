@@ -6,19 +6,38 @@ use App\Models\JclQuiz;
 use App\Models\JclSection;
 use App\Models\JoinCourse;
 use App\Models\JoinCourseLesson;
+use App\Models\Student;
+use Auth;
 
 class LearnsController extends Controller
 {
     public function learnCourse($joincourse_id)
     {
+        $progress = [];
         $joincourseObj = JoinCourse::findOrFail($joincourse_id);
         //dd($joincourseObj->course->lessons()->get());
         $joinlessonrw = JoinCourseLesson::where('join_course_id', $joincourse_id)->get();
         $joinlessons = [];
+
+        $projectcompstudent = $joincourseObj->projectcompstudent;
+        $project = $joincourseObj->project;
+        $course = $joincourseObj->course;
+        $joincourse=$joincourseObj;
+        $progress['count'] = $course->lessons->count();
+            $progress['pass'] = 0;
+
         foreach ($joinlessonrw as $joinlesson) {
             $joinlessons[$joinlesson->lesson_id] = $joinlesson;
+            if ($joinlesson->progress == 'Pass') {
+                ++$progress['pass'];
+            }
         }
 
+        $jcls = $joinlessons;
+        
+        $dataStudent = Student::findOrFail(Auth::user()->student_id);
+        return view('dashboards.student', compact('dataStudent', 'projectcompstudent', 'project', 'course', 'joincourse', 'jcls', 'progress'));
+        
         return view('courses.learn', compact('joincourseObj', 'joinlessons'));
     }
 

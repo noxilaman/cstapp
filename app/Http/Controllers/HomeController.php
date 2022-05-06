@@ -39,24 +39,37 @@ class HomeController extends Controller
             $projectcompstudent = $dataStudent->projcompstudents()->first();
             $project = $projectcompstudent->projectcompany->project;
 
-            dd($project);
-            $course = $project->courses()->first();
+
+            $courses = $project->courses;
+            // dd($courses);
             $jcls = [];
             $progress = [];
-            $progress['count'] = $course->lessons->count();
-            $progress['pass'] = 0;
+            $joincourses = [];
+            foreach($courses as $courseObj){
+            
+            $progress[$courseObj->id]['count'] = $courseObj->lessons->count();
+            $progress[$courseObj->id]['pass'] = 0;
 
-            $joincourse = JoinCourse::where('proj_comp_student_id', $projectcompstudent->id)->where('course_id', $course->id)->first();
-            if (!empty($joincourse)) {
-                $jclrw = JoinCourseLesson::where('join_course_id', $joincourse->id)->get();
+            $joincourses[$courseObj->id] = JoinCourse::where('proj_comp_student_id', $projectcompstudent->id)->where('course_id', $courseObj->id)->first();
+            if (!empty($joincourses[$courseObj->id])) {
+                $jclrw = JoinCourseLesson::where('join_course_id', $joincourses[$courseObj->id]->id)->get();
                 foreach ($jclrw as $jclObj) {
-                    $jcls[$jclObj->lesson_id] = $jclObj;
+                    $jcls[$courseObj->id][$jclObj->lesson_id] = $jclObj;
 
                     if ($jclObj->progress == 'Pass') {
-                        ++$progress['pass'];
+                        ++$progress[$courseObj->id]['pass'];
                     }
                 }
             }
+            }
+
+            
+            return view('dashboards.joincourse',compact('courses','project','jcls','progress','joincourses','projectcompstudent'));
+            
+
+
+            $course = $project->courses()->first();
+            
 
             return view('dashboards.student', compact('dataStudent', 'projectcompstudent', 'project', 'course', 'joincourse', 'jcls', 'progress'));
         }

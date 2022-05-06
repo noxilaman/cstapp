@@ -18,8 +18,11 @@
                           <a href="{{ url('join/course/'.$projectcompstudent->id.'/'.$course->id) }}">สมัคร</a>
                       @else
                           <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-warning'>สมัครเข้าเรียนเมื่อ  {{ $joincourse->join_date }}</a>
+                          @if ($progress['count'] > 0)
+                              
+                         
                           <a href="{{ url('learns/course/'.$joincourse->id) }}" class='btn btn-info'>ความสำเร็จ  {{ number_format($progress['pass']*100/$progress['count'],2,'.',',') }} %</a>
-                          
+                          @endif
                       @endif</p>
                     </div>
                   </div>
