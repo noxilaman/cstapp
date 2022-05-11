@@ -8,9 +8,9 @@
      <div class="col-md-6 col-sm-12">
          <div class="block">
              <div class="form-group">
-                 <input name="citizenid" type="text" class="form-control @error('citizenid') is-invalid @enderror" placeholder="เลขบัตรประชาชน" value="{{ old('citizenid') }}">
-                 @error('citizenid')
-                 <div class="alert alert-danger">กรุณาใส่เลขบัตรประชาชน</div>
+                 <input name="birth" type="date" class="form-control @error('birth') is-invalid @enderror" placeholder="วันเกิด" value="{{ old('birth') }}">
+                 @error('birth')
+                 <div class="alert alert-danger">กรุณาใส่วันเกิดที่ถูกต้อง</div>
                  @enderror
              </div>
          </div>

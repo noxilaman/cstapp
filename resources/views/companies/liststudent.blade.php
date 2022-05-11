@@ -19,7 +19,11 @@
             </thead>
             <tbody>
               @foreach($pjcomstds as $pjcomstd)
+@if ($pjcomstd->progress == 'Pass')
+              <tr style="background-color: #6aff01;">
+               @else
                 <tr>
+                @endif
                     @php
                         $student = $pjcomstd->student;
                     @endphp

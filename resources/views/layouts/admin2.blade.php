@@ -111,7 +111,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/company_types') }}">ประเภทสถานประกอบการ</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/projects') }}">โครงการ</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">สถายประกอบการ</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">สถานประกอบการ</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">ผู้เรียน</a></li>
               </ul>
             </div>

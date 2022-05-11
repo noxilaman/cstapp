@@ -1,8 +1,8 @@
  @extends('layouts.register')
 
  @section('content')
- <h1>ลงทะเบียนเข้าร่วม<br />{{ $projectcompany->project->name }} ของบริษัท {{ $projectcompany->company->name }} </h1>
- <p>We will be here soon. Please Stay in Touch</p>
+ <h1 style="font-size: 4rem;">ลงทะเบียนเข้าร่วม<br />{{ $projectcompany->project->name }} ของ {{ $projectcompany->company->name }} </h1>
+ <p>กรุณาใส่ข้อมูลจริงเพื่อความถูกต้องของข้อมูล</p>
  <form action="{{ url('students/registerAction/'.$projectcompany->id) }}" id="regiterstudentfrm" method="POST" enctype="multipart/form-data">
      @csrf
      <div class="col-md-6 col-sm-12">

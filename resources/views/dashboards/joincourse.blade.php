@@ -25,8 +25,13 @@
                                     <div class="col-md-12">
                                         <a href="{{ url('join/course/' . $projectcompstudent->id . '/' . $courseobj->id) }}">
                                             <div class="card-body">
-                                                <p class=" ">หลักสูตร {{ $courseobj->name }}</p>
-                                                <p>สถานะ:
+                                                <div class='row'>
+                                                <div class="col-md-5">
+                                                    <img src="{{ asset('img/ico-book.png') }}" alt="" srcset="" width="150px">
+                                                </div>
+                                                <div class="col-md-7">
+<p class="p-2" style="font-size:2vw;">หลักสูตร {{ $courseobj->name }}</p>
+                                                <p class="p-2" style="font-size:1.5vw;">สถานะ:
                                                     @if (isset($joincourses[$courseobj->id]) && !empty($joincourses[$courseobj->id]))
                                                         ดำเนินการแล้ว
                                                         @if ($progress[$courseobj->id]['count'] > 0)
@@ -37,6 +42,8 @@
                                                         ยังไมไ่ด้เข้าใช้งาน
                                                     @endif
                                                 </p>
+                                                </div>
+                                                </div>
                                             </div>
                                         </a>
                                     </div>

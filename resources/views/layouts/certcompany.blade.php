@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>{{ config('app.webname', '') }}</title>
   <!-- plugins:css -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
@@ -102,12 +102,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('home') }}">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">หน้า่หลัก</span>
               </a>
             </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/company/liststd') }}">
             <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">List Students</span>
+              <span class="menu-title">รายการผู้เรียน</span>
             </a></li>
         </ul>
       </nav>

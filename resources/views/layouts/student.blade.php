@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+ <title>{{ config('app.webname', '') }}</title>
   <!-- plugins:css -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('template2/vendors/feather/feather.css') }}">
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="{{ asset('template2/stylefont2.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('template2/images/cst-mini.png') }}" />
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
     .youtube-video-container {
   position: relative;
@@ -128,7 +128,7 @@
         <ul class="nav">
           <li class="nav-item"> <a class="nav-link" href="{{ url('home') }}">
             <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">หน้า่หลัก</span>
             
             </a></li>
         </ul>

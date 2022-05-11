@@ -204,13 +204,13 @@ class StudentsController extends Controller
 
     public function forgotpassAction(Request $request){
         $request->validate([
-            'citizenid' => 'required',
+            'birth' => 'required',
             'tel' => 'required'
         ]);
 
         $requestData = $request->all();
 
-        $student = Student::where('idcard',$requestData['citizenid'])->where('mobile',$requestData['tel'])->first();
+        $student = Student::where('birth',$requestData['birth'])->where('mobile',$requestData['tel'])->first();
 
         if(!empty($student)){
            // dd($student);
