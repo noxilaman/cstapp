@@ -118,7 +118,8 @@ class StudentsController extends Controller
         $projectcompany = ProjectCompany::findOrFail($project_company_id);
 
         $tmpStudent = [];
-        $tmpStudent['idcard'] = $requestData['idcard'];
+        // $tmpStudent['idcard'] = $requestData['idcard'];
+        $tmpStudent['birth'] = $requestData['birth'];
         $tmpStudent['mobile'] = $requestData['mobile'];
         $tmpStudent['fname'] = $requestData['fname'];
         $tmpStudent['lname'] = $requestData['lname'];
@@ -127,6 +128,7 @@ class StudentsController extends Controller
         $tmpStudent['uname'] = 'base';
         $tmpStudent['upass'] = 'base';
         $tmpStudent['password'] = 'base'; //,'uname','upass','status'
+        $tmpStudent['firsttime'] = 'Y';
         $studentdata = Student::create($tmpStudent);
 
         $username = 'U'.str_pad($project_company_id, 3, '0', STR_PAD_LEFT).str_pad($studentdata->id, 3, '0', STR_PAD_LEFT);
