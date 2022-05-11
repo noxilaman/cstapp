@@ -104,30 +104,30 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Base Data</span>
+              <span class="menu-title">ข้อมูลหลัก</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/company_types') }}">Company Types</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/projects') }}">Projects</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">Companies</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">Students</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/company_types') }}">ประเภทสถานประกอบการ</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/projects') }}">โครงการ</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">สถายประกอบการ</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">ผู้เรียน</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-course" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Course Data</span>
+              <span class="menu-title">ข้อมูลวิชา</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-course">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/courses') }}">กลุ่มชุดการเรียน</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/lessons') }}">Lessons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/sections') }}">Sections</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/quizs') }}">Quizs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/lessons') }}">หัวข้อหลัก</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/sections') }}">บทเรียน</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/quizs') }}">แบบทดสอบ</a></li>
               </ul>
             </div>
           </li>
