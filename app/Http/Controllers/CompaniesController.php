@@ -224,14 +224,16 @@ class CompaniesController extends Controller
             'contact_name' => 'required',
             'name' => 'required',
             'name_en' => 'required',
-            'addr' => 'required',
-            'addr2' => 'required',
             'tumbon' => 'required',
             'city' => 'required',
             'province' => 'required',
             'country' => 'required',
             'tel' => 'required',
-            'email' => 'required'
+            'email' => 'email',
+            'contact_name' => 'required',
+            'contact_sex' => 'required',
+            'contact_tel' => 'required',
+
         ]);
   
         $requestData = $request->all();

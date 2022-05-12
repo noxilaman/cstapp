@@ -112,14 +112,14 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/company_types') }}">ประเภทสถานประกอบการ</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/projects') }}">โครงการ</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/companies') }}">สถานประกอบการ</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">ผู้เรียน</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/students') }}">สมาชิก</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-course" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">ข้อมูลวิชา</span>
+              <span class="menu-title">ชุดข้อมูล</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-course">

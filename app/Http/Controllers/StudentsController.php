@@ -110,7 +110,8 @@ class StudentsController extends Controller
             'lname' => 'required',
             'fname_en' => 'required',
             'lname_en' => 'required',
-            'birth' => 'required'
+            'birth' => 'required',
+            'sex' => 'required'
         ]);
    
         $requestData = $request->all();
@@ -129,6 +130,7 @@ class StudentsController extends Controller
         $tmpStudent['upass'] = 'base';
         $tmpStudent['password'] = 'base'; //,'uname','upass','status'
         $tmpStudent['firsttime'] = 'Y';
+        $tmpStudent['sex'] = $requestData['sex'];
         $studentdata = Student::create($tmpStudent);
 
         $username = 'U'.str_pad($project_company_id, 3, '0', STR_PAD_LEFT).str_pad($studentdata->id, 3, '0', STR_PAD_LEFT);

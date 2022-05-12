@@ -12,7 +12,8 @@ class Company extends Model
     protected $fillable = ['company_type_id', 'name', 'name_en', 'desc', 'addr', 'province', 
     'country', 'tel', 'email', 'contact_name', 'image', 'logo', 'status',
     'upass', 'uname', 
-    'addr2','tumbon','city'
+    'addr2','tumbon','city',
+    'website','contact_sex', 'contact_position', 'contact_tel'
     ];
 
     public function companytype()

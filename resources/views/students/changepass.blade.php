@@ -3,7 +3,7 @@
  @section('content')
      <div class="content-wrapper">
         <h3>ตั้งรหัสผ่านใหม่ ของพนักงานโรงแรม {{ $company->name }}</h3>
-        <label for="">ต้องยาวไม่ต่ำกว่า 6 แและไม่เกิน 20 ตัวอักษร</label>
+        <label for="">ไม่น้อยกว่า 6 ตัวอักขระ และไม่มากกว่า 20 ตัวอักขระ</label>
         <div class="row">
             <form action="{{ url('student/changepassAction/'.$student->id) }}" class="forms-sample" method="POST"
                  enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                  </div>
                  <div class='row'>
                      <div class="form-group col-12">
-                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                         <button type="submit" class="btn btn-primary mr-2">เปลี่ยนรหัสผ่าน</button>
                      </div>
                  </div>
              </form>

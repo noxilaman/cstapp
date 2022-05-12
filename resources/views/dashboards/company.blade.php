@@ -5,7 +5,7 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
-                <h3>Project {{ $projectcompany->project->name }} / บริษัท {{ $company->name }}</h3>
+                <h3>Project {{ $projectcompany->project->name }} / โรงแรม {{ $company->name }}</h3>
               </div>
               <div class='row'>
                 <div class='col-md-6 card  card-tale' >

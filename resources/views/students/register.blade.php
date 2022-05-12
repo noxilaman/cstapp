@@ -19,6 +19,14 @@
                  <div class="alert alert-danger">กรุณาใส่ขามสกุลภาษาไทย</div>
                  @enderror
              </div>
+             
+            <div class="form-group">
+                {!! Form::select('sex',['ชาย'=>'ชาย','หญิง'=>'หญิง','ไม่ระบุ'=>'ไม่ระบุ'],old('sex'),['class' => 'form-control','id'=>'sex','placeholder'=>'เพศ']) !!}
+            
+            @error('sex')
+            <div class="alert alert-danger">กรุณาใส่เพศ</div>
+            @enderror
+            </div>
              <div class="form-group">
                  <input name="birth" type="date" class="form-control @error('birth') is-invalid @enderror" placeholder="วันเกิด"  value="{{ old('birth') }}">
                  @error('birth')

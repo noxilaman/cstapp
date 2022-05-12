@@ -106,12 +106,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('home') }}">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">หน้า่หลัก</span>
+              <span class="menu-title">หน้าหลัก</span>
               </a>
             </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/company/liststd') }}">
             <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">รายการผู้เรียน</span>
+              <span class="menu-title">สมาชิก</span>
             </a></li>
         </ul>
       </nav>

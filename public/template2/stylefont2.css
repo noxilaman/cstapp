@@ -19790,7 +19790,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #F5F7FF;
+  background: #DFEEEE;
   padding: 30px 2.45rem;
   transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -21803,11 +21803,11 @@ code {
   font-size: 0.75rem;
 }
 .card.card-tale {
-  background: #7DA0FA;
+  background: #4DBDEB;
   color: #ffffff;
 }
 .card.card-tale:hover {
-  background: #96b2fb;
+  background: #4DBDEB;
 }
 .card.card-dark-blue {
   background: #4747A1;
@@ -27542,7 +27542,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #F5F7FF;
+  background: #DFEEEE;
   padding: 2.375rem 2.375rem;
   width: 100%;
   -webkit-flex-grow: 1;

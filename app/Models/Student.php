@@ -11,7 +11,7 @@ class Student extends Model
 
     protected $fillable = ['idcard', 'mobile', 'fname', 'lname',
     'fname_en', 'lname_en', 'uname', 'upass', 'status',
-        'birth','firsttime'
+        'birth','firsttime','sex'
     ];
 
     public function projcompstudents()

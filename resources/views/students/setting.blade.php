@@ -26,6 +26,11 @@
                       <label for="lname_en">นามสกุล (อังกฤษ)</label>
                       <input name="lname_en" type="text" class="form-control" placeholder="นามสกุล (อังกฤษ)" value="{{$student->lname_en}}">
                     </div>
+                    
+                  <div class="form-group col-6">
+                    <label for="sex">เพศ</label>
+                      {!! Form::select('sex',['ชาย'=>'ชาย','หญิง'=>'หญิง','ไม่ระบุ'=>'ไม่ระบุ'],old('sex'),['class' => 'form-control','id'=>'sex','placeholder'=>'เพศ']) !!}
+                  </div>
             </div>
             <div class='row'>
                     <div class="form-group col-6">
@@ -33,13 +38,13 @@
                       <input name="idcard" type="text" class="form-control" placeholder="เลขบัตรประชาชน" value="{{$student->idcard}}">
                     </div>
                     <div class="form-group col-6">
-                      <label for="mobile">เบอร์โทรศัพย์</label>
-                      <input name="mobile" type="text" class="form-control" placeholder="เบอร์โทรศัพย์" value="{{$student->mobile}}">
+                      <label for="mobile">เบอร์โทรศัพท์</label>
+                      <input name="mobile" type="text" class="form-control" placeholder="เบอร์โทรศัพท์" value="{{$student->mobile}}">
                     </div>
             </div>
             <div class='row'>
                     <div class="form-group col-12">
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mr-2">บันทึกข้อมูล</button>
                     </div>
             </div>
         </form>

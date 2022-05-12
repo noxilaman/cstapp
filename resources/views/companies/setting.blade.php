@@ -2,20 +2,18 @@
 
  @section('content')
      <div class="content-wrapper">
-         <h3>แก้ไขข้อมูล {{ $company->name }}</h3>
+         <h3>แก้ไขข้อมูลโรงแรม{{ $company->name }}</h3>
          <div class="row">
              <form action="{{ url('company/settingAction/' . $company->id) }}" class="forms-sample" method="POST"
                  enctype="multipart/form-data">
                  @csrf
                  <div class='row'>
+                     <div class="col-md-12">
+                         <h4>ข้อมูลสถานประกอบการ</h4>
+                     </div>
                      <div class="form-group col-6">
                          <label for="company_type_id">ประเภท</label>
                          {!! Form::select('company_type_id', $companytypelist, $company->company_type_id, ['class' => 'form-control', 'id' => 'company_type_id', 'placeholder' => '====Select====']) !!}
-                     </div>
-                     <div class="form-group col-6">
-                         <label for="contact_name">ผู้ติดต่อ</label>
-                         <input type="text" class="form-control" id="contact_name" placeholder="contact name"
-                             name='contact_name' value='{{ $company->contact_name }}'>
                      </div>
                  </div>
                  <div class='row'>
@@ -43,17 +41,17 @@
                      </div>
                  </div>
                  <div class='row'>
-                  <div class="form-group col-6">
-                      <label for="province">ตำบล</label>
-                      <input type="text" class="form-control" id="tumbon" placeholder="ตำบล" name='tumbon'
-                          value='{{ $company->tumbon }}'>
-                  </div>
-                  <div class="form-group col-6">
-                      <label for="country">อำเภอ</label>
-                      <input type="text" class="form-control" id="city" placeholder="อำเภอ" name='city'
-                          value='{{ $company->city }}'>
-                  </div>
-              </div>
+                     <div class="form-group col-6">
+                         <label for="province">ตำบล</label>
+                         <input type="text" class="form-control" id="tumbon" placeholder="ตำบล" name='tumbon'
+                             value='{{ $company->tumbon }}'>
+                     </div>
+                     <div class="form-group col-6">
+                         <label for="country">อำเภอ</label>
+                         <input type="text" class="form-control" id="city" placeholder="อำเภอ" name='city'
+                             value='{{ $company->city }}'>
+                     </div>
+                 </div>
                  <div class='row'>
                      <div class="form-group col-6">
                          <label for="province">จังหวัด</label>
@@ -73,31 +71,10 @@
                      </div>
                  </div>
                  <div class='row'>
-                     <div class="form-group col-12">
-                         <label for="additional">รายละเอียดเพิ่มเติม</label>
-                         <textarea class="form-control" id="additional" rows="4" name='additional'>{{ $company->additional }}</textarea>
-                     </div>
-                 </div>
-
-                 <div class='row'>
                      <div class="form-group col-6">
                          <label for="tel">เบอร์ติดต่อ</label>
                          <input type="text" class="form-control" id="tel" placeholder="เบอร์ติดต่อ" name='tel'
                              value='{{ $company->tel }}'>
-                     </div>
-                     <div class="form-group col-6">
-                         <label for="email">Email</label>
-                         <input type="text" class="form-control" id="email" placeholder="email" name='email'
-                             value='{{ $company->email }}'>
-                     </div>
-                 </div>
-                 <div class='row'>
-                     <div class="form-group col-6">
-                         <label for="image_file">Image</label><br />
-                         {!! Form::file('image_file', ['class' => 'form_control', 'id' => 'image_file']) !!}
-                         @if (!empty($company->image))
-                             <img src="{{ url($company->image) }}" width="100px" />
-                         @endif
                      </div>
                      <div class="form-group col-6">
                          <label for="logo_file">Logo</label><br />
@@ -108,8 +85,46 @@
                      </div>
                  </div>
                  <div class='row'>
+                     <div class="col-md-12">
+                         <h4>ข้อมูลในการติดต่อประสานงาน</h4>
+                     </div>
+                     <div class="form-group col-6">
+                         <label for="contact_name">ผู้ติดต่อ</label>
+                         <input type="text" class="form-control" id="contact_name" placeholder="contact name"
+                             name='contact_name' value='{{ $company->contact_name }}'>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="contact_sex">เพศ*</label>
+                         {!! Form::select('contact_sex', ['ชาย' => 'ชาย', 'หญิง' => 'หญิง', 'ไม่ระบุ' => 'ไม่ระบุ'], $company->contact_sex, ['class' => 'form-control', 'id' => 'company_type_id', 'placeholder' => '====Select====']) !!}
+
+                         @error('contact_sex')
+                             <div class="alert alert-danger">กรุณาใส่เพศ</div>
+                         @enderror
+                     </div>
+                 </div>
+                 <div class='row'>
+                     <div class="form-group col-6">
+                         <label for="contact_position">ตำแหน่ง</label>
+                         <input type="text" class="form-control" id="contact_position" placeholder="ตำแหน่ง"
+                             name='contact_position' value='{{ $company->contact_position }}'>
+                     </div>
+                     <div class="form-group col-6">
+                         <label for="contact_tel">เบอร์โทรศัพท์ผู้ประสานงาน*</label>
+                         <input type="text" class="form-control" id="contact_tel" placeholder="เบอร์โทรศัพท์ผู้ประสานงาน"
+                             name='contact_tel' value='{{ $company->contact_tel }}'>
+                     </div>
+                 </div>
+                 <div class='row'>
+                     
+                     <div class="form-group col-6">
+                         <label for="email">Email</label>
+                         <input type="text" class="form-control" id="email" placeholder="email" name='email'
+                             value='{{ $company->email }}'>
+                     </div>
+                 </div>
+                 <div class='row'>
                      <div class="form-group col-12">
-                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                         <button type="submit" class="btn btn-primary mr-2">บันทึกข้อมูล</button>
                      </div>
                  </div>
              </form>
