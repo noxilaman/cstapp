@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+   <title>{{ config('myconfig.web.title') }}</title>
   <!-- plugins:css -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('template2/vendors/feather/feather.css') }}">
@@ -28,7 +28,7 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
+              <div class="brand-logo text-center">
                 <img src="{{ asset('template2/images/cst.png') }}" alt="logo">
               </div>
               <h4>เข้าสู่ระบบ</h4>
