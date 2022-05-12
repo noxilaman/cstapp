@@ -1,22 +1,20 @@
 @extends('layouts.registerstudent')
 
 @section('content')
+<h2 class="text-center">VDO Presentation "Child Safe Friendly Tourism"</h2>
+<p class="text-center"><iframe width="560" height="315" src="https://www.youtube.com/embed/hM2BtjyZjts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โครงการส่งเสริมธุรกิจท่องเที่ยวที่ปลอดภัยและเป็นมิตรต่อเด็ก “Child Safe Friendly Tourism” ดำเนินการโครงการโดยเครือข่ายภาครัฐ องค์กรพัฒนาเอกชน และภาคธุรกิจ โดยมีความมุ่งหมายให้สถานประกอบการโรงแรมและบุคลากรได้รับการพัฒนาศักยภาพเกี่ยวกับการคุ้มครองเด็ก, การป้องกันปัญหาการค้ามนุษย์และการแสวงหาประโยชน์ทางเพศจากเด็กทุกรูปแบบ</p>
 <form action="{{ url('companies/registerAction/'.$project->id) }}" id="regiterstudentfrm"  method="POST" enctype="multipart/form-data">
   @csrf
-
   <div class="row">
+    <div class="col-md-12">
+      <h3>ข้อมูลสถานประกอบการ</h3>
+    </div>
     <div class="col-md-6">
-      <label for="contact_name">ประเภท</label>
+      <label for="contact_name">ประเภทสถานประกอบการ*</label>
       {!! Form::select('company_type_id',$companytypelist,null,['class' => 'form-control','id'=>'company_type_id','placeholder'=>'====Select====']) !!}
       @error('company_type_id')
       <div class="alert alert-danger">กรุณาประเภทสถานประกอบการ</div>
-      @enderror
-    </div>
-    <div class="col-md-6">
-      <label for="contact_name">ผู้ติดต่อ</label>
-      <input type="text" class="form-control" id="contact_name" placeholder="contact name" name='contact_name' value="{{ old('contact_name') }}">
-      @error('contact_name')
-      <div class="alert alert-danger">กรุณาใส่ข้อมูลผู้ติดต่อ</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
@@ -76,26 +74,18 @@
       @enderror
     </div>
     <div class="form-group col-md-6">
-      <label for="tel">เบอร์ติดต่อ</label>
+      <label for="tel">เบอร์ติดต่อโรงแรม* </label>
       <input type="text" class="form-control" id="tel" placeholder="เบอร์ติดต่อ" name='tel' value='{{ old('tel') }}'>
       @error('tel')
-      <div class="alert alert-danger">กรุณาใส่เบอร์ติดต่อ</div>
+      <div class="alert alert-danger">กรุณาใส่เบอร์ติดต่อโรงแรม</div>
       @enderror
     </div>
     <div class="form-group col-md-6">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="email" name='email' value='{{ old('email') }}'>
-      @error('email')
-      <div class="alert alert-danger">กรุณาใส่email</div>
+      <label for="tel">Website* </label>
+      <input type="text" class="form-control" id="tel" placeholder="เบอร์ติดต่อ" name='tel' value='{{ old('tel') }}'>
+      @error('tel')
+      <div class="alert alert-danger">กรุณาใส่Website</div>
       @enderror
-    </div>
-    <div class="form-group col-md-6">
-      <label for="image_file">Image</label>
-      {!! Form::file('image_file',array('class' =>'form_control','id'=>'image_file')) !!}
-    </div>
-    <div class="form-group col-md-6">
-      <label for="logo_file">Logo</label>
-      {!! Form::file('logo_file',array('class' =>'form_control','id'=>'logo_file')) !!}
     </div>
 
     <div class="form-group col-md-6">
@@ -105,18 +95,54 @@
       <div class="alert alert-danger">กรุณาใส่รายละเอียดโรงแรม</div>
       @enderror
     </div>
+
     <div class="form-group col-md-6">
-      <label for="additional">รายละเอียดเพิ่มเติม</label>
-      <textarea class="form-control" id="additional" rows="4" name='additional'>{{ old('additional') }}</textarea>
-      @error('additional')
-      <div class="alert alert-danger">กรุณาใส่รายละเอียดเพิ่มเติม</div>
+      <label for="logo_file">Logo</label>
+      {!! Form::file('logo_file',array('class' =>'form_control','id'=>'logo_file')) !!}
+    </div>
+    <div class="col-md-12">
+      <h3>ข้อมูลในการติดต่อประสานงาน</h3>
+    </div>
+    <div class="col-md-6">
+      <label for="contact_name">ชื่อผู้ประสานงาน*</label>
+      <input type="text" class="form-control" id="contact_name" placeholder="contact name" name='contact_name' value="{{ old('contact_name') }}">
+      @error('contact_name')
+      <div class="alert alert-danger">กรุณาใส่ข้อมูลผู้ติดต่อ</div>
+      @enderror
+    </div>
+    <div class="col-md-6">
+      <label for="contact_name">เพศ</label>
+      <input type="text" class="form-control" id="contact_name" placeholder="contact name" name='contact_name' value="{{ old('contact_name') }}">
+      @error('contact_name')
+      <div class="alert alert-danger">กรุณาใส่ข้อมูลผู้ติดต่อ</div>
+      @enderror
+    </div>
+    <div class="col-md-6">
+      <label for="contact_name">ตำแหน่ง</label>
+      <input type="text" class="form-control" id="contact_name" placeholder="contact name" name='contact_name' value="{{ old('contact_name') }}">
+      @error('contact_name')
+      <div class="alert alert-danger">กรุณาใส่ข้อมูลผู้ติดต่อ</div>
+      @enderror
+    </div>
+    <div class="col-md-6">
+      <label for="contact_name">เบอร์โทรศัพท์ผู้ประสานงาน*</label>
+      <input type="text" class="form-control" id="contact_name" placeholder="contact name" name='contact_name' value="{{ old('contact_name') }}">
+      @error('contact_name')
+      <div class="alert alert-danger">กรุณาใส่ข้อมูลผู้ติดต่อ</div>
+      @enderror
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="email" name='email' value='{{ old('email') }}'>
+      @error('email')
+      <div class="alert alert-danger">กรุณาใส่email</div>
       @enderror
     </div>
     <div class="form-group col-md-12 text-center ">
      <button class="g-recaptcha btn btn-primary mr-2" 
         data-sitekey="{{ config('app.recapkey', '') }}" 
         data-callback='onSubmit' 
-        data-action='submit' >สมัคร</button>
+        data-action='submit' >สมัครเข้าร่วมโครงการ</button>
     </div>
   </div>
 </form>
