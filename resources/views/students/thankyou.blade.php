@@ -1,7 +1,8 @@
  @extends('layouts.register')
 
 @section('content')
-<h1>ขอบคุณที่ลงทะบียน<br/>{{ $pjcomstd->project->name }} ของบริษัท {{ $pjcomstd->company->name }} </h1>
+<h1>ขอบคุณที่ลงทะบียน {{ $pjcomstd->project->name }}</h1>
+<h1>ของโรงแรม{{ $pjcomstd->company->name }} </h1>
                     <p>กรุณาCapหน้าจอมือถือ หรือ จด User / Pass เพื่อใช้ในการเข้าระบบครั้งต่อไป</p>
                         <div class="col-md-12 col-sm-12">
                     <div class="block">
