@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JoinCourse;
 use App\Models\JoinCourseLesson;
+use App\Models\Company;
 use App\Models\Project;
 use App\Models\Student;
 use Auth;
@@ -29,8 +30,9 @@ class HomeController extends Controller
     {
         if (Auth::user() && Auth::user()->group->name == 'admin') {
             $project = Project::where('status', 'Active')->first();
-
-            return view('admin.dashboards.admin', compact('project'));
+            $companies = Company::where('status', 'Active')->get();
+            // dd($companies[0]->projectselectcompanies($project->id)->projectcompstudents->count());
+            return view('admin.dashboards.admin', compact('project', 'companies'));
         } elseif (Auth::user() && Auth::user()->group->name == 'company') {
             return redirect('/company/home');
         } elseif (Auth::user() && Auth::user()->group->name == 'student') {

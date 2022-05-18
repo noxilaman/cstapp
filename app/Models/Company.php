@@ -25,4 +25,10 @@ class Company extends Model
     {
         return $this->hasMany('App\Models\ProjectCompany', 'company_id');
     }
+
+    public function projectselectcompanies($id)
+    {
+        
+        return $this->projectcompanies()->where('project_id',$id)->first();
+    }
 }

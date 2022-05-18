@@ -36,6 +36,11 @@ class ProjCompStudent extends Model
         return $this->hasMany(JoinCourse::class, 'proj_comp_student_id');
     }
 
+    public function joinselectedcourse($id)
+    {
+        return $this->joincourses()->where('course_id',$id)->first();
+    }
+
     public function updateprogress($id)
     {
         $projcompstudent = self::findOrFail($id);
