@@ -44,6 +44,7 @@
                                               <img src="{{ asset('img/ico-trophy.png') }}" alt=""
                                                  srcset="" width="150px">
                                           @else
+                                                
                                               <div id="chart_div" style="width: 150px; height: 150px;"></div>
                                           @endif
                                           
@@ -54,37 +55,54 @@
                              </div>
                          </div>
                          <div class="row">
-                             <div class="col-md-12">
+                             <div class="col-12">
                                  <div class="card-body">
+                                    <div class="row">
                                      @foreach ($course->lessons()->get() as $item)
-                                         <p class="mb-1">
+                                     <div class="col-12 col-md-6">
+                                     <p class="mb-1">
+                                         <div class="row">
                                              @if (isset($jcls[$item->id]))
                                                  <a class="
                             @if ($jcls[$item->id]->progress == 'Pass') btn-success 
                             @else
-                            btn-secondary @endif
+                            btn-info @endif
                             btn  btn-block"
                                                      href="{{ url('/join/lesson/' . $jcls[$item->id]->join_course_id . '/' . $item->id) }}">
+                                                     <div class="col-3" >
                                                      @if ($jcls[$item->id]->progress == 'Pass')
-                                                         <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                                                     
+                                                     <img src="{{ asset('img/ico-pass.png') }}" alt="" width="50px" srcset="">
+                                                     @else
+                                                        <img src="{{ asset('img/ico-Inprogress.png') }}" alt="" width="50px" srcset="">
                                                      @endif
-                                                     Lesson: {{ $item->name }}<br />Status:
+                                                    </div>
+                                                    <div class="col-9">
+Lesson: {{ $item->name }}<br />Status:
                                                      {{ $jcls[$item->id]->progress }}
+                                                    </div>
+                                                     
                                                  </a>
                                              @else
+                                                 
                                                  @if (!empty($joincourse))
-                                                     <a class="btn-warning btn  btn-block"
+                                                     <a class="btn-info btn  btn-block"
                                                          href="{{ url('/join/lesson/' . $joincourse->id . '/' . $item->id) }}">
-                                                         Lesson: {{ $item->name }}<br />Status: -
+                                                         <img src="{{ asset('img/ico-join.png') }}" alt="" width="50px" srcset="">
+                                                         Lesson: {{ $item->name }}<br />Status: Join
+                                                 
                                                      </a>
                                                  @else
-                                                     <a class="btn-warning btn  btn-block" href="#">
-                                                         Lesson: {{ $item->name }}<br />Status:
+                                                     <a class="btn-info btn  btn-block" href="#">
+                                                         Lesson: {{ $item->name }}<br />Status: Join
                                                      </a>
                                                  @endif
                                              @endif
                                          </p>
+                                        </div>
+                                        </div>
                                      @endforeach
+                                    </div>
                                  </div>
                              </div>
                          </div>
