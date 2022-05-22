@@ -7,7 +7,10 @@
               <div class="row">
                 <h3>การเรียนรู้</h3>
               </div>
-              <a href="{{ url('/learns/lesson/'.$jclObj->lesson_id) }}" class='btn btn-success' >ย้อนกลับ</a>
+              @php
+                  // dd($jclObj);
+              @endphp
+              <a href="{{ url('/learns/lesson/'.$jclObj->id) }}" class='btn btn-success' >ย้อนกลับ</a>
               <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{ $jclObj->lesson->name }}</h5>

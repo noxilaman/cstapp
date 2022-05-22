@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JclQuiz;
 use App\Models\JclSection;
+use App\Models\Section;
 use App\Models\JoinCourse;
 use App\Models\JoinCourseLesson;
 use App\Models\ProjCompStudent;
@@ -105,5 +106,43 @@ class JoinsController extends Controller
 
             JclQuiz::create($tmpJCLQuiz);
         }
+    }
+
+    public function joinSelectSections($joincourselesson_id,$section_id)
+    {
+        $joincourselesson = JoinCourseLesson::findOrFail($joincourselesson_id);
+        $section = Section::findOrFail($section_id);
+        //foreach ($joincourselesson->lesson->sections()->get() as $section) {
+            $tmpJCLSection = [];
+            $tmpJCLSection['join_course_lesson_id'] = $joincourselesson->id;
+            $tmpJCLSection['section_id'] = $section->id;
+            $tmpJCLSection['join_date'] = date('Y-m-d');
+            $tmpJCLSection['end_date'] = date('Y-m-d', strtotime('+1 year'));
+            $tmpJCLSection['progress'] = 'Join';
+            $tmpJCLSection['status'] = 'Active';
+
+
+
+            $limitquiz = 3;
+            if (isset($section->limit_quiz)) {
+                $limitquiz = $section->limit_quiz;
+            }
+
+            $jclSection = JclSection::create($tmpJCLSection);
+
+            foreach ($section->quizs()->inRandomOrder()->limit($limitquiz)->get() as $quiz) {
+                $tmpJCLQuiz = [];
+                $tmpJCLQuiz['jcl_section_id'] = $jclSection->id;
+                $tmpJCLQuiz['quiz_id'] = $quiz->id;
+                $tmpJCLQuiz['join_date'] = date('Y-m-d');
+                $tmpJCLQuiz['end_date'] = date('Y-m-d', strtotime('+1 year'));
+                $tmpJCLQuiz['time_no'] = 0;
+                $tmpJCLQuiz['progress'] = 'Join';
+                $tmpJCLQuiz['status'] = 'Active';
+
+                JclQuiz::create($tmpJCLQuiz);
+            }
+        //}
+        return redirect('/learns/section/'.$joincourselesson->id.'/'.$jclSection->id);
     }
 }

@@ -5,7 +5,10 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row mb-4">
-                <div class="col-md-12"><a href="{{ url('/home') }}" class='btn btn-success' >ย้อนกลับ</a>
+                @php
+                    // dd($jclObj)
+                @endphp
+                <div class="col-md-12"><a href="{{ url('/learns/course/'.$jclObj->join_course_id) }}" class='btn btn-success' >ย้อนกลับ</a>
                 <h3>รายการบทเรียนของ {{ $jclObj->lesson->name }}</h3>  
                 </div>
                 
@@ -29,13 +32,14 @@
                                 @if ($jclQuizFlags[$item->id])
                                     <a href="{{ url('exams/review/'.$jclSections[$item->id]->id) }}" class='btn btn-success'>รีวิวคำตอบ</a>
                                 @else
-                                    <a href="{{ url('exams/play/'.$jclSections[$item->id]->id) }}" class='btn btn-primary'>ทดสอบ</a>
+                                    <a href="{{ url('exams/play/'.$jclSections[$item->id]->id) }}" class='btn btn-info'>ทดสอบ</a>
                                 @endif
                                 
                             @else 
-                                <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-primary'>เข้าเรียน</a>
+                                <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-info'>เข้าเรียน</a>
                             @endif
-                            
+                          @else
+                          <a href="{{ url('join/selectedsection/'.$jclObj->id.'/'.$item->id) }}" class='btn btn-info'>เข้าเรียน</a>
                             
                           @endif
                       </p>

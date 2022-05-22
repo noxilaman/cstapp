@@ -63,9 +63,13 @@ Route::get('students/qrcode/{project_company_id}', [StudentsController::class, '
 Route::get('join/course/{project_com_student_id}/{course_id}', [JoinsController::class, 'studentJoinCourse']);
 Route::get('learns/course/{joincourse_id}', [LearnsController::class, 'learnCourse']);
 Route::get('join/lesson/{join_course_id}/{lesson_id}', [JoinsController::class, 'studentJoinLesson']);
+Route::get('join/selectedsection/{join_course_id}/{section_id}', [JoinsController::class, 'joinSelectSections']);
+
 Route::get('learns/lesson/{joincourselesson_id}', [LearnsController::class, 'learnLesson']);
 Route::get('learns/section/{joincourselesson_id}/{jclsection_id}', [LearnsController::class, 'learnSection']);
 Route::get('learns/sectionchangestatus/{jclsection_id}/{status}', [LearnsController::class, 'sectionChangeStatus']);
+
+
 //Exams
 Route::get('exams/play/{joincourselesson_id}', [ExamsController::class, 'play']);
 Route::post('exams/playAction/{joincourselesson_id}', [ExamsController::class, 'playAction']);
