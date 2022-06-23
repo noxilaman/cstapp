@@ -13,7 +13,8 @@ class Company extends Model
     'country', 'tel', 'email', 'contact_name', 'image', 'logo', 'status',
     'upass', 'uname', 
     'addr2','tumbon','city',
-    'website','contact_sex', 'contact_position', 'contact_tel'
+    'website','contact_sex', 'contact_position', 'contact_tel',
+    'com_email'
     ];
 
     public function companytype()

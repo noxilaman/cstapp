@@ -77,6 +77,11 @@
                              value='{{ $company->tel }}'>
                      </div>
                      <div class="form-group col-6">
+                        <label for="com_email">Email สถานประกอบการ</label>
+                        <input type="text" class="form-control" id="com_email" placeholder="เบอร์ติดต่อ" name='com_email'
+                            value='{{ $company->com_email }}'>
+                    </div>
+                     <div class="form-group col-6">
                          <label for="logo_file">Logo</label><br />
                          {!! Form::file('logo_file', ['class' => 'form_control', 'id' => 'logo_file']) !!}
                          @if (!empty($company->logo))

@@ -14,14 +14,14 @@
      <div class="col-md-6 col-sm-12">
          <div class="block">
              <div class="form-group">
-                 <h2>User : {{ $company->uname }}</h2>
+                 <h2>User : {{ $student->uname }}</h2>
              </div>
          </div>
      </div>
      <div class="col-md-6 col-sm-12">
          <div class="block">
              <div class="form-group">
-                <h2>รหัสผ่าน : {{ $company->upass }}</h2>
+                <h2>รหัสผ่าน : {{ $student->upass }}</h2>
              </div>
          </div>
      </div>

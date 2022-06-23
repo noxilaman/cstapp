@@ -313,4 +313,26 @@ class CompaniesController extends Controller
 
         return view('admin.courses.cert_demo', compact('course', 'lang', 'company'));
     }
+
+    public function forgotpass(){
+        return view('companies.forgotpass');
+    }
+
+    public function forgotpassAction(Request $request){
+        $request->validate([
+            'com_email' => 'required',
+        ]);
+
+        $requestData = $request->all();
+
+        $company = Company::where('com_email',$requestData['com_email'])->first();
+
+        if(!empty($student)){
+           // dd($student);
+            return view('companies.forgotpassresult',compact(('company')));
+        }else{
+            $message = "ไม่พบข้อมูล";
+            return view('companies.forgotpassresult',compact(('company')));
+        }
+    }
 }
