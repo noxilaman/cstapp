@@ -29511,4 +29511,27 @@ div.tagsinput span.tag a {
   }
 }
 
+/* theme color and new css*/
+
+.btn {margin-bottom: 5px !important; }
+/*background color*/
+.themebgb1 {background-color: #4DBDEB !important;}
+.themebgb2 {background-color: #DFEEEE !important;}
+.themebgy1 {background-color: #FFE08C !important;}
+.themebgw {background-color: #ffffff !important;}
+.themebgft {background-color: #263e78 !important; }
+
+
+/* font color */
+.themefontb1 {color:#4DBDEB;}
+.themefontb2 {color:#DFEEEE;}
+.themefontb3{color: #263e78;}
+.themefonty1 , .themefonty1 a{color: #FFE08C;}
+.themefontw {color: #ffffff !important;}
+
+.btn:hover {opacity: .9;}
+
+.left-b-bd {border-left: 3px solid #4DBDEB !important;}
+
+
 /*# sourceMappingURL=stylefont2.css.map */

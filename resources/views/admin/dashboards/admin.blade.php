@@ -21,24 +21,33 @@
                  </div>
 
                  <div class='row'>
-                     <div class="col-lg-6 grid-margin stretch-card">
-                         <div class="card">
-                             <div class="card-body text-center">
-                               <img class="p-2" src="{{ asset('img/ico-hotel.png') }}" alt=""
-                                                 srcset="" width="100px">
-                                 <h4>จำนวนสถานบริการที่เข้าร่วม : {{ $project->projectcompanies->count() }} สถานประกอบการ</h4>
+                    <div class="col-lg-6 grid-margin stretch-card ">
+                        <div class="card">
+                            <div class="row card-body text-center d-flex align-items-center ">
+                               <div class="col-12 col-lg-4">
+                               <img class="w-100" src="{{ asset('/newver/img/ico-hotel.png') }}" alt="" srcset="" >
+
                              </div>
-                         </div>
-                     </div>
-                     <div class="col-lg-6 grid-margin stretch-card">
-                         <div class="card">
-                             <div class="card-body text-center">
-                               <img class="p-2" src="{{ asset('img/ico-person.png') }}" alt=""
-                                                 srcset="" width="100px">
-                                 <h4>จำนวนผู้เรียนที่เข้าร่วมทั้งหมด : {{ $totalstudent }} คน</h4>
-                             </div>
-                         </div>
-                     </div>
+                              <div class="col-12 col-lg-8">
+                                <h4 lass="card-title">จำนวนสถานบริการที่เข้าร่วม</h4>
+                                 <h1 class="themefontb1"> {{ $project->projectcompanies->count() }} </h1></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="card">
+                          <div class="row card-body text-center d-flex align-items-center ">
+                            <div class="col-12 col-lg-4">
+                              <img class="w-100" src="{{ asset('/newver/img/ico-person.png') }}" alt="" srcset="" >
+
+                            </div>
+                            <div class="col-12 col-lg-8">
+                              <h4 lass="card-title">จำนวนผู้เรียนที่เข้าร่วมทั้งหมด</h4>
+                              <h1 class="themefontb1"> {{ $totalstudent }} </h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                      <div class="col-lg-12 grid-margin stretch-card">
                          <div class="card">
                              <div class="card-body">
@@ -50,7 +59,6 @@
                  </div>
              </div>
          </div>
-     </div>
 
      <script>
          const ctx = document.getElementById('barChart').getContext('2d');
@@ -59,7 +67,7 @@
              data: {
                  labels: [
                      @foreach ($companies as $company)
-                         '{{ $company->name }}',
+                         '[{{ $company->name }}]',
                      @endforeach
                  ],
                  datasets: [
@@ -77,7 +85,7 @@
                      ],
                  backgroundColor: [
                     @foreach ($companies as $company)
-                  'rgba(0, 0, 255, 0.5)',
+                  'rgba(38, 62, 120, .9)',
                   @endforeach
                 ]
                  },{
@@ -94,7 +102,7 @@
                      ],
                  backgroundColor: [
                     @foreach ($companies as $company)
-                  'rgba(0, 255, 0, 0.5)',
+                  'rgba(77, 189, 235, 0.9)',
                   @endforeach
                 ]
                  },{
@@ -111,29 +119,39 @@
                      ],
                  backgroundColor: [
                     @foreach ($companies as $company)
-                  'rgba(255, 255, 0, 0.5)',
+                  'rgba(255, 224, 140, .9)',
                   @endforeach
                 ]
                  }]
              },
              options: {
                 scales: {
-      x: {
-        stacked: true,
-      },
-      y: {
-        stacked: true
-      }
-    },
-                 legend: {
-                     display: false
+                  // x: {stacked: true,},
+                  // y: {stacked: true},
+                  myChart: {
+                    position: 'right', 
+                  }
+                },
+                
+                legend: {
+                     display: false,
+                    
                  },
                  elements: {
                      point: {
-                         radius: 0
+                         radius: 2,
+                         
                      }
-                 }
+                 },
+                 layout: {
+                    padding: 20
+                  }
+                
+                
+                 
              }
          });
      </script>
+
+
  @endsection

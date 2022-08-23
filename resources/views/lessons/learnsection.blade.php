@@ -35,7 +35,30 @@
             </div>
           </div>
         </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">สถานะการเรียนบทนี้</h5>
+        <button type="button" class="closemodal" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <a id="passblock" href="{{ url('exams/play/'.$jclSection->id)  }}"
+          @if ($jclSection->progress != 'Pass')
+          style="display:none"     
+          @endif 
+          class="bth btn-success btn-lg">ผ่าน และ ทำแบบทดสอบ</a>
+      </div>
+    </div>
+  </div>
+</div>
+
         <script>
+
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player( 'player', {
@@ -51,7 +74,18 @@
       }
       function showpass(){
           $("#passblock").show(1000);
+          
+          setTimeout(() => {
+            console.log('run');
+            $('#exampleModal').modal('show');
+          }, 3000);
       }
+
+      $('.closemodal').on('click',()=>{
+        $('#exampleModal').modal('hide');
+      });
+
+      
       //showpass();
     </script>
 @endsection
