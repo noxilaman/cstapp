@@ -4,13 +4,13 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
-              <div class="row">
+              <div class="pb-3">
                 <h3>การเรียนรู้</h3>
               </div>
               @php
                   // dd($jclObj);
               @endphp
-              <a href="{{ url('/learns/lesson/'.$jclObj->id) }}" class='btn btn-success' >ย้อนกลับ</a>
+              <a href="{{ url('/learns/lesson/'.$jclObj->id) }}" class='btn themebgy1' >ย้อนกลับ</a>
               <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{ $jclObj->lesson->name }}</h5>

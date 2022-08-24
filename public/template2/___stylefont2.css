@@ -10519,7 +10519,6 @@ textarea.tt-hint, .select2-container--default .select2-selection--single textare
 
 .form-group {
   margin-bottom: 1rem;
-
 }
 
 .form-text {
@@ -13488,7 +13487,7 @@ input[type=button].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #e3e3e3;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 .card > hr {
   margin-right: 0;
@@ -20269,7 +20268,6 @@ code {
 
 .fs-30 {
   font-size: 30px;
-  color: #333333;
 }
 
 .chartjs-legend ul {
@@ -21805,13 +21803,12 @@ code {
   font-size: 0.75rem;
 }
 .card.card-tale {
-  background: #fff;
-  color: #090a0d;
-  padding: 20px;
-}
-/* .card.card-tale:hover {
   background: #4DBDEB;
-} */
+  color: #ffffff;
+}
+.card.card-tale:hover {
+  background: #4DBDEB;
+}
 .card.card-dark-blue {
   background: #4747A1;
   color: #ffffff;
@@ -29514,6 +29511,27 @@ div.tagsinput span.tag a {
   }
 }
 
+/* theme color and new css*/
+
+.btn {margin-bottom: 5px !important; }
+/*background color*/
+.themebgb1 {background-color: #4DBDEB !important;}
+.themebgb2 {background-color: #DFEEEE !important;}
+.themebgy1 {background-color: #FFE08C !important;}
+.themebgw {background-color: #ffffff !important;}
+.themebgft {background-color: #263e78 !important; }
+
+
+/* font color */
+.themefontb1 {color:#4DBDEB;}
+.themefontb2 {color:#DFEEEE;}
+.themefontb3{color: #263e78;}
+.themefonty1 , .themefonty1 a{color: #FFE08C;}
+.themefontw {color: #ffffff !important;}
+
+.btn:hover {opacity: .9;}
+
+.left-b-bd {border-left: 3px solid #4DBDEB !important;}
+
+
 /*# sourceMappingURL=stylefont2.css.map */
-
-

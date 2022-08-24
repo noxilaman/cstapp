@@ -38,7 +38,7 @@ class LearnsController extends Controller
         $dataStudent = Student::findOrFail(Auth::user()->student_id);
         return view('dashboards.student', compact('dataStudent', 'projectcompstudent', 'project', 'course', 'joincourse', 'jcls', 'progress'));
         
-        return view('courses.learn', compact('joincourseObj', 'joinlessons'));
+        //return view('courses.learn', compact('joincourseObj', 'joinlessons'));
     }
 
     public function learnLesson($joincourselesson_id)
