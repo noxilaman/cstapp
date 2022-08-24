@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <!-- saved from url=(0037)https://childsafefriendlytourism.com/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,21 +16,21 @@
 
 
   <!-- plugins:css -->
-  <link href="{{ asset('newver/css/css2')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('newver/css/feather.css')}}">
-  <link rel="stylesheet" href="{{ asset('newver/css/themify-icons.css')}}">
-  <link rel="stylesheet" href="{{ asset('newver/css/vendor.bundle.base.css')}}">
-  <link rel="stylesheet" href="{{ asset('newver/css/style.css')}}">
+  <link href="{{ asset('/newver/css/css2')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('/newver/css/feather.css')}}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/vendor.bundle.base.css')}}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/style.css')}}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{ asset('newver/css/dataTables.bootstrap4.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('newver/css/select.dataTables.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/newver/css/select.dataTables.min.css')}}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="{{ asset('newver/css/stylefont2.css')}}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/stylefont2.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('newver/img/cst-mini.png')}}">
-  <script src="{{ asset('newver/js/jquery-3.6.0.min.js')}}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="{{ asset('/newver/img/cst-mini.png')}}">
+  <script src="{{ asset('/newver/js/jquery-3.6.0.min.js')}}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Required meta tags -->
 </head>
 <body>
@@ -159,30 +162,30 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- plugins:js -->
-  <script src="{{ asset('newver/js/vendor.bundle.base.js')}}"></script>
+  <script src="{{ asset('/newver/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-    <script src="{{ asset('newver/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('/newver/js/bootstrap.bundle.min.js')}}"></script>
 
-  <script src="{{ asset('newver/js/Chart.min.js')}}"></script>
-  <script src="{{ asset('newver/js/jquery.dataTables.js')}}"></script>
-  <script src="{{ asset('newver/js/dataTables.bootstrap4.js')}}"></script>
-  <script src="{{ asset('newver/js/dataTables.select.min.js')}}"></script>
+  <script src="{{ asset('/newver/js/Chart.min.js')}}"></script>
+  <script src="{{ asset('/newver/js/jquery.dataTables.js')}}"></script>
+  <script src="{{ asset('/newver/js/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{ asset('/newver/js/dataTables.select.min.js')}}"></script>
  
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="{{ asset('newver/js/off-canvas.js')}}"></script>
-  <script src="{{ asset('newver/js/hoverable-collapse.js')}}"></script>
-  <script src="{{ asset('newver/js/template.js')}}"></script>
-  <script src="{{ asset('newver/js/settings.js')}}"></script>
-  <script src="{{ asset('newver/js/todolist.js')}}"></script>
+  <script src="{{ asset('/newver/js/off-canvas.js')}}"></script>
+  <script src="{{ asset('/newver/js/hoverable-collapse.js')}}"></script>
+  <script src="{{ asset('/newver/js/template.js')}}"></script>
+  <script src="{{ asset('/newver/js/settings.js')}}"></script>
+  <script src="{{ asset('/newver/js/todolist.js')}}"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
 
-  <script src="{{ asset('newver/css/chart.js')}}"></script>
-  <script src="{{ asset('newver/js/dashboard.js')}}"></script>
-  <script src="{{ asset('newver/js/Chart.roundedBarCharts.js')}}"></script>
+  <script src="{{ asset('/newver/css/chart.js')}}"></script>
+  <script src="{{ asset('/newver/js/dashboard.js')}}"></script>
+  <script src="{{ asset('/newver/js/Chart.roundedBarCharts.js')}}"></script>
   
 
 

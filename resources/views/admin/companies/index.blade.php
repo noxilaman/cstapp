@@ -27,7 +27,7 @@
                 <tr>
                     <th scope="row">{{ $company->id }}</th>
                     <td>{{ $company->name }}</td>
-                    <td>{{ $company->companytype->name }}</td>
+                    <td>{{ $company->companytype->name ?? ''}}</td>
                     <td>@foreach($company->projectcompanies()->get() as $projectcompany)
                       {{ $projectcompany->project->name }} 
                       @if ($company->status == 'Active')

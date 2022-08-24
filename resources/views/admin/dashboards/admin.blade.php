@@ -13,7 +13,7 @@
     }
     // dd($companydata);
 @endphp
-     <div class="content-wrapper">
+     <div class="content-wrapper py-1">
          <div class="row">
              <div class="col-md-12 grid-margin">
                  <div class="row">

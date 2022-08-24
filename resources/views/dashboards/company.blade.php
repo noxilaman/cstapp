@@ -1,21 +1,23 @@
  @extends('layouts.company')
 
 @section('content')
-        <div class="content-wrapper">
+        <div class="content-wrapper py-1">
           <div class="row">
             <div class="col-md-12 grid-margin">
-              <div class="row">
-                <h3>Project {{ $projectcompany->project->name }} / โรงแรม {{ $company->name }}</h3>
+              <div class="row pb-3">
+                <h3>Project {{ $projectcompany->project->name }} / <span class="themefontb1">โรงแรม {{ $company->name }}</span> </h3>
               </div>
               <div class='row'>
-                <div class="col-lg-6 grid-margin stretch-card">
-                  <div class="card">
-                      <div class="card-body">
-                  <h4>จำนวนผู้ลงทะเบียน : {{  $projectcompany->projectcompstudents->count(); }} คน</h4>
-                    </div>
+                <div class="col-lg-6 grid-margin stretch-card text-center">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">จำนวนผู้เรียนที่เข้าร่วมทั้งหมด</h4>
+                    <h1 class="themefontb1"> {{  $projectcompany->projectcompstudents->count(); }} </h1>
+                    <img class="w-100" src="{{ asset('/newver/img/ico-person-01.png') }}" alt="" srcset="" >
                 </div>
                 </div>
-                <div class="col-lg-6 grid-margin stretch-card">
+                </div>
+                <div class="col-lg-6 grid-margin stretch-card  text-center">
                   <div class="card">
                       <div class="card-body">
                           <h4 class="card-title">จำนวนคนเรียนแยกตามสถานะ</h4>
@@ -32,14 +34,14 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['ผ่าน', 'กำลังเรียน', 'สมัคร'],
+        labels: ['สมัคร' ,'ผ่าน', 'กำลังเรียน'],
         datasets: [{
           label: 'ข้อมูลผู้ที่ลงทะเบียนของบริษัท {{ $company->name }}',
-          data: [{{ $stat['pass'] }}, {{ $stat['inprogress'] }}, {{ $stat['join'] }}],
+          data: [{{ $stat['join'] }}, {{ $stat['inprogress'] }}, {{ $stat['pass'] }}],
           backgroundColor: [
-            'rgb(0, 255, 0)',
-            'rgb(0, 255, 255)',
-            'rgb(255, 255, 0)'
+            'rgb(138, 62, 120)',
+            'rgb(77, 189, 235)',
+            'rgb(255, 254, 140)'
           ],
         }]
     },
