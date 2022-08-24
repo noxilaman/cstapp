@@ -87,18 +87,20 @@
                                                          <a class="btn-info btn  btn-block"
                                                              href="{{ url('/join/lesson/' . $joincourse->id . '/' . $item->id) }}">
                                                              <div class="row">
-                                                                 <div class="col-3">
+                                                                 <div class="col-2">
                                                                      <img src="{{ asset('img/ico-join.png') }}"
-                                                                         alt="" width="50px" srcset="">
+                                                                     alt="" class="w-100" srcset="">
                                                                  </div>
-                                                                 <div class="col-9 font-weight-bold">
-                                                                     Lesson: {{ $item->name }}<br />Status: Join
+                                                                 <div class="col-10 font-weight-bold text-left">
+                                                                     <h4>Lesson: {{ $item->name }}</h4>
+                                                                <h3>Status: Join</h3>
                                                                  </div>
                                                              </div>
                                                          </a>
                                                      @else
                                                          <a class="btn-info btn  btn-block" href="#">
-                                                             Lesson: {{ $item->name }}<br />Status: Join
+                                                            <h4>Lesson: {{ $item->name }}</h4>
+                                                            <h3>Status: Join</h3>
                                                          </a>
                                                      @endif
                                                  @endif
