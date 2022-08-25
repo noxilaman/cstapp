@@ -17,28 +17,34 @@
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="{{ asset('air3/plugins/bootstrap/bootstrap.min.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('/air3/plugins/bootstrap/bootstrap.min.css') }}">
   <!-- Ionic Icon Css -->
-  <link rel="stylesheet" href="{{ asset('air3/plugins/Ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/air3/plugins/Ionicons/css/ionicons.min.css') }}">
   <!-- animate.css -->
-  <link rel="stylesheet" href="{{ asset('air3/plugins/animate-css/animate.css') }}">
+  <link rel="stylesheet" href="{{ asset('/air3/plugins/animate-css/animate.css') }}">
   <!-- Magnify Popup -->
-  <link rel="stylesheet" href="{{ asset('air3/plugins/magnific-popup/magnific-popup.css') }}">
+  <link rel="stylesheet" href="{{ asset('/air3/plugins/magnific-popup/magnific-popup.css') }}">
   <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="{{ asset('air3/plugins/slick/slick.css') }}">
+  <link rel="stylesheet" href="{{ asset('/air3/plugins/slick/slick.css') }}">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="{{ asset('air3/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/style.css')}}">
+
+<script type="text/javascript" charset="UTF-8" src="{{ asset('/newver/js/common.js') }}"></script>
+<script type="text/javascript" charset="UTF-8" src="{{ asset('/newver/js/util.js') }}"></script></head>
   <script src="https://www.google.com/recaptcha/api.js"></script>
 
 </head>
 
 <body id="body">
-<section class="page-title bg-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="block">
+
+  <section class="coming-soon students-forgotpass text-center overly ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="block">
+            
           <h1>ลงทะเบียนเข้าร่วม Project: {{ $project->name }}</h1>
         </div>
       </div>

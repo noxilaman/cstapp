@@ -27,21 +27,20 @@
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="{{ asset('air3/plugins/slick/slick.css') }}">
   
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="{{ asset('air3/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('/newver/css/style.css')}}">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
 </head>
 
+
 <body id="body">
 
-<section class="coming-soon text-center overly">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="block">
-					
+  <section class="coming-soon students-forgotpass blockregis text-center overly ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-8 col-md-offset-2">
+          <div class="block">					
                     @yield('content')
-					
 				</div>
 			</div>
 		</div>

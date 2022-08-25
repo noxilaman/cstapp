@@ -1,27 +1,22 @@
  @extends('layouts.print')
 
  @section('content')
-     <br />
-     <br />
-     <br />
-     <br />
-     <div class="row">
-         <div class="col-md-3"></div>
-         <div class="col-md-6" style="text-align:center;">
-             <h1>{{ $projectcompany->project->name }} </h1>
-             <h1>สมัครสมาชิกของโรงแรม{{ $projectcompany->company->name }} </h1><br />
-             @php
+ <div class="row qrcodebg ">
+
+    <div class="col-12  m-auto text-center" >
+        <h2>{{ $projectcompany->project->name }} </h2>
+        <h1 >สมัครสมาชิกของโรงแรม{{ $projectcompany->company->name }}</h1>
+        <!--?xml version="1.0" encoding="UTF-8"?-->
+        <div class="py-4 img-rounded">
+        @php
                  $url = url('students/register/' . $projectcompany->id);
-                 echo QrCode::size(250)->generate($url);
+                 
              @endphp
-             <h1>สแกน QR-CODE เข้าร่วมโครงการ</h1><br />
-         </div>
-         <div class="col-md-3"></div>
-     </div>
-     <br />
-     <br />
-     <br />
-     </td>
-     </tr>
-     </table>
+             <img style="padding: 15px;background: #fff;border-radius: 5px;" src='data:image/svg+xml;base64,{!! base64_encode(QrCode::size(250)->format('svg')->generate($url)) !!}'>
+
+ </div>
+        <h2>สแกน QR-CODE เข้าร่วมโครงการ</h2>
+    </div>
+
+</div>
  @endsection

@@ -113,6 +113,11 @@
             <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">สมาชิก</span>
             </a></li>
+
+            <li class="nav-item"> <a class="nav-link" href="{{ url('/students/qrcode/'. $projectcompany->id) }}" target ="_blank">
+              <i class="ti-world menu-icon"></i>
+                <span class="menu-title">QR Code</span>
+              </a></li>
         </ul>
       </nav>
       <!-- partial -->
