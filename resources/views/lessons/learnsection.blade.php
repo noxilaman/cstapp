@@ -19,15 +19,22 @@
                 <div class='col-md-12'>
 <div class="youtube-video-container">
                  <iframe width="720" height="405" id="player" src="https://www.youtube.com/embed/{{$jclSection->section->link_clip}}?enablejsapi=1&controls=0" allowfullscreen></iframe>
-                 </div><br/>
-                     {!! $jclSection->section->desc !!}
-                 
+                 </div>
                  <br/>
-                  <a id="passblock" href="{{ url('exams/play/'.$jclSection->id)  }}"
-                @if ($jclSection->progress != 'Pass')
-                style="display:none"     
-                @endif 
-                class="bth btn-success btn-lg">ผ่าน และ ทำแบบทดสอบ</a>
+                 @if ($flagpass == 'N')
+                     
+                 
+                 <a id="passblock" href="{{ url('exams/play/'.$jclSection->id)  }}"
+                  @if ($jclSection->progress != 'Pass')
+                  style="display:none"     
+                  @endif 
+                  class="bth btn-success btn-lg">ผ่าน และ ทำแบบทดสอบ</a>
+                  @endif
+                 <br/> <br/>
+                 <div>{!! $jclSection->section->desc !!}</div>
+                     
+                 
+                 
                 </div>
               </div>
 

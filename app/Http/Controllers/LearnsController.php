@@ -81,7 +81,7 @@ class LearnsController extends Controller
         return view('lessons.learn', compact('jclObj', 'jclSections', 'jclSectionFlags', 'jclQuizFlags'));
     }
 
-    public function learnSection($joincourselesson_id, $jclsection_id)
+    public function learnSection($joincourselesson_id, $jclsection_id, $flagpass = 'N')
     {
         $jclObj = JoinCourseLesson::findOrFail($joincourselesson_id);
         $jclSection = JclSection::findOrFail($jclsection_id);
@@ -94,7 +94,7 @@ class LearnsController extends Controller
         $jclObj->joincourse->updateprogress($jclObj->join_course_id);
         $jclObj->joincourse->projcompstudent->updateprogress($jclObj->joincourse->proj_comp_student_id);
 
-        return view('lessons.learnsection', compact('jclObj', 'jclSection'));
+        return view('lessons.learnsection', compact('jclObj', 'jclSection','flagpass'));
     }
 
     public function sectionChangeStatus($jclsection_id, $status)

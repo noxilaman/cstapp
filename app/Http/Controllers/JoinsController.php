@@ -143,6 +143,6 @@ class JoinsController extends Controller
                 JclQuiz::create($tmpJCLQuiz);
             }
         //}
-        return redirect('/learns/section/'.$joincourselesson->id.'/'.$jclSection->id);
+        return redirect('/learns/section/'.$joincourselesson->id.'/'.$jclSection->id.'/N');
     }
 }

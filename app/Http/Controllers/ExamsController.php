@@ -48,7 +48,11 @@ class ExamsController extends Controller
         $jclsection->jcl->joincourse->updateprogress($jclsection->jcl->join_course_id);
         $jclsection->jcl->joincourse->projcompstudent->updateprogress($jclsection->jcl->joincourse->proj_comp_student_id);
 
-        return redirect('/learns/lesson/'.$jclsection->join_course_lesson_id);
+        if($allPass){
+            return redirect('/exams/review/'.$jclsection->id);
+        }else{
+            return redirect('/learns/lesson/'.$jclsection->join_course_lesson_id);
+        }   
     }
 
     public function review($jcl_section_id)

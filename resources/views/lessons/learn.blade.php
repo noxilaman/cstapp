@@ -33,19 +33,18 @@
                         @if ($jclSectionFlags[$item->id])
                             
                         @if ($jclSections[$item->id]->progress == 'Pass')
-                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-success'>ทบทวน</a>
+                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}/Y" class='btn btn-success'>ทบทวน</a>
 
                             @if ($jclQuizFlags[$item->id])
-                                <a href="{{ url('exams/review/'.$jclSections[$item->id]->id) }}" class='btn btn-success'>รีวิวคำตอบ</a>
                             @else
                                 <a href="{{ url('exams/play/'.$jclSections[$item->id]->id) }}" class='btn btn-info'>ทดสอบ</a>
                             @endif
                             
                         @else 
-                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}" class='btn btn-info'>เข้าเรียน</a>
+                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}/N" class='btn btn-info'>เข้าเรียน</a>
                         @endif
                       @else
-                      <a href="{{ url('join/selectedsection/'.$jclObj->id.'/'.$item->id) }}" class='btn btn-info'>เข้าเรียน</a>
+                      <a href="{{ url('join/selectedsection/'.$jclObj->id.'/'.$item->id) }}/N" class='btn btn-info'>เข้าเรียน</a>
                         
                       @endif
                       </p>

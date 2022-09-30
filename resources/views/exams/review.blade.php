@@ -5,7 +5,8 @@
    <div class="row">
      <div class="col-md-12 grid-margin">
        <div class="row mb-3">
-         <h3>ทบทวน แบบทดสอบ {{ $jclsection->jcl->lesson->name }}</h3>
+         <h3>คุณสอบผ่าน แบบทดสอบ {{ $jclsection->jcl->lesson->name }}</h3>
+         <h3>ทบทวน คำตอบ</h3>
        </div>
        <a href="{{ url('/learns/lesson/'.$jclsection->jcl->lesson_id) }}" class='btn btn-success'>ย้อนกลับ</a>
 
