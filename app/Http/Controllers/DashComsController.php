@@ -36,7 +36,7 @@ class DashComsController extends Controller
 
         $pjcomstds = $projectcompany->projectcompstudents()->paginate($perPage);
 
-        return view('companies.liststudent', compact('pjcomstds', 'company'));
+        return view('companies.liststudent', compact('pjcomstds', 'company','projectcompany'));
     }
 
     public function home()
