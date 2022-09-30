@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{ asset('template2/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/css/vendor.bundle.base.css') }}">
 
-  <link rel="stylesheet" href="{{ asset('newver/css/style.css')}}?ver=20220824">
+  <link rel="stylesheet" href="{{ asset('newver/css/style.css')}}?ver=20220930">
 
   <link rel="stylesheet" href="{{ asset('template2/vendors/mdi/css/materialdesignicons.min.css') }}">
   <!-- endinject -->
