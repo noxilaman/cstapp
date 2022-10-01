@@ -52,7 +52,8 @@ class ExamsController extends Controller
             return redirect('/exams/review/'.$jclsection->id);
         }else{
             return redirect('/learns/lesson/'.$jclsection->join_course_lesson_id);
-        }   
+        }
+   
     }
 
     public function review($jcl_section_id)

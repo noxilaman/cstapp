@@ -52,6 +52,7 @@ class LearnsController extends Controller
         $jclSectionFlags = [];
         $jclQuizFlags = [];
         $nextSeq = 0;
+        // dd($jclSectionRw );
         foreach ($jclSectionRw as $jclSectionObj) {
             $jclSections[$jclSectionObj->section_id] = $jclSectionObj;
             $jclSectionFlags[$jclSectionObj->section_id] = false;
@@ -70,6 +71,9 @@ class LearnsController extends Controller
             if ($jclSectionObj->section->seq == $nextSeq) {
                 $jclSectionFlags[$jclSectionObj->section_id] = true;
             }
+
+            
+
             $jclQuizFlags[$jclSectionObj->section_id] = true;
             foreach ($jclSectionObj->jclquizs()->get() as $jclQuizObj) {
                 if ($jclQuizObj->progress != 'Pass') {

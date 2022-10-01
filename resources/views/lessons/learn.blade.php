@@ -30,7 +30,7 @@
                     <div class="card-body">
                       <h3 class="mb-4">{{  $item->name }}</h3>
                       <p class="py-0 m-0">
-                        @if ($jclSectionFlags[$item->id])
+                        @if (isset($jclSectionFlags[$item->id]) && $jclSectionFlags[$item->id])
                             
                         @if ($jclSections[$item->id]->progress == 'Pass')
                             <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}/Y" class='btn btn-success'>ทบทวน</a>

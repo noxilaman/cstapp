@@ -7,18 +7,18 @@
        <h3 class="pb-2">แบบทดสอบ {{ $jclsection->jcl->lesson->name }}</h3>
        <h2 class="themefontb1">{{ $jclsection->section->name }}</h2>
     </div>
-       
+  
    
        <form action="{{ url('exams/playAction/'.$jclsection->id) }}" method="POST" enctype="multipart/form-data">
          @csrf
          @foreach ($jclquizs as $jclquiz)
          <div class="card mb-3">
            <div class="card-body">
-     
-            <p class="pb-2">{!! $jclquiz->quiz->name !!}</p>
+           <h3>{{ $loop->index+1 }}. {!! $jclquiz->quiz->name !!}</h3> 
+          
             
     
-             <h4>{{ strip_tags($jclquiz->quiz->desc) }}</h4>
+             <h4>{!! $jclquiz->quiz->desc !!}</h4>
              <div class="row">
                @foreach ($jclquiz->quiz->choices()->inRandomOrder()->get() as $choice)
                <div class="col-md-6">

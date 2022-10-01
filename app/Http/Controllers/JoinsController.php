@@ -29,6 +29,21 @@ class JoinsController extends Controller
             $tmpJoinCourse['progress'] = 'Join';
             $tmpJoinCourse['status'] = 'Active';
             $joincourse = JoinCourse::create($tmpJoinCourse);
+
+            foreach($joincourse->course->lessons()->get() as $sublesson){
+                $tmpJoinCourseLesson = [];
+                $tmpJoinCourseLesson['join_course_id'] = $joincourse->id;
+                $tmpJoinCourseLesson['lesson_id'] = $sublesson->id;
+                $tmpJoinCourseLesson['join_date'] = date('Y-m-d');
+                $tmpJoinCourseLesson['end_date'] = date('Y-m-d', strtotime('+1 year'));
+                $tmpJoinCourseLesson['progress'] = 'Join';
+                $tmpJoinCourseLesson['status'] = 'Active';
+
+                $joincourselesson = JoinCourseLesson::create($tmpJoinCourseLesson);
+
+                $this->joinAllSections($joincourselesson);
+             }
+            
         }
 
         return redirect('/learns/course/'.$joincourse->id);
