@@ -96,7 +96,9 @@ Route::group(['middleware' => ['auth']], function () {
     */
     Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout.perform');
 });
+Route::get('/cert/{lang}/{key}', [App\Http\Controllers\GeneralController::class, 'publiccert'])->name('publiccert');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

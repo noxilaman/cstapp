@@ -23,29 +23,43 @@
                             <div class='card card-tale'>
                                 <div class='row'>
                                     <div class="col-md-12">
-                                        <a href="{{ url('join/course/' . $projectcompstudent->id . '/' . $courseobj->id) }}">
+                                        
                                             <div class="card-body">
                                                 <div class='row'>
-                                                <div class="col-md-5">
-                                                    <img src="{{ asset('img/ico-book.png') }}" alt="" srcset="" width="150px">
-                                                </div>
-                                                <div class="col-md-7">
-<p class="p-2" style="font-size:2vw;">หลักสูตร {{ $courseobj->name }}</p>
-                                                <p class="p-2" style="font-size:1.5vw;">สถานะ:
-                                                    @if (isset($joincourses[$courseobj->id]) && !empty($joincourses[$courseobj->id]))
-                                                        ดำเนินการแล้ว
-                                                        @if ($progress[$courseobj->id]['count'] > 0)
-                                                            ({{ number_format(($progress[$courseobj->id]['pass'] * 100) / $progress[$courseobj->id]['count'], 0, '.', ',') }}
-                                                            %)
-                                                        @endif
-                                                    @else
-                                                        ยังไมไ่ด้เข้าใช้งาน
-                                                    @endif
-                                                </p>
-                                                </div>
+                                                    <div class="col-md-5">
+                                                        <a href="{{ url('join/course/' . $projectcompstudent->id . '/' . $courseobj->id) }}">
+                                                        <img src="{{ asset('img/ico-book.png') }}" alt=""
+                                                            srcset="" width="150px">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <a href="{{ url('join/course/' . $projectcompstudent->id . '/' . $courseobj->id) }}">
+                                                        <p class="p-2" style="font-size:2vw;">หลักสูตร
+                                                            {{ $courseobj->name }}</p>
+                                                        </a>
+                                                        <p class="p-2" style="font-size:1.5vw;">สถานะ:
+                                                            @if (isset($joincourses[$courseobj->id]) && !empty($joincourses[$courseobj->id]))
+                                                                @if ($joincourses[$courseobj->id]->progress == 'Pass')
+                                                                    ผ่านหลักสูตร
+                                                                    <br/>
+                                                                    <a class="btn btn-success" href="{{ url('cert/en/' . $joincourses[$courseobj->id]->hashkey) }}" target="_blank">ใบประกาศ Eng</a>
+                                                                    <a class="btn btn-success" href="{{ url('cert/th/' . $joincourses[$courseobj->id]->hashkey) }}" target="_blank">ใบประกาศ ไทย</a>
+                                                                @else
+                                                                    ดำเนินการแล้ว
+                                                                @if ($progress[$courseobj->id]['count'] > 0)
+                                                                    ({{ number_format(($progress[$courseobj->id]['pass'] * 100) / $progress[$courseobj->id]['count'], 0, '.', ',') }}
+                                                                    %)
+                                                                @endif
+                                                                @endif
+
+                                                                
+                                                            @else
+                                                                ยังไมไ่ด้เข้าใช้งาน
+                                                            @endif
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </a>
                                     </div>
                                 </div>
 

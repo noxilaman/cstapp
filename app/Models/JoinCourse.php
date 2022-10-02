@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class JoinCourse extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['proj_comp_student_id', 'project_id', 'company_id', 'student_id', 'course_id', 'join_date', 'end_date', 'progress', 'status','hashkey'];
+    protected $fillable = ['proj_comp_student_id', 'project_id', 'company_id', 'student_id', 
+    'course_id', 'join_date', 'end_date', 'progress', 'status','hashkey'];
 
     public function projcompstudent()
     {
@@ -51,6 +54,9 @@ class JoinCourse extends Model
             }
         }
         $jc->progress = $currentprogress;
+        if($currentprogress == 'Pass'){
+            $jc->hashkey = Hash::make(Str::random(10));
+        }
         $jc->update();
     }
 }
