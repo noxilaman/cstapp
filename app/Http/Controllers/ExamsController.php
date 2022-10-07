@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ExamsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isStaff');
+    }
+    
     public function play($jcl_section_id)
     {
         $jclsection = JclSection::findOrFail($jcl_section_id);

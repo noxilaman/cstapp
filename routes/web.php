@@ -32,13 +32,22 @@ Route::get('/sky', function () {
     return view('layouts.admin2');
 });
 
+
+Route::get('students/register/{project_company_id}', [StudentsController::class, 'register']);
+Route::post('students/registerAction/{project_company_id}', [StudentsController::class, 'registerAction']);
+
+Route::get('companies/register/{project_id}', [CompaniesController::class, 'register']);
+Route::post('companies/registerAction/{project_id}', [CompaniesController::class, 'registerAction']);
+
+Auth::routes();
+
 Route::prefix('admin')->group(function () {
     Route::resource('company_types', CompanyTypesController::class);
     Route::resource('projects', ProjectsController::class);
-    Route::get('companies/certdemo/{id}/{course_id}/{lang}', [CompaniesController::class, 'demo_cert']);
-    Route::resource('companies', CompaniesController::class);
-    Route::get('students/certdemo/{id}/{lang}', [StudentsController::class, 'demo_cert']);
-    Route::resource('students', StudentsController::class);
+    Route::get('companies/certdemo/{id}/{course_id}/{lang}', [CompaniesController::class, 'demo_cert'])->middleware('admin');
+    Route::resource('companies', CompaniesController::class)->middleware('admin');
+    Route::get('students/certdemo/{id}/{lang}', [StudentsController::class, 'demo_cert'])->middleware('admin');
+    Route::resource('students', StudentsController::class)->middleware('admin');
     Route::get('courses/certdemo/{id}/{lang}', [CoursesController::class, 'demo_cert']);
     Route::resource('courses', CoursesController::class);
     Route::resource('lessons', LessonsController::class);
@@ -51,11 +60,7 @@ Route::prefix('admin')->group(function () {
     Route::get('companies/changestatus/{id}/{status}', [CompaniesController::class, 'changestatus']);
 });
 
-Route::get('companies/register/{project_id}', [CompaniesController::class, 'register']);
-Route::post('companies/registerAction/{project_id}', [CompaniesController::class, 'registerAction']);
 
-Route::get('students/register/{project_company_id}', [StudentsController::class, 'register']);
-Route::post('students/registerAction/{project_company_id}', [StudentsController::class, 'registerAction']);
 Route::get('students/forgotpass', [StudentsController::class, 'forgotpass']);
 Route::post('students/forgotpassAction', [StudentsController::class, 'forgotpassAction']);
 Route::get('students/qrcode/{project_company_id}', [StudentsController::class, 'qrcode']);
@@ -98,7 +103,6 @@ Route::group(['middleware' => ['auth']], function () {
 });
 Route::get('/cert/{lang}/{key}', [App\Http\Controllers\GeneralController::class, 'publiccert'])->name('publiccert');
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

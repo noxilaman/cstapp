@@ -11,6 +11,11 @@ use App\Models\ProjCompStudent;
 
 class JoinsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isStaff');
+    }
+    
     public function studentJoinCourse($proj_com_student_id, $course_id)
     {
         $joincourse = JoinCourse::where('proj_comp_student_id', $proj_com_student_id)->where('course_id', $course_id)->first();

@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class SectionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *

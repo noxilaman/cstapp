@@ -55,7 +55,7 @@ class JoinCourse extends Model
         }
         $jc->progress = $currentprogress;
         if($currentprogress == 'Pass'){
-            $jc->hashkey = Hash::make(Str::random(10));
+            $jc->hashkey = Str::random(32);
         }
         $jc->update();
     }

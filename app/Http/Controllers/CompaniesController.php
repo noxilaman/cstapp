@@ -20,7 +20,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $this->middleware('isAdmin');
+        $this->middleware('admin');
         $perPage = 10;
         $companies = Company::paginate($perPage);
         $course = Course::where('status', 'Active')->first();

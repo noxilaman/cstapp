@@ -11,6 +11,11 @@ use Auth;
 
 class LearnsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isStaff');
+    }
+    
     public function learnCourse($joincourse_id)
     {
         $progress = [];
