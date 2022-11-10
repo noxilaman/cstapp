@@ -29,8 +29,14 @@
                     
                   <div class="form-group col-6">
                     <label for="sex">เพศ</label>
+                      @if (isset($student->sex))
+                      {!! Form::select('sex',['ชาย'=>'ชาย','หญิง'=>'หญิง','ไม่ระบุ'=>'ไม่ระบุ'],$student->sex,['class' => 'form-control','id'=>'sex','placeholder'=>'เพศ']) !!}
+            
+                      @else
                       {!! Form::select('sex',['ชาย'=>'ชาย','หญิง'=>'หญิง','ไม่ระบุ'=>'ไม่ระบุ'],old('sex'),['class' => 'form-control','id'=>'sex','placeholder'=>'เพศ']) !!}
-                  </div>
+            
+                      @endif
+                            </div>
             </div>
             <div class='row'>
                     <div class="form-group col-6">

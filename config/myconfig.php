@@ -9,4 +9,10 @@ return [
         'author' => 'Child Safe Friendly Tourism',
         'developer' => 'NoXil Developer ',
     ],
+    'maplang' => [
+        'status' => 'สถานะ',
+        'Join'  => 'เข้าร่วม',
+        'Inprogress'  => 'กำลังเรียนรู้',
+        'Pass' => 'ผ่าน'
+    ]
 ];

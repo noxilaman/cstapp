@@ -33,7 +33,7 @@
                         @if (isset($jclSectionFlags[$item->id]) && $jclSectionFlags[$item->id])
                             
                         @if ($jclSections[$item->id]->progress == 'Pass')
-                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}/Y" class='btn btn-success'>ทบทวน</a>
+                            <a href="{{ url('learns/section/'.$jclObj->id.'/'.$jclSections[$item->id]->id) }}/Y" class='btn btn-success'>ทบทวนบทเรียน</a>
 
                             @if ($jclQuizFlags[$item->id])
                             @else

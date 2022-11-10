@@ -7,10 +7,10 @@
                         <div class="col-md-12 col-sm-12">
                     <div class="block">
                         <div class="form-group">
-                            User : {{ $studentdata->uname }}
+                            <h3>User : {{ $studentdata->uname }}</h3>
                         </div>
                         <div class="form-group">
-                            Password : {{ $studentdata->upass }}
+                            <h3>Password : {{ $studentdata->upass }}</h3>
                         </div>
                     </div>
                 </div>

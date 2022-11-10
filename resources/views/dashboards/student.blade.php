@@ -103,8 +103,8 @@
                                                                              </div>
                                                                              <div class="col-10 font-weight-bold text-left">
                                                                                  <h4>{{ $item->name }}</h4>
-                                                                                 <h4>Status:
-                                                                                     {{ $jcls[$item->id]->progress }}</h4>
+                                                                                 <h4>สถานะ:
+                                                                                     {{ config('myconfig.maplang.'.$jcls[$item->id]->progress) }}</h4>
                                                                              </div>
                                                                          </div>
                                                                      </a>
@@ -121,14 +121,14 @@
                                                                                  <div
                                                                                      class="col-10 font-weight-bold text-left">
                                                                                      <h4>{{ $item->name }}</h4>
-                                                                                     <h4>Status: Join</h4>
+                                                                                     <h4>สถานะ: Join</h4>
                                                                                  </div>
                                                                              </div>
                                                                          </a>
                                                                      @else
                                                                          <a class="btn-info btn  btn-block" href="#">
                                                                              <h4>Lesson: {{ $item->name }}</h4>
-                                                                             <h3>Status: Join</h3>
+                                                                             <h3>สถานะ: Join</h3>
                                                                          </a>
                                                                      @endif
                                                                  @endif
