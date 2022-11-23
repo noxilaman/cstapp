@@ -65,15 +65,58 @@
                                              </div>
                                          </div>
                                          <div class="row">
-                                             <div class="col-12">
-                                                 <div class="row ">
-                                                     @foreach ($course->lessons()->get() as $item)
-                                                         <div class="col-12 col-xl-6">
-                                                             <p class="mb-1"></p>
-                                                             <div class="row m-1 ">
+                                             @if (empty($joincourse->view_clip))
+                                                 <div class='col-md-12'>
+                                                     <div class="youtube-video-container">
+                                                         <iframe width="720" height="405" id="player"
+                                                             src="https://www.youtube.com/embed/{{ $joincourse->course->link_clip }}?enablejsapi=1&controls=0"
+                                                             allowfullscreen></iframe>
+                                                     </div>
+                                                     <br /> <br />
+                                                     <div>คุณพร้อมแล้วหรือยัง</div>
+                                                 </div>
+                                                 <script>
+                                                     var player;
 
-                                                                 @if (isset($jcls[$item->id]))
-                                                                     <a class="
+                                                     function onYouTubeIframeAPIReady() {
+                                                         player = new YT.Player('player', {
+                                                             events: {
+                                                                 'onStateChange': onPlayerStateChange
+                                                             }
+                                                         });
+                                                     }
+
+                                                     function onPlayerStateChange(event) {
+                                                         switch (event.data) {
+                                                             case 0:
+                                                                 $.get("{{ url('learns/viewedfirstvdo/' . $joincourse->id) }}", showpass());
+                                                                 break;
+                                                         }
+                                                     }
+
+                                                     function showpass() {
+                                                         setTimeout(() => {
+                                                             location.reload();
+                                                         }, 5000);
+                                                     }
+
+                                                     $('.closemodal').on('click', () => {
+                                                         $('#exampleModal').modal('hide');
+                                                     });
+
+
+                                                     //showpass();
+                                                 </script>
+                                             @else
+                                                 <div class="col-12">
+                                                     <div class="row ">
+                                                         @foreach ($course->lessons()->get() as $item)
+                                                             <div class="col-12 col-xl-6">
+                                                                 <p class="mb-1"></p>
+                                                                 <div class="row m-1 ">
+
+                                                                     @if (isset($jcls[$item->id]))
+                                                                         <a class="
                                                                @if ($jcls[$item->id]->progress == 'Pass') btn-success 
                                                                @else
                                                                @if ($jcls[$item->id]->progress == 'Join') 
@@ -82,65 +125,72 @@
                                                                themebgy1 @endif
                                                                 @endif
                                                                btn  btn-block"
-                                                                         href="{{ url('/join/lesson/' . $jcls[$item->id]->join_course_id . '/' . $item->id) }}">
-                                                                         <div class="row">
-                                                                             <div class="col-2">
-                                                                                 @if ($jcls[$item->id]->progress == 'Pass')
-                                                                                     <img src="{{ asset('img/finish.png') }}"
-                                                                                         alt="" class="w-100"
-                                                                                         srcset="">
-                                                                                 @else
-                                                                                     @if ($jcls[$item->id]->progress == 'Join')
-                                                                                         <img src="{{ asset('img/hold.png') }}"
+                                                                             href="{{ url('/join/lesson/' . $jcls[$item->id]->join_course_id . '/' . $item->id) }}">
+                                                                             <div class="row">
+                                                                                 <div class="col-2">
+                                                                                     @if ($jcls[$item->id]->progress == 'Pass')
+                                                                                         <img src="{{ asset('img/finish.png') }}"
                                                                                              alt="" class="w-100"
                                                                                              srcset="">
                                                                                      @else
-                                                                                         <img src="{{ asset('img/prosess.png') }}"
-                                                                                             alt="" class="w-100"
-                                                                                             srcset="">
+                                                                                         @if ($jcls[$item->id]->progress == 'Join')
+                                                                                             <img src="{{ asset('img/hold.png') }}"
+                                                                                                 alt=""
+                                                                                                 class="w-100"
+                                                                                                 srcset="">
+                                                                                         @else
+                                                                                             <img src="{{ asset('img/prosess.png') }}"
+                                                                                                 alt=""
+                                                                                                 class="w-100"
+                                                                                                 srcset="">
+                                                                                         @endif
                                                                                      @endif
-                                                                                 @endif
-                                                                             </div>
-                                                                             <div class="col-10 font-weight-bold text-left">
-                                                                                 <h4>{{ $item->name }}</h4>
-                                                                                 <h4>สถานะ:
-                                                                                     {{ config('myconfig.maplang.'.$jcls[$item->id]->progress) }}</h4>
-                                                                             </div>
-                                                                         </div>
-                                                                     </a>
-                                                                 @else
-                                                                     @if (!empty($joincourse))
-                                                                         <a class="themebgb1 themefontw   btn  btn-block"
-                                                                             href="{{ url('/join/lesson/' . $joincourse->id . '/' . $item->id) }}">
-                                                                             <div class="row">
-                                                                                 <div class="col-2">
-                                                                                     <img src="{{ asset('img/hold.png') }}"
-                                                                                         alt="" class="w-100"
-                                                                                         srcset="">
                                                                                  </div>
                                                                                  <div
                                                                                      class="col-10 font-weight-bold text-left">
                                                                                      <h4>{{ $item->name }}</h4>
-                                                                                     <h4>สถานะ: Join</h4>
+                                                                                     <h4>สถานะ:
+                                                                                         {{ config('myconfig.maplang.' . $jcls[$item->id]->progress) }}
+                                                                                     </h4>
                                                                                  </div>
                                                                              </div>
                                                                          </a>
                                                                      @else
-                                                                         <a class="btn-info btn  btn-block" href="#">
-                                                                             <h4>Lesson: {{ $item->name }}</h4>
-                                                                             <h3>สถานะ: Join</h3>
-                                                                         </a>
+                                                                         @if (!empty($joincourse))
+                                                                             <a class="themebgb1 themefontw   btn  btn-block"
+                                                                                 href="{{ url('/join/lesson/' . $joincourse->id . '/' . $item->id) }}">
+                                                                                 <div class="row">
+                                                                                     <div class="col-2">
+                                                                                         <img src="{{ asset('img/hold.png') }}"
+                                                                                             alt="" class="w-100"
+                                                                                             srcset="">
+                                                                                     </div>
+                                                                                     <div
+                                                                                         class="col-10 font-weight-bold text-left">
+                                                                                         <h4>{{ $item->name }}</h4>
+                                                                                         <h4>สถานะ: Join</h4>
+                                                                                     </div>
+                                                                                 </div>
+                                                                             </a>
+                                                                         @else
+                                                                             <a class="btn-info btn  btn-block"
+                                                                                 href="#">
+                                                                                 <h4>Lesson: {{ $item->name }}</h4>
+                                                                                 <h3>สถานะ: Join</h3>
+                                                                             </a>
+                                                                         @endif
                                                                      @endif
-                                                                 @endif
 
 
-                                                                 <p></p>
+                                                                     <p></p>
+                                                                 </div>
                                                              </div>
-                                                         </div>
-                                                     @endforeach
-                                                 </div>
+                                                         @endforeach
+                                                     </div>
 
-                                             </div>
+                                                 </div>
+                                             @endif
+
                                          </div>
 
 

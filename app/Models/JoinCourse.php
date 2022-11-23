@@ -12,7 +12,7 @@ class JoinCourse extends Model
     use HasFactory;
 
     protected $fillable = ['proj_comp_student_id', 'project_id', 'company_id', 'student_id', 
-    'course_id', 'join_date', 'end_date', 'progress', 'status','hashkey'];
+    'course_id', 'join_date', 'end_date', 'progress', 'status','hashkey','view_clip'];
 
     public function projcompstudent()
     {

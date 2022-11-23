@@ -73,6 +73,7 @@ Route::get('join/selectedsection/{join_course_id}/{section_id}', [JoinsControlle
 Route::get('learns/lesson/{joincourselesson_id}', [LearnsController::class, 'learnLesson']);
 Route::get('learns/section/{joincourselesson_id}/{jclsection_id}/{flag}', [LearnsController::class, 'learnSection']);
 Route::get('learns/sectionchangestatus/{jclsection_id}/{status}', [LearnsController::class, 'sectionChangeStatus']);
+Route::get('learns/viewedfirstvdo/{joincourse_id}', [LearnsController::class, 'viewedfirstvdo']);
 
 
 //Exams

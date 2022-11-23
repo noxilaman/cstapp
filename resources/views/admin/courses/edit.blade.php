@@ -55,6 +55,14 @@
                       @endif
                     </div>
              </div>
+
+             <div class='row'>
+              <div class="form-group col-6">
+                  <label for="cert_en_file">Link Clip</label>
+                  <input type="text" class="form-control" id="link_clip" placeholder="Clip"
+                      name='link_clip'  value='{{$course->link_clip}}'>
+              </div>
+          </div>
             <div class='row'>
                     
                     <div class="form-group col-12">

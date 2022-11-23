@@ -10,6 +10,10 @@ use App\Models\ProjectCompany;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\companyregister;
+use Exception;
+use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CompaniesController extends Controller
 {
@@ -55,22 +59,22 @@ class CompaniesController extends Controller
 
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
-            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('storage/images/companies/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['image'] = 'storage/images/companies/'.$name;
+            $requestData['image'] = 'storage/images/companies/' . $name;
         }
 
         if ($request->hasFile('logo_file')) {
             $logo = $request->file('logo_file');
-            $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
+            $name = md5($logo->getClientOriginalName() . time()) . '.' . $logo->getClientOriginalExtension();
             $destinationPath = public_path('storage/images/logo/');
             $logo->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['logo'] = 'storage/images/logo/'.$name;
+            $requestData['logo'] = 'storage/images/logo/' . $name;
         }
 
         $company = Company::create($requestData);
@@ -86,7 +90,7 @@ class CompaniesController extends Controller
 
         $pc = ProjectCompany::create($tmp);
 
-        $username = 'C'.str_pad($pc->id, 3, '0', STR_PAD_LEFT).str_pad($company->id, 3, '0', STR_PAD_LEFT);
+        $username = 'C' . str_pad($pc->id, 3, '0', STR_PAD_LEFT) . str_pad($company->id, 3, '0', STR_PAD_LEFT);
         $password = $this->_randomPassword(8);
 
         $tmpUser = [];
@@ -153,22 +157,22 @@ class CompaniesController extends Controller
 
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
-            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('storage/images/companies/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['image'] = 'storage/images/companies/'.$name;
+            $requestData['image'] = 'storage/images/companies/' . $name;
         }
 
         if ($request->hasFile('logo_file')) {
             $logo = $request->file('logo_file');
-            $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
+            $name = md5($logo->getClientOriginalName() . time()) . '.' . $logo->getClientOriginalExtension();
             $destinationPath = public_path('storage/images/logo/');
             $logo->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['logo'] = 'storage/images/logo/'.$name;
+            $requestData['logo'] = 'storage/images/logo/' . $name;
         }
 
         $company->update($requestData);
@@ -235,27 +239,27 @@ class CompaniesController extends Controller
             'contact_tel' => 'required',
 
         ]);
-  
+
         $requestData = $request->all();
 
         if ($request->hasFile('image_file')) {
             $image = $request->file('image_file');
-            $name = md5($image->getClientOriginalName().time()).'.'.$image->getClientOriginalExtension();
+            $name = md5($image->getClientOriginalName() . time()) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('storage/images/companies/');
             $image->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['image'] = 'storage/images/companies/'.$name;
+            $requestData['image'] = 'storage/images/companies/' . $name;
         }
 
         if ($request->hasFile('logo_file')) {
             $logo = $request->file('logo_file');
-            $name = md5($logo->getClientOriginalName().time()).'.'.$logo->getClientOriginalExtension();
+            $name = md5($logo->getClientOriginalName() . time()) . '.' . $logo->getClientOriginalExtension();
             $destinationPath = public_path('storage/images/logo/');
             $logo->move($destinationPath, $name);
 
             //  $loadm->image = $name;
-            $requestData['logo'] = 'storage/images/logo/'.$name;
+            $requestData['logo'] = 'storage/images/logo/' . $name;
         }
         $requestData['status'] = 'Inactive';
 
@@ -272,7 +276,7 @@ class CompaniesController extends Controller
 
         $pc = ProjectCompany::create($tmp);
 
-        $username = 'C'.str_pad($pc->id, 3, '0', STR_PAD_LEFT).str_pad($company->id, 3, '0', STR_PAD_LEFT);
+        $username = 'C' . str_pad($pc->id, 3, '0', STR_PAD_LEFT) . str_pad($company->id, 3, '0', STR_PAD_LEFT);
         $password = $this->_randomPassword(8);
 
         $tmpUser = [];
@@ -290,18 +294,29 @@ class CompaniesController extends Controller
         $company->upass = $password;
         $company->update();
 
-        return view('companies.thankyou');
+        try {
+            $groupemail = array(
+                'childsafetourism@gmail.com'=>'childsafetourism@gmail.com',
+                'pong.cpe' => 'pong.cpe@gmail.com',
+            );
+
+            Mail::to($groupemail)->send(new companyregister($requestData));
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        } finally {
+            return view('companies.thankyou');
+        }
     }
 
     private function _randomPassword($num)
     {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $pass = []; //remember to declare $pass as an array
-    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < $num; ++$i) {
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
-    }
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < $num; ++$i) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
 
         return implode($pass); //turn the array into a string
     }
@@ -314,25 +329,27 @@ class CompaniesController extends Controller
         return view('admin.courses.cert_demo', compact('course', 'lang', 'company'));
     }
 
-    public function forgotpass(){
+    public function forgotpass()
+    {
         return view('companies.forgotpass');
     }
 
-    public function forgotpassAction(Request $request){
+    public function forgotpassAction(Request $request)
+    {
         $request->validate([
             'com_email' => 'required',
         ]);
 
         $requestData = $request->all();
 
-        $company = Company::where('com_email',$requestData['com_email'])->first();
+        $company = Company::where('com_email', $requestData['com_email'])->first();
 
-        if(!empty($student)){
-           // dd($student);
-            return view('companies.forgotpassresult',compact(('company')));
-        }else{
+        if (!empty($student)) {
+            // dd($student);
+            return view('companies.forgotpassresult', compact(('company')));
+        } else {
             $message = "ไม่พบข้อมูล";
-            return view('companies.forgotpassresult',compact(('company')));
+            return view('companies.forgotpassresult', compact(('company')));
         }
     }
 }

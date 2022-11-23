@@ -41,6 +41,7 @@ class LearnsController extends Controller
         $jcls = $joinlessons;
         
         $dataStudent = Student::findOrFail(Auth::user()->student_id);
+        //dd($joincourse);
         return view('dashboards.student', compact('dataStudent', 'projectcompstudent', 'project', 'course', 'joincourse', 'jcls', 'progress'));
         
         //return view('courses.learn', compact('joincourseObj', 'joinlessons'));
@@ -111,5 +112,12 @@ class LearnsController extends Controller
         $jclSection = JclSection::findOrFail($jclsection_id);
         $jclSection->progress = $status;
         $jclSection->update();
+    }
+
+    public function viewedfirstvdo($joincourse_id)
+    {
+        $joincourseObj = JoinCourse::findOrFail($joincourse_id);
+        $joincourseObj->view_clip = "viewed";
+        $joincourseObj->update();
     }
 }
