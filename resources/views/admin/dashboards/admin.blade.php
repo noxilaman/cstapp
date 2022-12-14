@@ -72,7 +72,7 @@
                  ],
                  datasets: [
                      {
-                     label: 'จำนวนผู้สมัคร',
+                     label: 'ผู้สมัครแต่ยังไม่ดำเนินการใดๆ',
                      data: [
                          @foreach ($companies as $company)
                          @if (isset($companydata[$company->id]['Join']))
@@ -89,24 +89,8 @@
                   @endforeach
                 ]
                  },{
-                     label: 'จำนวนผู้สอบผ่าน',
-                     data: [
-                         @foreach ($companies as $company)
-                             @if (isset($companydata[$company->id]['pass']))
-                                {{ $companydata[$company->id]['pass'] }}
-                            @else
-                                0
-                            @endif
-                         ,
-                         @endforeach
-                     ],
-                 backgroundColor: [
-                    @foreach ($companies as $company)
-                  'rgba(77, 189, 235, 0.9)',
-                  @endforeach
-                ]
-                 },{
-                     label: 'จำนวนผู้กำลังเรียน',
+                    
+                label: 'จำนวนผู้กำลังเรียน',
                      data: [
                          @foreach ($companies as $company)
                              @if (isset($companydata[$company->id]['Inprogress']))
@@ -122,12 +106,33 @@
                   'rgba(255, 224, 140, .9)',
                   @endforeach
                 ]
+
+                 },{
+                    label: 'จำนวนผู้สอบผ่าน',
+                     data: [
+                         @foreach ($companies as $company)
+                             @if (isset($companydata[$company->id]['pass']))
+                                {{ $companydata[$company->id]['pass'] }}
+                            @else
+                                0
+                            @endif
+                         ,
+                         @endforeach
+                     ],
+                 backgroundColor: [
+                    @foreach ($companies as $company)
+                  'rgba(77, 189, 235, 0.9)',
+                  @endforeach
+
+
+                ]
                  }]
              },
              options: {
+                indexAxis: 'y',
                 scales: {
-                  // x: {stacked: true,},
-                  // y: {stacked: true},
+                   x: {stacked: true,},
+                   y: {stacked: true},
                   myChart: {
                     position: 'right', 
                   }

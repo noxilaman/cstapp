@@ -22,11 +22,20 @@ class CompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $txtsearch = $request->query('txtsearch');
+
         $this->middleware('admin');
         $perPage = 10;
-        $companies = Company::paginate($perPage);
+
+        if(!empty($txtsearch )){
+            $companies = Company::where('name','like','%'.$txtsearch.'%')->paginate($perPage);
+        }else{
+            $companies = Company::paginate($perPage);
+        }
+
+        
         $course = Course::where('status', 'Active')->first();
 
         return view('admin.companies.index', compact('companies', 'course'));

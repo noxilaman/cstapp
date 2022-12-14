@@ -18,10 +18,18 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $txtsearch = $request->query('txtsearch');
+
+        $this->middleware('admin');
         $perPage = 10;
-        $students = Student::paginate($perPage);
+
+        if(!empty($txtsearch )){
+            $students = Student::orWhere('fname','like','%'.$txtsearch.'%')->orWhere('lname','like','%'.$txtsearch.'%')->paginate($perPage);
+        }else{
+            $students = Student::paginate($perPage);
+        }
 
         return view('admin.students.index', compact('students'));
     }

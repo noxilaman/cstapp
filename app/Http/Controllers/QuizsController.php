@@ -18,10 +18,17 @@ class QuizsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $txtsearch = $request->query('txtsearch');
+
         $perPage = 10;
-        $quizs = Quiz::paginate($perPage);
+
+        if(!empty($txtsearch )){
+            $quizs = Quiz::orWhere('name','like','%'.$txtsearch.'%')->orWhere('desc','like','%'.$txtsearch.'%')->paginate($perPage);
+        }else{
+            $quizs = Quiz::paginate($perPage);
+        }
 
         return view('admin.quizs.index', compact('quizs'));
     }

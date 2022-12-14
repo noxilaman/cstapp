@@ -14,6 +14,9 @@
                 </div>
                 <div class="col-md-12">
                 <h3>รายการบทเรียนของ {{ $jclObj->lesson->name }}</h3>  
+                @if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+@endif
                 </div>
                 
               </div>

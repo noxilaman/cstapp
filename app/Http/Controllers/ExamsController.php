@@ -56,6 +56,8 @@ class ExamsController extends Controller
         if($allPass){
             return redirect('/exams/review/'.$jclsection->id);
         }else{
+            $request->session()->flash('message', 'สอบแบบทดสอบไม่ผ่าน ทบทวนและเข้าทำการทดสอบใหม่'); 
+            $request->session()->flash('alert-class', 'alert-danger'); 
             return redirect('/learns/lesson/'.$jclsection->join_course_lesson_id);
         }
    

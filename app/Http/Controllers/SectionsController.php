@@ -17,10 +17,16 @@ class SectionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $txtsearch = $request->query('txtsearch');
         $perPage = 10;
-        $sections = Section::paginate($perPage);
+
+        if(!empty($txtsearch )){
+            $sections = Section::Where('name','like','%'.$txtsearch.'%')->paginate($perPage);
+        }else{
+            $sections = Section::paginate($perPage);
+        }
 
         return view('admin.sections.index', compact('sections'));
     }

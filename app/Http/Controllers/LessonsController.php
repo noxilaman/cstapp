@@ -17,10 +17,16 @@ class LessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $txtsearch = $request->query('txtsearch');
         $perPage = 10;
-        $lessons = Lesson::paginate($perPage);
+
+        if(!empty($txtsearch )){
+            $lessons = Lesson::Where('name','like','%'.$txtsearch.'%')->paginate($perPage);
+        }else{
+            $lessons = Lesson::paginate($perPage);
+        }
 
         return view('admin.lessons.index', compact('lessons'));
     }

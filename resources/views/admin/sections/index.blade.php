@@ -6,7 +6,11 @@
       <div class="card-body">
         <h4 class="card-title">Section </h4>
         <p class="card-description">
-          Section
+          <form>
+            <label for="txtsearch">ค้นหา</label>
+            <input name='txtsearch' placeholder="ค้นหา" type="text" value="{{ Request::get('txtsearch') }}" />
+            <button type="submit" >ค้นหา</button> 
+          </form>
         </p>
         <a href="{{url('admin/sections/create')}}" class="btn btn-primary">Add</a>
         <div class="table-responsive">
@@ -43,8 +47,7 @@
                 @endforeach 
               </tbody>
             </table>
-
-            <?php echo $sections->links(); ?>
+            <?php echo $sections->appends(['txtsearch' => Request::get('txtsearch')])->links(); ?>
           </div>
         </div>
     
