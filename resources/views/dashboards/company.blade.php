@@ -39,9 +39,9 @@ const myChart = new Chart(ctx, {
           label: 'ข้อมูลผู้ที่ลงทะเบียนของบริษัท {{ $company->name }}',
           data: [{{ $stat['join'] }}, {{ $stat['inprogress'] }}, {{ $stat['pass'] }}],
           backgroundColor: [
-            'rgb(138, 62, 120)',
-            'rgb(77, 189, 235)',
-            'rgb(255, 254, 140)'
+            '#4DBDEB',
+            '#FFE08C',
+            '#57B657'
           ],
         }]
     },

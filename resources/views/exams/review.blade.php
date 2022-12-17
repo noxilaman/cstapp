@@ -8,7 +8,7 @@
                      <h3>คุณสอบผ่าน แบบทดสอบ {{ $jclsection->jcl->lesson->name }}</h3>
                      <h3>ทบทวน คำตอบ</h3>
                  </div>
-                 <a href="{{ url('/learns/lesson/' . $jclsection->jcl->id) }}" class='btn btn-success'>ย้อนกลับ</a>
+                 <a href="{{ url('/learns/lesson/' . $jclsection->jcl->id) }}" class='btn btn-success'>หน้าหลักบทเรียน</a>
 
                  @foreach ($jclquizs as $jclquiz)
                      <div class="card mb-3">

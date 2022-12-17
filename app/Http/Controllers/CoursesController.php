@@ -146,7 +146,7 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        //Course::destroy($id);
+        Course::destroy($id);
 
         return redirect('/admin/courses');
     }

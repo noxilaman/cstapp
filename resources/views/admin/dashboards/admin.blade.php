@@ -85,7 +85,7 @@
                      ],
                  backgroundColor: [
                     @foreach ($companies as $company)
-                  'rgba(38, 62, 120, .9)',
+                  '#4DBDEB',
                   @endforeach
                 ]
                  },{
@@ -103,7 +103,7 @@
                      ],
                  backgroundColor: [
                     @foreach ($companies as $company)
-                  'rgba(255, 224, 140, .9)',
+                  '#FFE08C',
                   @endforeach
                 ]
 
@@ -121,7 +121,7 @@
                      ],
                  backgroundColor: [
                     @foreach ($companies as $company)
-                  'rgba(77, 189, 235, 0.9)',
+                  '#57B657',
                   @endforeach
 
 
