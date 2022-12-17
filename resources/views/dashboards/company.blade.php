@@ -34,7 +34,7 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['สมัคร' ,'ผ่าน', 'กำลังเรียน'],
+        labels: ['สมัคร' , 'กำลังเรียน','ผ่าน'],
         datasets: [{
           label: 'ข้อมูลผู้ที่ลงทะเบียนของบริษัท {{ $company->name }}',
           data: [{{ $stat['join'] }}, {{ $stat['inprogress'] }}, {{ $stat['pass'] }}],
