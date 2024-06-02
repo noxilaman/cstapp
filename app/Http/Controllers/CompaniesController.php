@@ -237,6 +237,7 @@ class CompaniesController extends Controller
             'contact_name' => 'required',
             'name' => 'required',
             'name_en' => 'required',
+            'addr' => 'required',
             'tumbon' => 'required',
             'city' => 'required',
             'province' => 'required',
@@ -306,7 +307,7 @@ class CompaniesController extends Controller
         try {
             $groupemail = array(
                 'childsafetourism@gmail.com'=>'childsafetourism@gmail.com',
-                'pong.cpe' => 'pong.cpe@gmail.com',
+                'focusthailand' => 'focus@focusthailand.org',
             );
 
             Mail::to($groupemail)->send(new companyregister($requestData));

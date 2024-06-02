@@ -4,8 +4,8 @@
  <div class="row qrcodebg ">
 
     <div class="col-12  m-auto text-center" >
-        <h2>{{ $projectcompany->project->name }} </h2>
-        <h1 >สมัครสมาชิกของโรงแรม{{ $projectcompany->company->name }}</h1>
+        <h2>โครงการ {{ $projectcompany->project->name }} </h2>
+        <h1 >สมาชิกสถานประกอบการ {{ $projectcompany->company->name }}<br/>สมัครเข้าร่วมโครงการ</h1>
         <!--?xml version="1.0" encoding="UTF-8"?-->
         <div class="py-4 img-rounded">
         @php

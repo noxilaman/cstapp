@@ -20,7 +20,7 @@
             <tbody>
               @foreach($pjcomstds as $pjcomstd)
 @if ($pjcomstd->progress == 'Pass')
-              <tr style="background-color: #9bc37f;">
+              <tr style="background-color: #6aff01;">
                @else
                 <tr>
                 @endif

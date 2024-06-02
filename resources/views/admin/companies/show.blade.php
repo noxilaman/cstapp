@@ -4,32 +4,32 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Show Company # {{ $company->id }}</h4>
+        <h4 class="card-title">ข้อมูลสถานประกอบการ # {{ $company->id }}</h4>
         <p class="card-description">
-          Company
+          สถานประกอบการ
         </p>
              <div class='row'>
                     <div class="form-group col-6">
                       <label for="company_type_id">ประเภท : {{$company->companytype->name}}</label></div>
                     <div class="form-group col-6">
-                      <label for="contact_name">Contact Name : {{ $company->contact_name }}</label></div>
+                      <label for="contact_name">ชื่อ-สกุล ผู้ประสานงาน : {{ $company->contact_name }}</label></div>
             </div>
             <div class='row'>
                     <div class="form-group col-6">
-                      <label for="name">Name : {{ $company->name }}</label>
+                      <label for="name">ชื่อสถานประกอบการ (ภาษาไทย) : {{ $company->name }}</label>
                     </div>
                     <div class="form-group col-6">
-                      <label for="name_en">Name Eng : {{ $company->name_en }}</label>
+                      <label for="name_en">ชื่อสถานประกอบการ (ภาษาอังกฤษ) : {{ $company->name_en }}</label>
                     </div>
             </div>
             <div class='row'>
                     <div class="form-group col-12">
-                      <label for="desc">Desc</label><br/>{!! $company->desc !!}
+                      <label for="desc">ข้อมูลของสถานประกอบการเพื่อการประชาสัมพันธ์</label><br/>{!! $company->desc !!}
                     </div>
             </div>
             <div class='row'>
                     <div class="form-group col-12">
-                      <label for="addr">ที่อยู่</label><br/>{!! $company->addr !!}
+                      <label for="addr">ที่อยู่สถานประกอบการ  (เลขที่)</label><br/>{!! $company->addr !!}
                     </div>
             </div>
             <div class='row'>
@@ -37,12 +37,12 @@
                       <label for="province">จังหวัด : {{ $company->province }}</label>
                     </div>
                     <div class="form-group col-6">
-                      <label for="country">ประเทศ : {{ $company->country }}</label>
+                      <label for="country">รหัสไปรษณีย์ : {{ $company->country }}</label>
                     </div>
             </div>
             <div class='row'>
                     <div class="form-group col-6">
-                      <label for="tel">Tel : {{ $company->tel }}</label>
+                      <label for="tel">หมายเลขโทรศัพท์ของสถานประกอบการ : {{ $company->tel }}</label>
                     </div>
                     <div class="form-group col-6">
                       <label for="email">Email : {{ $company->email }}</label>

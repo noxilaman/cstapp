@@ -43,8 +43,8 @@
       <div class="row ">
         <div class="col-12 col-md-12 py-5">
           <div class="block themefontw text-center py-5">
-            <h1>ลงทะเบียนเข้าร่วม</h1>
-            <h2> Project :  {{ $project->name }}</h2>
+            <h1>ลงทะเบียนเข้าร่วมโครงการ</h1>
+            <h2>{{ $project->name }}</h2>
           </div>
         </div>
       </div>

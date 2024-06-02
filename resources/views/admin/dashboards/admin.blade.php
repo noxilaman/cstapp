@@ -51,7 +51,7 @@
                      <div class="col-lg-12 grid-margin stretch-card">
                          <div class="card">
                              <div class="card-body">
-                                 <h4 class="card-title">สถานบริการที่เข้าร่วมพร้อมจำนวนคนที่สมัครเข้าโครงการ</h4>
+                                 <h4 class="card-title">สถานบริการที่เข้าร่วมพร้อมจำนวนคนที่สมัครเข้าโครงการ Top 10</h4>
                                  <canvas id="barChart"></canvas>
                              </div>
                          </div>
@@ -131,7 +131,15 @@
              options: {
                 indexAxis: 'y',
                 scales: {
-                   x: {stacked: true,},
+		x: {
+			stacked: true,
+				suggestedMin: 0,
+				suggestedMax: 5, 
+				ticks: {
+          // forces step size to be 50 units
+          			stepSize: 1
+        		}
+	 	},
                    y: {stacked: true},
                   myChart: {
                     position: 'right', 

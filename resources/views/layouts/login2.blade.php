@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <title>{{ config('myconfig.web.title') }}</title>
   <!-- plugins:css -->
+  <link href="{{ asset('/template2/images/cst-mini.png') }}" rel="icon">
+  <link href="{{ asset('/template2/images/cst-mini.png') }}" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('template2/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('template2/vendors/ti-icons/css/themify-icons.css') }}">
@@ -18,7 +20,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('template2/stylefont2.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('template2/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 
 <body>
@@ -33,7 +35,7 @@
               </div>
               <h4>เข้าสู่ระบบ</h4>
               <h6 class="font-weight-light">ใส่ username และ password เพื่อ login</h6>
-              
+
               @yield('content')
 
             </div>
