@@ -139,7 +139,7 @@
 
     
     <div class="col-12  form-group col-md-6 pb-2">
-      <label for="logo_file">Logo</label>
+      <label for="logo_file">Logo สถานประกอบการ (เป็นส่วนหนึ่งเพื่อใช้ประกอบใบประกาศนียบัตร)</label>
       {!! Form::file('logo_file',array('class' =>'form_control','id'=>'logo_file')) !!}
     </div>
     
