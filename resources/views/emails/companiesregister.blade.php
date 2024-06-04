@@ -1,7 +1,7 @@
 <div>
-    ชื่อไทย: {{ $contactdata['name'] }}
+    ชื่อสถานประกอบการ (ภาษาไทย) : {{ $contactdata['name'] }}
 </div>
 <div>
-    Eng name: {{ $contactdata['name_en'] }}
+    ชื่อสถานประกอบการ (ภาษาอังกฤษ ) : {{ $contactdata['name_en'] }}
 </div>
 </div>
