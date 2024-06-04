@@ -19,8 +19,8 @@
                       จดจำ
                     </label>
                   </div>
-                  <a href="{{ url('/students/forgotpass') }}" class="auth-link text-black">ตรวจสอบข้อมูล เข้าระบบของนักเรียน</a>
+                  <a href="{{ url('/students/forgotpass') }}" class="auth-link text-black">ตรวจสอบข้อมูล เข้าระบบของผู้เข้าอบรม</a>
                 </div>
               </form>
-               
+
 @endsection
